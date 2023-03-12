@@ -1,0 +1,63 @@
+.navmenu {
+    position: absolute;
+    top:0;
+    width: 50%;
+    /* height: 10%; */
+    right: 0;
+    text-align: center;
+    display: flex;
+   justify-content: space-around;
+   align-items: center;
+   /* background-color: rgba(0, 0, 0, 0.4); */
+   transition: 1s;
+   /* animation: fadeIn 4s ; */
+
+   
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes navAnimation {
+    0% {
+        box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
+    }
+    50% {
+        box-shadow: 5px 5px 49px 20px rgba(255,255,255,1);
+    }
+    100%{
+        box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
+    }
+}
+a {
+    text-decoration: none;
+    font-size: 3.5vh;
+    color: white;
+    border: 4px outset rgb(90, 90, 90);
+    border-radius: 3px;
+    border-right: 0;
+    border-top: 0;
+    flex-grow: 1;
+    opacity: 0;
+    transition: .3s;
+    box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
+}
+
+a:hover {
+    transform: scale(1.02);
+    color: rgb(182, 62, 102);
+}
+ .active {
+    opacity: 1;
+    
+} 
+.navAnimation {
+    animation: navAnimation 3s forwards;
+}
+
+
+

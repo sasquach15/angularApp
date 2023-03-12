@@ -1,0 +1,65 @@
+.alert {
+    position: absolute;
+    width:100vw;
+    height: 100vh;
+    /* backdrop-filter: grayscale(0) opacity(1) blur(0) brightness(100%); */
+    backdrop-filter: grayscale(0.5) opacity(0.9) blur(3px) brightness(50%)
+    /* animation: alertAnimation .2s ease-out forwards; */
+    
+}
+/* @keyframes alertAnimation {
+    0% {
+        backdrop-filter: grayscale(0) opacity(1) blur(0) brightness(100%);
+    }
+    100% {
+        backdrop-filter: grayscale(0.5) opacity(0.9) blur(3px) brightness(50%)
+    }
+} */
+.alertImg {
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 33%;
+    transform: translate(-50%, -50%);
+}
+
+p {
+    font-size: 15px;
+    color: white;
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    top:45%;
+
+}
+
+.btnYesUnfocused, .btnYesFocused {
+ position: absolute;
+ bottom: 40%;
+ left:35.5%;
+ width: 14%;
+ transition: .2s
+}
+.btnNoUnfocused, .btnNoFocused {
+    position: absolute;
+    bottom: 40%;
+    right:35.5%;
+    width: 14%;
+    transition: .2s
+}
+
+.btnYesFocused {
+ opacity: 0;
+}
+
+.btnNoFocused {
+opacity:0;
+}
+
+.btnYesFocused:hover {
+    opacity: 1;
+}
+
+.btnNoFocused:hover {
+    opacity:1;
+    }

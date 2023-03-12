@@ -1,0 +1,41 @@
+<div class="container">
+  <img src="../assets/photos/win4.jpg" class="borderr">
+  <ng-template [ngIf]="btnActive">
+    <img src="../assets/photos/btn.png" class="btnn">
+    <img src="../assets/photos/btnActive.png" class="btnActive" (click)="letsStart(); changeMsg();">
+  </ng-template>
+  <ng-template [ngIf]="startingValues.chooseChar">
+    <div class="char" (click)="pickSorc()" [ngClass]="activeClass == '1' ? 'active' : ''">
+      <img src="../assets/photos/sorc.png" class="sorc">
+      <p class="pcharname">SORCERESS</p>
+    </div>
+    <div class="char" (click)="pickNec()" [ngClass]="activeClass == '2' ? 'active' : ''">
+      <img src="../assets/photos/neccc.png" class="nec">
+      <p class="pcharname">NECROMANCER</p>
+    </div>
+    <div class="char" (click)="pickAssa()" [ngClass]="activeClass == '3' ? 'active' : ''">
+      <img src="../assets/photos/assa.png" class="assa">
+      <p class="pcharname">ASSASSIN</p>
+    </div>
+    <div class="char" (click)="pickAma()" [ngClass]="activeClass == '4' ? 'active' : ''">
+      <img src="../assets/photos/ama.png" class="ama">
+      <p class="pcharname">AMAZON</p>
+
+    </div>
+  </ng-template>
+  <ng-container [ngSwitch]="startingValues.selectedCharacter">
+    <div *ngSwitchCase="3">
+      <img src="../assets/photos/sorc.png" class="sorc fade">
+    </div>
+    <div *ngSwitchCase="4">
+      <img src="../assets/photos/neccc.png" class="nec fade">
+    </div>
+    <div *ngSwitchCase="5">
+      <img src="../assets/photos/assa.png" class="assa fade">
+    </div>
+    <div *ngSwitchCase="6">
+      <img src="../assets/photos/ama.png" class="ama fade amaa">
+    </div>
+  </ng-container>
+
+</div>

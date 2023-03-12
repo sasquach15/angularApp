@@ -1,0 +1,34 @@
+<div class="container">
+
+  <ng-template [ngIf]="startingValues.welcomeMessage">
+    <h1>GOOD EVENING, TRAVELLER.</h1>
+    <p>BEGIN YOUR JOURNEY THROUGHT THE DARKEST LANDS TO DESTROY EVIL. <BR> CHOOSE WISELY.</p>
+  </ng-template>
+  <ng-container [ngSwitch]="startingValues.charNumber">
+    <!-- ?? nie wiem czemu blad tutaj, wszystko działa -->
+    <h2 *ngSwitchCase="1">PICK YOUR CHAMPION</h2>
+    <h3 *ngSwitchCase="3">SORCERESS</h3>
+    <p class="description" *ngSwitchCase="3"> DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+      DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION</p>
+    <h3 *ngSwitchCase="4">NECROMANCER</h3>
+    <p class="description" *ngSwitchCase="4"> DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+      DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION</p>
+    <h3 *ngSwitchCase="5">ASSASSIN</h3>
+    <p class="description" *ngSwitchCase="5"> DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+      DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION</p>
+    <h3 *ngSwitchCase="6">AMAZON</h3>
+    <p class="description" *ngSwitchCase="6"> DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION
+      DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION</p>
+
+    <div (click)="showAlert()">
+      <img src="../assets/photos/btnCreateUnfocus.png" class="btnCreate " *ngIf="startingValues.charNumber > '2' ">
+      <img src="../assets/photos/btnCreateFocus.png" class="btnFocus" *ngIf="startingValues.charNumber > '2'">
+    </div>
+    <ng-container *ngIf="startingValues.creationBegin">
+      <h2> BEGIN YOUR ADVENTURE WITH {{startingValues.name}}</h2>
+    </ng-container>
+
+  </ng-container>
+  <router-outlet></router-outlet>
+
+</div>

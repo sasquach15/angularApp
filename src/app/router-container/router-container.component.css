@@ -1,0 +1,71 @@
+.container {
+    position: absolute;
+    width: 50vw;
+    height: 80vh;
+    background-color: rgba(0,0,0,0.2);
+    top: 10%;
+    border-radius: 10px;
+    right: 5%;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+h1 {
+ position: relative;
+ color: rgb(211, 211, 211);
+ font-size: 8vh;
+ text-align: center;
+ margin-top: 10vh;
+}
+h2 {
+    position: relative;
+    color: rgb(211, 211, 211);
+    font-size: 6vh;
+    text-align: center;
+    top:43%;
+    animation: fadeIn 2.5s;
+ }
+
+   h3{
+    position: relative;
+    color: rgb(211, 211, 211);
+    font-size: 6vh;
+    text-align: center;
+    top:20%;
+    animation: fadeIn 1s;
+   }
+
+P {
+    color: rgb(211, 211, 211);
+    font-size: 4vh;
+    text-align: center;
+    margin-top: 10%;
+    animation: fadeIn 1s;
+}
+.description {
+    margin-top: 25%;
+    font-size: 3vh;
+}
+
+.btnCreate, .btnFocus {
+    position: absolute;
+    bottom: 15%;
+    width: 20%;
+    left:40%;
+    animation: fadeIn 1s;
+    cursor: pointer;
+}
+.btnFocus {
+    opacity: 0;
+    transition: .2s;
+    animation: none;
+}
+.btnFocus:hover {
+    opacity: 1;
+}
