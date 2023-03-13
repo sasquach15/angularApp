@@ -14,16 +14,6 @@ export class NavigationComponent {
   get startingValues() {
     return this.serviceService.startingValues;
   }
-  /* get navOpacity() {
-    return this.serviceService.startingValues.navOpacity;
-  }
-  get creationBegin() {
-    return this.serviceService.startingValues.creationBegin;
-  }
-  get navAnimation() {
-    return this.serviceService.startingValues.navAnimation;
-  } */
-
 
   clearContainer() {
     this.serviceService.startingValues.creationBegin = false;
