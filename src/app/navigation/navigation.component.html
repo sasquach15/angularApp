@@ -1,6 +1,6 @@
-<div class="navmenu" (click)="clearContainer()" [ngClass]="navAnimation === '1' ? 'navAnimation' : ''">
-  <a routerLink="/statistics" [ngClass]="navOpacity === '1' ? 'active' : ''">STATISTICS</a>
-  <a routerLink="/skills" [ngClass]="navOpacity === '1' ? 'active' : ''">SKILLS</a>
-  <a routerLink="/equipment" [ngClass]="navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
-  <a routerLink="/story" [ngClass]="navOpacity === '1' ? 'active' : ''">STORY</a>
+<div class="navmenu" (click)="clearContainer()" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
+  <a routerLink="/statistics" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
+  <a routerLink="/skills" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
+  <a routerLink="/equipment" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
+  <a routerLink="/story" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
 </div>

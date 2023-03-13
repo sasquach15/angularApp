@@ -11,10 +11,10 @@ export class NavigationComponent {
   constructor(private serviceService: ServiceService) { }
 
 
-  get navStatus() {
-    return this.serviceService.startingValues.navActive;
+  get startingValues() {
+    return this.serviceService.startingValues;
   }
-  get navOpacity() {
+  /* get navOpacity() {
     return this.serviceService.startingValues.navOpacity;
   }
   get creationBegin() {
@@ -22,7 +22,7 @@ export class NavigationComponent {
   }
   get navAnimation() {
     return this.serviceService.startingValues.navAnimation;
-  }
+  } */
 
 
   clearContainer() {
