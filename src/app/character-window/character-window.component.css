@@ -16,12 +16,12 @@
 .btnn, .btnActive {
     position: absolute;
     top:46%;
-    left: 30%;
-    width: 40%;
-    height: 8.5%;
+    left: 33.3%;
+    width: 33%;
+    height: 7%;
     cursor: pointer;
-    opacity: .85;
-    transition: .2s;
+    opacity: 1;
+    /* transition: .1s; */
     border: 1px solid black
 }
 .btnActive {

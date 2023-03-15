@@ -63,7 +63,7 @@ P {
 }
 .btnFocus {
     opacity: 0;
-    transition: .2s;
+  /*   transition: .05s; */
     animation: none;
 }
 .btnFocus:hover {

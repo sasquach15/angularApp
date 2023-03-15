@@ -38,14 +38,14 @@ p {
  bottom: 40%;
  left:35.5%;
  width: 14%;
- transition: .2s
+ /* transition: .05s */
 }
 .btnNoUnfocused, .btnNoFocused {
     position: absolute;
     bottom: 40%;
     right:35.5%;
     width: 14%;
-    transition: .2s
+    /* transition: .2s */
 }
 
 .btnYesFocused {
