@@ -1,0 +1,8 @@
+h2 {
+    position: relative;
+    color: rgb(211, 211, 211);
+    font-size: 6vh;
+    text-align: center;
+    top:43%;
+    animation: fadeIn 2.5s;
+ }

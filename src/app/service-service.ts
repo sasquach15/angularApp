@@ -8,7 +8,6 @@ export class ServiceService {
     startingValues = {
         chooseChar: false,
         welcomeMessage: true,
-        creationBegin: false,
         charNumber: "0",
         navActive: "0",
         selectedCharacter: "0",

@@ -16,7 +16,6 @@ export class AlertComponent {
   }
 
   createChar() {
-    this.startingValues.creationBegin = true;
     this.startingValues.chooseChar = false;
     this.startingValues.selectedCharacter = this.startingValues.charNumber;
     this.startingValues.navOpacity = '1'
