@@ -9,7 +9,7 @@ export class ServiceService {
         chooseChar: false,
         welcomeMessage: true,
         charNumber: "0",
-        navActive: "0",
+        navActive: "",
         selectedCharacter: "0",
         navOpacity: "0",
         navTouched: "",

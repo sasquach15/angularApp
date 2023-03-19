@@ -25,6 +25,10 @@
 @keyframes navAnimation {
     0% {
         box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
     }
     50% {
         box-shadow: 5px 5px 49px 20px rgba(255,255,255,1);
@@ -43,13 +47,13 @@ a {
     border-top: 0;
     flex-grow: 1;
     opacity: 0;
-    transition: .3s;
+    transition: .1s;
     box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
 }
 
 a:hover {
     transform: scale(1.02);
-    color: rgb(182, 62, 102);
+    color: rgb(161, 0, 75);
 }
  .active {
     opacity: 1;

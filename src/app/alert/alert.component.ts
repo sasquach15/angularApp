@@ -18,8 +18,9 @@ export class AlertComponent {
   createChar() {
     this.startingValues.chooseChar = false;
     this.startingValues.selectedCharacter = this.startingValues.charNumber;
-    this.startingValues.navOpacity = '1'
-    this.startingValues.navAnimation = '1'
+    this.startingValues.navOpacity = '1';
+    this.startingValues.navAnimation = '1';
+    this.startingValues.navActive = '1';
   }
   btnReset() {
     this.startingValues.charNumber = '0';

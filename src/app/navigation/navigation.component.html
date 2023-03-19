@@ -1,10 +1,12 @@
-<div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
-  <a [routerLink]="[startingValues.name.toLowerCase(), 'statistics']"
-    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
-  <a [routerLink]="[startingValues.name.toLowerCase(), 'skills']"
-    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
-  <a [routerLink]="[startingValues.name.toLowerCase(), 'equipment']"
-    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
-  <a [routerLink]="[startingValues.name.toLowerCase(), 'story']"
-    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
-</div>
+<ng-template [ngIf]="startingValues.navActive">
+  <div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
+    <a [routerLink]="[startingValues.name.toLowerCase(), 'statistics']"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
+    <a [routerLink]="[startingValues.name.toLowerCase(), 'skills']"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
+    <a [routerLink]="[startingValues.name.toLowerCase(), 'equipment']"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
+    <a [routerLink]="[startingValues.name.toLowerCase(), 'story']"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
+  </div>
+</ng-template>
