@@ -1,6 +1,10 @@
 <div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
-  <a routerLink="/statistics" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
-  <a routerLink="/skills" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
-  <a routerLink="/equipment" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
-  <a routerLink="/story" [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
+  <a [routerLink]="[startingValues.name.toLowerCase(), 'statistics']"
+    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
+  <a [routerLink]="[startingValues.name.toLowerCase(), 'skills']"
+    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
+  <a [routerLink]="[startingValues.name.toLowerCase(), 'equipment']"
+    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
+  <a [routerLink]="[startingValues.name.toLowerCase(), 'story']"
+    [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
 </div>

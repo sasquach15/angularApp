@@ -2,7 +2,7 @@
   <img src="../assets/photos/alert.png" class="alertImg">
   <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.name}} ?</p>
   <div (click)="createChar(); btnReset();">
-    <a routerLink={{startingValues.name}}>
+    <a routerLink={{startingValues.name.toLowerCase()}}>
       <img src="../assets/photos/btnYesUnfocused.png" class="btnYesUnfocused">
       <img src="../assets/photos/btnYesFocused.png" class="btnYesFocused">
     </a>
