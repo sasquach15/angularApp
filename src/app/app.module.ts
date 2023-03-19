@@ -10,6 +10,7 @@ import { StoryComponent } from './router-container/router-items/story/story.comp
 import { EquipmentComponent } from './router-container/router-items/equipment/equipment.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
+import { WelcomeComponent } from './router-container/welcome/welcome.component';
 
 
 const appRoutes: Routes = [
@@ -17,7 +18,11 @@ const appRoutes: Routes = [
   { path: 'statistics', component: StatisticsComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'story', component: StoryComponent },
-  { path: 'equipment', component: EquipmentComponent }
+  { path: 'equipment', component: EquipmentComponent },
+  { path: 'NECROMANCER', component: WelcomeComponent },
+  { path: 'ASSASSIN', component: WelcomeComponent },
+  { path: 'SORCERESS', component: WelcomeComponent },
+  { path: 'AMAZON', component: WelcomeComponent },
 ]
 
 @NgModule({
@@ -31,6 +36,7 @@ const appRoutes: Routes = [
     StoryComponent,
     EquipmentComponent,
     AlertComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

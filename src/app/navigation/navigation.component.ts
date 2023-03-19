@@ -15,8 +15,4 @@ export class NavigationComponent {
     return this.serviceService.startingValues;
   }
 
-  clearContainer() {
-    this.serviceService.startingValues.creationBegin = false;
-  }
-
 }

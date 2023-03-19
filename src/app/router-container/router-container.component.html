@@ -24,9 +24,6 @@
       <img src="../assets/photos/btnCreateUnfocus.png" class="btnCreate " *ngIf="startingValues.charNumber > '2' ">
       <img src="../assets/photos/btnCreateFocus.png" class="btnFocus" *ngIf="startingValues.charNumber > '2'">
     </div>
-    <ng-container *ngIf="startingValues.creationBegin">
-      <h2> BEGIN YOUR ADVENTURE WITH {{startingValues.name}}</h2>
-    </ng-container>
 
   </ng-container>
   <router-outlet></router-outlet>
