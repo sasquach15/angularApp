@@ -4,5 +4,5 @@ h2 {
     font-size: 6vh;
     text-align: center;
     top:43%;
-    animation: fadeIn 2.5s;
+    animation: fadeIn .5s;
  }
