@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<ng-container [ngSwitch]="serviceService.startingValues.name">
+
+  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} SKILLS</h3>
+
+
+</ng-container>

@@ -14,7 +14,7 @@ export class ServiceService {
         navOpacity: "0",
         navTouched: "",
         navAnimation: '0',
-        name: ''
+        name: 'null'
     }
 
 }

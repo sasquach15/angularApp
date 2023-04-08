@@ -1,1 +1,6 @@
-<h3> EQUIPMENT </h3>
+<ng-container [ngSwitch]="serviceService.startingValues.name">
+
+  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} EQUIPMENT</h3>
+
+
+</ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/service-service';
 
 @Component({
   selector: 'app-equipment',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentComponent {
 
-  constructor() { }
+  constructor(public serviceService: ServiceService) { }
+
+  get startingValues() {
+    return this.serviceService.startingValues;
+  }
 
 
 

@@ -1,1 +1,6 @@
-<h3> STATISTICS </h3>
+<ng-container [ngSwitch]="serviceService.startingValues.name">
+
+  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} STATISTICS</h3>
+
+
+</ng-container>
