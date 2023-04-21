@@ -2,5 +2,38 @@
 
   <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} EQUIPMENT</h3>
 
+  <div (click)="showArmor()">
+    <img src="../assets/photos/armorslot.png" class="armor">
+    <div *ngIf="lightArmorPicked"><img src="../assets/photos/armors/leatherArmor.png" class="arm1"></div>
+    <div *ngIf="mediumArmorPicked"><img src="../assets/photos/armors/ringMail.png" class="arm1"></div>
+    <div *ngIf="heavyArmorPicked"><img src="../assets/photos/armors/fullPlateMail.png" class="arm1"></div>
+    <div class="hideArmor">CHOOSE ARMOR</div>
+  </div>
+  <img src="../assets/photos/headslot.png" class="helmet">
+  <div class="hideHelmet">CHOOSE HELMET</div>
+  <img src="../assets/photos/glovesslot.png" class="gloves">
+  <div class="hideGloves">CHOOSE GLOVES</div>
+  <img src="../assets/photos/bootsslot.png" class="boots">
+  <div class="hideBoots">CHOOSE BOOTS</div>
+  <img src="../assets/photos/weaponslot.png" class="weapon">
+  <div class="hideWeapon">CHOOSE WEAPON</div>
+  <img src="../assets/photos/shieldslot.png" class="shield">
+  <div class="hideShield">CHOOSE SHIELD</div>
+
+  <div class="armorSelect" *ngIf="showArmors">
+
+
+    <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/leatherArmor.png">
+      <p>LEATHER SKIN</p>
+    </div>
+    <div class="armdiv" (click)="pickMediumArmor()"> <img src="../assets/photos/armors/ringMail.png">
+      <p>RING MAIL</p>
+    </div>
+    <div class="armdiv" (click)="pickHeavyArmor()"> <img src="../assets/photos/armors/fullPlateMail.png">
+      <p>FULL PLATE </p>
+    </div>
+  </div>
+
+
 
 </ng-container>

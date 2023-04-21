@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ServiceService } from '../service-service';
 
 
@@ -15,6 +15,7 @@ export class CharacterWindowComponent {
   get startingValues() {
     return this.serviceService.startingValues;
   }
+
 
   btnActive = true;
   activeClass = '';

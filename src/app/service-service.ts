@@ -14,7 +14,11 @@ export class ServiceService {
         navOpacity: "0",
         navTouched: "",
         navAnimation: '0',
-        name: 'null'
+        name: 'null',
+        lightArmorPicked: false,
+        mediumArmorPicked: false,
+        heavyArmorPicked: false
+
     }
 
 }

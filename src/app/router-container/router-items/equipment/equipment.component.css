@@ -1,8 +1,141 @@
 h3{
     position: relative;
     color: rgb(211, 211, 211);
-    font-size: 6vh;
+    font-size: 3vh;
     text-align: center;
-    top:20%;
+    top:10%;
     animation: fadeIn 1s;
+   }
+ .armor, .arm1, .gloves, .boots, .helmet, .weapon, .shield {
+    position: absolute;
+    opacity: .9;
+    
+}   
+   .armor {
+
+    top: 43%;
+    left: 41.5%;
+    width: 17%;
+    height: 30%;
+   }
+   .arm1 {
+    top:45%;
+    left: 43.3%;
+    width: 14%;
+    height: 25%;
+    opacity: 1;
+   }
+   .gloves {
+    top: 66%;
+    left: 25%;
+    width: 12%
+   }
+   .helmet {
+    top: 20%;
+    left: 44%;
+    width:12%;
+   }
+   .boots {
+    top: 66%;
+    right: 25%;
+    width: 12%
+   }
+   .weapon {
+    left: 23%;
+    top: 30%;
+    width: 12%
+   }
+   .shield {
+    right: 23%;
+    top: 30%;
+    width: 12%
+   }
+
+    .shield:hover, .weapon:hover, .helmet:hover, .armor:hover, .boots:hover, .gloves:hover {
+    opacity: 1;
+    transform: scale(1.01);
+   }
+   .hideArmor, .hideShield, .hideGloves, .hideBoots, .hideHelmet, .hideWeapon {
+    
+    position: absolute;
+    color: white;
+    background-color: black;
+    display: none;
+    font-size: 2vh;
+    width: 18%;
+    text-align: center;
+   }
+
+   .hideArmor {
+    width: 20%;
+    top: 40%;
+    left: 40%;
+   }
+   .hideBoots {
+    top: 63%;
+    right: 22%;
+   }
+   .hideGloves {
+    top: 63%;
+    left: 22%;
+   }
+   .hideHelmet {
+    top: 17%;
+    left: 41%;
+   }
+   .hideShield {
+    right: 20%;
+    top: 27%;
+   }
+   .hideWeapon {
+    left: 20%;
+    top: 27%;
+   }
+ 
+   .armor:hover + .hideArmor, .gloves:hover + .hideGloves,  .boots:hover + .hideBoots,  .helmet:hover + .hideHelmet, .weapon:hover + .hideWeapon, .shield:hover + .hideShield {
+    display: block;
+   }
+  
+   .armorSelect {
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    top: 6%;
+    left: 25%;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    opacity: .93;
+    border-radius: 5px;
+
+    
+   }
+ /*   .armorImgs {
+    position: relative;
+    top: 13%;
+    display: flex;
+    justify-content: space-evenly;
+    
+   } */
+   .armdiv {
+    top: 13%;
+    display: flex;
+    justify-content: space-evenly;
+    display: inline;
+    flex-basis: 33.3%;
+    opacity: .93
+   }
+   
+   p {
+    text-align: center;
+    color: white;
+   }
+   .armdiv:hover {
+    opacity: 1;
+    transform: scale(1.03);
+    border: solid 1px white;
+    border-radius: 3px;
+    box-shadow: -1px 1px 88px -8px rgb(255, 255, 255);
+
    }
