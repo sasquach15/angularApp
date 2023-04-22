@@ -15,9 +15,7 @@ export class ServiceService {
         navTouched: "",
         navAnimation: '0',
         name: 'null',
-        lightArmorPicked: false,
-        mediumArmorPicked: false,
-        heavyArmorPicked: false
+
 
     }
 

@@ -6,7 +6,7 @@ h3{
     top:10%;
     animation: fadeIn 1s;
    }
- .armor, .arm1, .gloves, .boots, .helmet, .weapon, .shield {
+ .armor, .arm1, .gloves, .boots, .helmet, .weapon, .wep1,  .shield {
     position: absolute;
     opacity: .9;
     
@@ -44,6 +44,12 @@ h3{
     left: 23%;
     top: 30%;
     width: 12%
+   }
+   .wep1{
+      top:33%;
+      left:23%;
+      width: 13%;
+      height: 22%;
    }
    .shield {
     right: 23%;
@@ -96,7 +102,7 @@ h3{
     display: block;
    }
   
-   .armorSelect {
+   .armorSelect, .weaponSelect {
     position: absolute;
     width: 50%;
     height: 30%;
@@ -108,30 +114,50 @@ h3{
     align-items: center;
     opacity: .93;
     border-radius: 5px;
-
-    
    }
- /*   .armorImgs {
-    position: relative;
-    top: 13%;
-    display: flex;
-    justify-content: space-evenly;
-    
-   } */
+   .weaponSelect {
+      width: 60%;
+      top: -5%;
+      left: 0%
+   }
+   .weapdiv {
+      /* position: relative; */
+      top: 0;
+      display: inline;
+      flex-basis: 25%;
+      width: 25%;
+      height: 100%;
+   }
+   .weapImg {
+      top:5%;
+      position: relative;
+      width: 75%;
+      height: 70%;
+   }
+   .pwep {
+      position: relative;
+      top:10%;
+   }
+
    .armdiv {
     top: 13%;
-    display: flex;
-    justify-content: space-evenly;
-    display: inline;
-    flex-basis: 33.3%;
+ display: flex;
+     display: inline; 
+    flex-basis: 33.3%; 
     opacity: .93
    }
-   
+/*    .armImg {
+      position: relative;
+      width: 80%;
+      height: 45%;
+   }
+    */
    p {
     text-align: center;
     color: white;
+    font-size: 1em;
    }
-   .armdiv:hover {
+   .armdiv:hover, .weapdiv:hover {
     opacity: 1;
     transform: scale(1.03);
     border: solid 1px white;

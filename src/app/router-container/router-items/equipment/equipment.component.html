@@ -15,24 +15,61 @@
   <div class="hideGloves">CHOOSE GLOVES</div>
   <img src="../assets/photos/bootsslot.png" class="boots">
   <div class="hideBoots">CHOOSE BOOTS</div>
-  <img src="../assets/photos/weaponslot.png" class="weapon">
-  <div class="hideWeapon">CHOOSE WEAPON</div>
+
+  <div (click)="showWeapon()">
+    <img src="../assets/photos/weaponslot.png" class="weapon">
+    <div *ngIf="clawsPicked"><img src="../assets/photos/assa/assaWeapons/assapazurySelect.png" class="wep1"></div>
+    <div *ngIf="scimitarPicked"><img src="../assets/photos/assa/assaWeapons/assascimitarSelect.png" class="wep1"></div>
+    <div *ngIf="cristalSwordPicked"><img src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png"
+        class="wep1"></div>
+    <div *ngIf="flailPicked"><img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png" class="wep1"></div>
+    <div class="hideWeapon">CHOOSE WEAPON</div>
+  </div>
   <img src="../assets/photos/shieldslot.png" class="shield">
   <div class="hideShield">CHOOSE SHIELD</div>
 
-  <div class="armorSelect" *ngIf="showArmors">
+  <ng-container *ngIf="showArmors">
+    <div class="armorSelect">
 
 
-    <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/leatherArmor.png">
-      <p>LEATHER SKIN</p>
+      <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/leatherArmor.png"
+          class="armImg">
+        <p>LEATHER SKIN</p>
+      </div>
+      <div class="armdiv" (click)="pickMediumArmor()"> <img src="../assets/photos/armors/ringMail.png" class="armImg">
+        <p>RING MAIL</p>
+      </div>
+      <div class="armdiv" (click)="pickHeavyArmor()"> <img src="../assets/photos/armors/fullPlateMail.png"
+          class="armImg">
+        <p>FULL PLATE </p>
+      </div>
     </div>
-    <div class="armdiv" (click)="pickMediumArmor()"> <img src="../assets/photos/armors/ringMail.png">
-      <p>RING MAIL</p>
+  </ng-container>
+
+  <ng-container *ngIf="showWeapons">
+    <div class="weaponSelect">
+      <div class="weapdiv" (click)="pickClaws()">
+        <img src="../assets/photos/assa/assaWeapons/assapazurySelect.png" class="weapImg">
+        <p class="pwep">CLAWS</p>
+      </div>
+      <div class="weapdiv" (click)="pickScimitar()">
+        <img src="../assets/photos/assa/assaWeapons/assascimitarSelect.png" class="weapImg">
+        <p class="pwep">SCIMITAR</p>
+      </div>
+      <div class="weapdiv" (click)="pickCristalSword()">
+        <img src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png" class="weapImg">
+        <p class="pwep">CRISTAL SWORD</p>
+      </div>
+      <div class="weapdiv" (click)="pickFlail()">
+        <img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png" class="weapImg">
+        <p class="pwep">FLAIL</p>
+      </div>
+
+
+
     </div>
-    <div class="armdiv" (click)="pickHeavyArmor()"> <img src="../assets/photos/armors/fullPlateMail.png">
-      <p>FULL PLATE </p>
-    </div>
-  </div>
+
+  </ng-container>
 
 
 
