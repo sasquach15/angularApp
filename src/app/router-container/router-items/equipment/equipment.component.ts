@@ -11,21 +11,30 @@ export class EquipmentComponent {
 
   showWeapons = false;
   showArmors = false;
+  showHelmets = false;
 
 
 
   constructor(public serviceService: ServiceService, private equipmentService: EquipmentServiceService) { }
 
-  get armorType() {
-    return this.equipmentService.armorType;
+
+  get equipment() {
+    return this.equipmentService.equipment;
   }
+  /* get armorType() {
+    return this.equipmentService.equipment.armorType;
+  } */
   get startingValues() {
     return this.serviceService.startingValues;
   }
-  get itemPicked() {
-    return this.equipmentService.itemPicked;
-  }
+  /*  get itemPicked() {
+     return this.equipmentService.equipment.weaponPicked;
+   } */
 
+  showHelmet() {
+    this.showHelmets = !this.showHelmets;
+    this.showWeapons = false;
+  }
   showArmor() {
     this.showArmors = !this.showArmors;
     this.showWeapons = false;
@@ -36,36 +45,51 @@ export class EquipmentComponent {
 
   }
   pickLightArmor() {
-    this.equipmentService.armorType = 'light'
+    this.equipmentService.equipment.armorType = 'light'
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = "7"
+    this.serviceService.startingValues.selectedCharacter = ''
   }
   pickMediumArmor() {
-    this.equipmentService.armorType = 'medium'
+    this.equipmentService.equipment.armorType = 'medium'
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = "8"
+    this.serviceService.startingValues.selectedCharacter = ''
   }
   pickHeavyArmor() {
-    this.equipmentService.armorType = 'heavy'
+    this.equipmentService.equipment.armorType = 'heavy'
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = "9"
+    this.serviceService.startingValues.selectedCharacter = ''
   }
   pickClaws() {
-    this.equipmentService.itemPicked = 'claws'
+    this.equipmentService.equipment.weaponPicked = 'claws'
     this.showWeapons = false;
   }
-  pickScimitar() {
-    this.equipmentService.itemPicked = 'scimitar'
+  pickAxe() {
+    this.equipmentService.equipment.weaponPicked = 'axe'
     this.showWeapons = false;
   }
   pickCristalSword() {
-    this.equipmentService.itemPicked = 'cristalSword'
+    this.equipmentService.equipment.weaponPicked = 'cristalSword'
     this.showWeapons = false;
 
   }
   pickFlail() {
-    this.equipmentService.itemPicked = 'flail'
+    this.equipmentService.equipment.weaponPicked = 'flail'
     this.showWeapons = false;
   }
-
+  pickTiara() {
+    this.equipmentService.equipment.helmPicked = 'tiara'
+    this.showHelmets = false;
+  }
+  pickCrown() {
+    this.equipmentService.equipment.helmPicked = 'crown'
+    this.showHelmets = false;
+  }
+  pickRogaty() {
+    this.equipmentService.equipment.helmPicked = 'horned'
+    this.showHelmets = false;
+  }
+  pickBone() {
+    this.equipmentService.equipment.helmPicked = 'bone'
+    this.showHelmets = false;
+  }
 }

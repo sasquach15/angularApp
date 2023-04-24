@@ -119,8 +119,17 @@ background-color: transparent;
     animation: fade 2s forwards;
 }
 
-.assaWeapons {
+.assaWeapons, .assaHelmets {
     position: absolute;
+    animation: fadeItem .1s linear;
+}
+@keyframes fadeItem {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1;
+    }
 }
 .assaClaws {
     top: 38%;
@@ -134,10 +143,10 @@ background-color: transparent;
     width: 40%;
     height: 20%;
 }
-.assaScimitar{
-    top: 42%;
-    left:1%;
-    width: 50%;
+.assaAxe{
+    top: 44%;
+    left:14%;
+    width: 38%;
     height: 20%;
 }
 .assaFlail{
@@ -145,6 +154,30 @@ background-color: transparent;
     left:11%;
     width: 40%;
     height: 40%;
-   
+}
+
+.assaTiara {
+    top: 7.5%;
+    left:51%;
+    width: 10%;
+    height: 10%;
+}
+.assaBone {
+    top: 5%;
+    left:46.5%;
+    width: 21%;
+    height: 21%;
+}
+.assaHorned {
+    top: -1.2%;
+    left:46.5%;
+    width: 21%;
+    height: 21%;
+}
+.assaCrown {
+    top: 5.5%;
+    left:48.5%;
+    width: 15%;
+    height: 15%;
 }
 

@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class EquipmentServiceService {
 
-  itemPicked = '0'
+  equipment = {
 
-  armorType = '0'
+    weaponPicked: '0',
+    armorType: '0',
+    helmPicked: '0'
 
-
+  }
 
 }
