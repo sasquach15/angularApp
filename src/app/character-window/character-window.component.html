@@ -46,7 +46,14 @@
     <div *ngSwitchCase="9">
       <img src="../assets/photos/assa/assaHeavy.png" class="assaNaked ">
     </div>
-
+    <div *ngIf="itemPicked === 'claws'"> <img src="../assets/photos/assa/assaWeapons/assapazury.png"
+        class="assaWeapons assaClaws"></div>
+    <div *ngIf="itemPicked === 'cristalSword'"> <img src="../assets/photos/assa/assaWeapons/assakrysztalowymiecz.png"
+        class=" assaWeapons assaCristal"></div>
+    <div *ngIf="itemPicked === 'flail'"> <img src="../assets/photos/assa/assaWeapons/assakorbacz.png"
+        class="assaWeapons assaFlail"></div>
+    <div *ngIf="itemPicked === 'scimitar'"> <img src="../assets/photos/assa/assaWeapons/assascimitar.png"
+        class="assaWeapons assaScimitar"></div>
   </ng-container>
 
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServiceService } from 'src/app/service-service';
+import { EquipmentServiceService } from './equipment-service.service';
 
 @Component({
   selector: 'app-equipment',
@@ -10,76 +11,61 @@ export class EquipmentComponent {
 
   showWeapons = false;
   showArmors = false;
-  lightArmorPicked = false;
-  mediumArmorPicked = false;
-  heavyArmorPicked = false;
-  clawsPicked = false;
-  scimitarPicked = false;
-  cristalSwordPicked = false;
-  flailPicked = false;
 
-  constructor(public serviceService: ServiceService) { }
 
+
+  constructor(public serviceService: ServiceService, private equipmentService: EquipmentServiceService) { }
+
+  get armorType() {
+    return this.equipmentService.armorType;
+  }
   get startingValues() {
     return this.serviceService.startingValues;
+  }
+  get itemPicked() {
+    return this.equipmentService.itemPicked;
   }
 
   showArmor() {
     this.showArmors = !this.showArmors;
+    this.showWeapons = false;
   }
   showWeapon() {
     this.showWeapons = !this.showWeapons;
+    this.showArmors = false;
 
   }
   pickLightArmor() {
-    this.lightArmorPicked = true;
+    this.equipmentService.armorType = 'light'
     this.showArmors = false;
-    this.heavyArmorPicked = false;
-    this.mediumArmorPicked = false;
     this.serviceService.startingValues.selectedCharacter = "7"
   }
   pickMediumArmor() {
-    this.mediumArmorPicked = true;
+    this.equipmentService.armorType = 'medium'
     this.showArmors = false;
-    this.lightArmorPicked = false;
-    this.heavyArmorPicked = false;
     this.serviceService.startingValues.selectedCharacter = "8"
   }
   pickHeavyArmor() {
-    this.heavyArmorPicked = true;
+    this.equipmentService.armorType = 'heavy'
     this.showArmors = false;
-    this.lightArmorPicked = false;
-    this.mediumArmorPicked = false;
     this.serviceService.startingValues.selectedCharacter = "9"
   }
   pickClaws() {
-    this.clawsPicked = true;
+    this.equipmentService.itemPicked = 'claws'
     this.showWeapons = false;
-    this.cristalSwordPicked = false;
-    this.flailPicked = false;
-    this.scimitarPicked = false;
   }
   pickScimitar() {
-    this.scimitarPicked = true;
+    this.equipmentService.itemPicked = 'scimitar'
     this.showWeapons = false;
-    this.clawsPicked = false;
-    this.cristalSwordPicked = false;
-    this.flailPicked = false;
   }
   pickCristalSword() {
-    this.cristalSwordPicked = true;
+    this.equipmentService.itemPicked = 'cristalSword'
     this.showWeapons = false;
-    this.scimitarPicked = false;
-    this.clawsPicked = false;
-    this.flailPicked = false;
+
   }
   pickFlail() {
-    this.flailPicked = true;
+    this.equipmentService.itemPicked = 'flail'
     this.showWeapons = false;
-    this.scimitarPicked = false;
-    this.clawsPicked = false;
-    this.cristalSwordPicked = false;
-
   }
 
 }

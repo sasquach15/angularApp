@@ -118,3 +118,33 @@ background-color: transparent;
 .fade {
     animation: fade 2s forwards;
 }
+
+.assaWeapons {
+    position: absolute;
+}
+.assaClaws {
+    top: 38%;
+    left: 31%;
+    width: 20%;
+    height: 30%;
+}
+.assaCristal {
+    top: 43%;
+    left:10%;
+    width: 40%;
+    height: 20%;
+}
+.assaScimitar{
+    top: 42%;
+    left:1%;
+    width: 50%;
+    height: 20%;
+}
+.assaFlail{
+    top: 43%;
+    left:11%;
+    width: 40%;
+    height: 40%;
+   
+}
+

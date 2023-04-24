@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ServiceService } from '../service-service';
+import { EquipmentComponent } from '../router-container/router-items/equipment/equipment.component';
+import { EquipmentServiceService } from '../router-container/router-items/equipment/equipment-service.service';
 
 
 @Component({
@@ -10,7 +12,12 @@ import { ServiceService } from '../service-service';
 })
 export class CharacterWindowComponent {
 
-  constructor(public serviceService: ServiceService) { }
+  constructor(private serviceService: ServiceService, private equipmentService: EquipmentServiceService) { }
+
+
+  get itemPicked() {
+    return this.equipmentService.itemPicked;
+  }
 
   get startingValues() {
     return this.serviceService.startingValues;

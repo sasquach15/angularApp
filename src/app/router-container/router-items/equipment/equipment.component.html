@@ -4,9 +4,9 @@
 
   <div (click)="showArmor()">
     <img src="../assets/photos/armorslot.png" class="armor">
-    <div *ngIf="lightArmorPicked"><img src="../assets/photos/armors/leatherArmor.png" class="arm1"></div>
-    <div *ngIf="mediumArmorPicked"><img src="../assets/photos/armors/ringMail.png" class="arm1"></div>
-    <div *ngIf="heavyArmorPicked"><img src="../assets/photos/armors/fullPlateMail.png" class="arm1"></div>
+    <div *ngIf="armorType === 'light'"><img src="../assets/photos/armors/leatherArmor.png" class="arm1"></div>
+    <div *ngIf="armorType === 'medium'"><img src="../assets/photos/armors/ringMail.png" class="arm1"></div>
+    <div *ngIf="armorType === 'heavy'"><img src="../assets/photos/armors/fullPlateMail.png" class="arm1"></div>
     <div class="hideArmor">CHOOSE ARMOR</div>
   </div>
   <img src="../assets/photos/headslot.png" class="helmet">
@@ -18,11 +18,14 @@
 
   <div (click)="showWeapon()">
     <img src="../assets/photos/weaponslot.png" class="weapon">
-    <div *ngIf="clawsPicked"><img src="../assets/photos/assa/assaWeapons/assapazurySelect.png" class="wep1"></div>
-    <div *ngIf="scimitarPicked"><img src="../assets/photos/assa/assaWeapons/assascimitarSelect.png" class="wep1"></div>
-    <div *ngIf="cristalSwordPicked"><img src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png"
+    <div *ngIf="itemPicked === 'claws'"><img src="../assets/photos/assa/assaWeapons/assapazurySelect.png" class="wep1">
+    </div>
+    <div *ngIf="itemPicked === 'scimitar'"><img src="../assets/photos/assa/assaWeapons/assascimitarSelect.png"
         class="wep1"></div>
-    <div *ngIf="flailPicked"><img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png" class="wep1"></div>
+    <div *ngIf="itemPicked === 'cristalSword'"><img
+        src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png" class="wep1"></div>
+    <div *ngIf="itemPicked === 'flail'"><img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png" class="wep1">
+    </div>
     <div class="hideWeapon">CHOOSE WEAPON</div>
   </div>
   <img src="../assets/photos/shieldslot.png" class="shield">
