@@ -6,7 +6,7 @@ h3{
     top:10%;
     animation: fadeIn 1s;
    }
- .armor, .arm1, .gloves, .boots, .helmet, .weapon, .wep1,  .shield, .helm1 {
+ .armor, .arm1, .gloves, .boots, .helmet, .weapon, .wep1,  .shield, .helm1, .shield1 {
     position: absolute;
     opacity: .9;
     
@@ -48,6 +48,12 @@ h3{
    .wep1{
       top:33%;
       left:23%;
+      width: 13%;
+      height: 22%;
+   }
+   .shield1{
+      top:33%;
+      left:64.5%;
       width: 13%;
       height: 22%;
    }
@@ -108,7 +114,7 @@ h3{
     display: block;
    }
   
-   .armorSelect, .weaponSelect, .helmetSelect {
+   .armorSelect, .weaponSelect, .helmetSelect, .shieldSelect {
     position: absolute;
     width: 50%;
     height: 30%;
@@ -125,6 +131,11 @@ h3{
       width: 60%;
       top: -5%;
       left: 0%
+   }
+   .shieldSelect {
+    left: 45%;
+    top: -3%;
+
    }
    .helmetSelect {
       top: -10%;
@@ -148,6 +159,13 @@ h3{
       width: 15%;
       height: 80%;
    }
+.shielddiv {
+   top: 0;
+      display: inline;
+      flex-basis: 33.3%;
+      width: 15%;
+      height: 100%;
+}
    .weapImg {
       top:5%;
       position: relative;
@@ -163,6 +181,12 @@ h3{
       position: relative;
       width: 75%;
       height: 70%;
+   }
+   .shieldImg {
+      top:5%;
+      position: relative;
+      width: 75%;
+      height: 75%;
    }
 
    .armdiv {
@@ -183,7 +207,7 @@ h3{
     color: white;
     font-size: 1em;
    }
-   .armdiv:hover, .weapdiv:hover, .helmdiv:hover {
+   .armdiv:hover, .weapdiv:hover, .helmdiv:hover, .shielddiv:hover {
     opacity: 1;
     transform: scale(1.03);
     border: solid 1px white;

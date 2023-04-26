@@ -58,8 +58,26 @@
 
 
   </div>
-  <img src="../assets/photos/shieldslot.png" class="shield">
-  <div class="hideShield">CHOOSE SHIELD</div>
+
+
+
+
+  <div (click)="showShield()">
+    <img src="../assets/photos/shieldslot.png" class="shield">
+    <div *ngIf="equipment.shieldPicked === 'boneShield'"><img
+        src="../assets/photos/equipment/shields/boneShieldSelect.png" class="shield1">
+    </div>
+    <div *ngIf="equipment.shieldPicked === 'barbedShield'"><img
+        src="../assets/photos/equipment/shields/spikedShieldSelect.png" class="shield1">
+    </div>
+    <div *ngIf="equipment.shieldPicked === 'pavise'"><img src="../assets/photos/equipment/shields/paviseSelect.png"
+        class="shield1">
+    </div>
+    <div class="hideShield">CHOOSE SHIELD</div>
+  </div>
+
+
+
 
   <ng-container *ngIf="showArmors">
     <div class="armorSelect">
@@ -120,10 +138,24 @@
         <img src="../assets/photos/assa/assaHelmets/assacrownSelect.png" class="helmImg">
         <p class="pwep">CROWN</p>
       </div>
+    </div>
 
+  </ng-container>
 
-
-
+  <ng-container *ngIf="showShields">
+    <div class="shieldSelect">
+      <div class="shielddiv" (click)="pickBoneShield()">
+        <img src="../assets/photos/equipment/shields/boneShieldSelect.png" class="shieldImg">
+        <p class="pwep">BONE SHIELD</p>
+      </div>
+      <div class="shielddiv" (click)="pickBarbedShield()">
+        <img src="../assets/photos/equipment/shields/spikedShieldSelect.png" class="shieldImg">
+        <p class="pwep">BARBED SHIELD</p>
+      </div>
+      <div class="shielddiv" (click)="pickPavise()">
+        <img src="../assets/photos/equipment/shields/paviseSelect.png" class="shieldImg">
+        <p class="pwep">PAVISE</p>
+      </div>
     </div>
 
   </ng-container>

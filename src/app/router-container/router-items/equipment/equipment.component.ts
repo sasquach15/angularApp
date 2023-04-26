@@ -12,6 +12,7 @@ export class EquipmentComponent {
   showWeapons = false;
   showArmors = false;
   showHelmets = false;
+  showShields = false;
 
 
 
@@ -34,16 +35,29 @@ export class EquipmentComponent {
   showHelmet() {
     this.showHelmets = !this.showHelmets;
     this.showWeapons = false;
+    this.showShields = false;
+    this.showArmors = false;
   }
   showArmor() {
     this.showArmors = !this.showArmors;
     this.showWeapons = false;
+    this.showHelmets = false;
+    this.showShields = false;
   }
   showWeapon() {
     this.showWeapons = !this.showWeapons;
     this.showArmors = false;
+    this.showShields = false;
+    this.showHelmets = false;
 
   }
+  showShield() {
+    this.showShields = !this.showWeapons;
+    this.showWeapons = false;
+    this.showArmors = false;
+    this.showHelmets = false;
+  }
+
   pickLightArmor() {
     this.equipmentService.equipment.armorType = 'light'
     this.showArmors = false;
@@ -91,5 +105,17 @@ export class EquipmentComponent {
   pickBone() {
     this.equipmentService.equipment.helmPicked = 'bone'
     this.showHelmets = false;
+  }
+  pickBoneShield() {
+    this.equipmentService.equipment.shieldPicked = 'boneShield'
+    this.showShields = false;
+  }
+  pickBarbedShield() {
+    this.equipmentService.equipment.shieldPicked = 'barbedShield'
+    this.showShields = false;
+  }
+  pickPavise() {
+    this.equipmentService.equipment.shieldPicked = 'pavise'
+    this.showShields = false;
   }
 }

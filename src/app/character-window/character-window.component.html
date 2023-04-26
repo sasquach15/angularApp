@@ -48,6 +48,7 @@
     <div *ngIf="equipment.armorType === 'heavy'">
       <img src="../assets/photos/assa/assaHeavy.png" class="assaNaked " loading="eager">
     </div>
+
     <!-- assa armors -->
     <div *ngIf="equipment.weaponPicked === 'claws'"> <img src="../assets/photos/assa/assaWeapons/assapazury.png"
         class="assaWeapons assaClaws"></div>
@@ -68,5 +69,12 @@
     <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assa/assaHelmets/assabonehelm.png"
         class="assaHelmets assaBone"></div>
   </ng-container>
+
+  <div *ngIf="equipment.shieldPicked === 'boneShield'"> <img src="../assets/photos/equipment/shields/boneshield.png"
+      class="shieldGlobal boneShield"></div>
+  <div *ngIf="equipment.shieldPicked === 'barbedShield'"> <img src="../assets/photos/equipment/shields/barbedshield.png"
+      class="shieldGlobal barbedShield"></div>
+  <div *ngIf="equipment.shieldPicked === 'pavise'"> <img src="../assets/photos/equipment/shields/paewz.png"
+      class="shieldGlobal paviseShield"></div>
 
 </div>
