@@ -87,11 +87,12 @@ background-color: transparent;
     height: 80%;
     transform: translate(-20%, 10%);
 }
-.assaNaked {
+ .assaNaked {
     width: 230%;
     height: 110%;
     transform: translate(-25%, -10%);
-}
+} 
+
 .pcharname {
 
     text-align: center;
@@ -119,8 +120,10 @@ background-color: transparent;
     animation: fade 2s forwards;
 }
 
-.assaWeapons, .assaHelmets {
+.assaWeapons, .assaHelmets, .shieldGlobal {
     position: absolute;
+}
+.assa.assaWeapons {
     animation: fadeItem .1s linear;
 }
 @keyframes fadeItem {
@@ -169,15 +172,21 @@ background-color: transparent;
     height: 21%;
 }
 .assaHorned {
-    top: -1.2%;
+    top: -3%;
     left:46.5%;
     width: 21%;
-    height: 21%;
+    height: 24%;
 }
 .assaCrown {
     top: 5.5%;
     left:48.5%;
     width: 15%;
     height: 15%;
+}
+.shieldGlobal {
+    top: 20%;
+    left:47%;
+    width: 40%;
+    height: 44%;
 }
 
