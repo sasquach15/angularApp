@@ -19,14 +19,14 @@
 h1 {
  position: relative;
  color: rgb(211, 211, 211);
- font-size: 8vh;
+ font-size: 4vh;
  text-align: center;
  margin-top: 10vh;
 }
 h2 {
     position: relative;
     color: rgb(211, 211, 211);
-    font-size: 6vh;
+    font-size: 3vh;
     text-align: center;
     top:43%;
     animation: fadeIn 2.5s;
@@ -35,7 +35,7 @@ h2 {
    h3{
     position: relative;
     color: rgb(211, 211, 211);
-    font-size: 6vh;
+    font-size: 3vh;
     text-align: center;
     top:20%;
     animation: fadeIn 1s;
@@ -43,7 +43,7 @@ h2 {
 
 P {
     color: rgb(211, 211, 211);
-    font-size: 4vh;
+    font-size: 2.5vh;
     text-align: center;
     margin-top: 10%;
     animation: fadeIn 1s;

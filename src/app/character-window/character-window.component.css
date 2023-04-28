@@ -64,10 +64,26 @@ background-color: transparent;
 
 }
 .sorc {
+    flex-basis: 50%;
     width: 150%;
     height: 80%;
     transform: translate(-15%, 7%) scaleX(-1) ;
     
+}
+.sorcNaked{
+    position: absolute;
+    top: 7%;
+    left: 28%;
+    width: 45%;
+    height: 80%;
+}
+.sorcHeavy {
+    top: 5.5%;
+    width:48.5%;
+    height: 83.5%;
+}
+.sorcLight {
+    left:27.5%;
 }
 .nec {
     width: 150%;
@@ -122,6 +138,7 @@ background-color: transparent;
 
 .assaWeapons, .assaHelmets, .shieldGlobal {
     position: absolute;
+    z-index: 1;
 }
 .assa.assaWeapons {
     animation: fadeItem .1s linear;

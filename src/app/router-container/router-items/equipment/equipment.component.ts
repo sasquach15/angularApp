@@ -22,15 +22,11 @@ export class EquipmentComponent {
   get equipment() {
     return this.equipmentService.equipment;
   }
-  /* get armorType() {
-    return this.equipmentService.equipment.armorType;
-  } */
+
   get startingValues() {
     return this.serviceService.startingValues;
   }
-  /*  get itemPicked() {
-     return this.equipmentService.equipment.weaponPicked;
-   } */
+
 
   showHelmet() {
     this.showHelmets = !this.showHelmets;
@@ -60,6 +56,7 @@ export class EquipmentComponent {
 
   pickLightArmor() {
     this.equipmentService.equipment.armorType = 'light'
+    this.equipmentService.equipment.armorUrl = '../assets/photos/armors/light.png'
     this.showArmors = false;
     this.serviceService.startingValues.selectedCharacter = ''
   }

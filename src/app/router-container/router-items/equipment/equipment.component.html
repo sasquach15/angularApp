@@ -4,7 +4,7 @@
 
   <div (click)="showArmor()">
     <img src="../assets/photos/armorslot.png" class="armor">
-    <div *ngIf="equipment.armorType === 'light'"><img src="../assets/photos/armors/leatherArmor.png" class="arm1"
+    <div *ngIf="equipment.armorType === 'light'"><img src="../assets/photos/armors/light.png" class="arm1"
         loading="lazy">
     </div>
     <div *ngIf="equipment.armorType === 'medium'"><img src="../assets/photos/armors/ringMail.png" class="arm1"
@@ -23,10 +23,10 @@
         class="helm1">
     </div>
     <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assa/assaHelmets/assacrownSelect.png"
-        class="helm1">
+        class="helm1 helm2">
     </div>
     <div *ngIf="equipment.helmPicked === 'horned'"> <img src="../assets/photos/assa/assaHelmets/assarogatySelect.png"
-        class="helm1">
+        class="helm1 helm2">
     </div>
     <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assa/assaHelmets/assaboneSelect.png"
         class="helm1">
@@ -83,7 +83,7 @@
     <div class="armorSelect">
 
 
-      <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/leatherArmor.png" class="armImg"
+      <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/light.png" class="armImg"
           loading="eager">
         <p>LEATHER SKIN</p>
       </div>

@@ -58,10 +58,16 @@ h3{
       height: 22%;
    }
    .helm1{
-      top:19%;
-      left:46%;
-      width: 8%;
+      top:20%;
+      left:45%;
+      width: 10%;
       height: 15%;
+   }
+   .helm2{
+      
+      width: 12%;
+      height: 15%;
+      left:44%;
    }
    .shield {
     right: 23%;

@@ -9,6 +9,7 @@ export class EquipmentServiceService {
 
     weaponPicked: '0',
     armorType: '0',
+    armorUrl: '',
     helmPicked: '0',
     shieldPicked: '0'
 
