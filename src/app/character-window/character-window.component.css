@@ -70,7 +70,7 @@ background-color: transparent;
     transform: translate(-15%, 7%) scaleX(-1) ;
     
 }
-.sorcNaked{
+.sorcNaked, .necNaked, .assaNaked, .barbNaked{
     position: absolute;
     top: 7%;
     left: 28%;
@@ -90,24 +90,44 @@ background-color: transparent;
     height: 80%;
     transform: translate(-15%, 10%);
 }
-.ama {
+.necNaked{
+    top: 11%;
+    height: 75%;
+    left: 10%;
+    width: 80%;
+
+} 
+.barb {
     width: 80%;
     height: 80%;
     transform: translate(12%, 10%);
 }
-.amaa {
-    transform: translate(40%, 10%);
-} /* tymczasowo */
+
+.barbNaked {
+    left: 20%;
+    top: 11%;
+width: 60%;
+left:25%;
+height: 75%;
+}
 .assa {
     width: 170%;
     height: 80%;
     transform: translate(-20%, 10%);
 }
- .assaNaked {
+.divAssa{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+ 
+.assaNaked {
+    top: -10%;
+    left:-64%;
+    position: relative;;
     width: 230%;
     height: 110%;
-    transform: translate(-25%, -10%);
-} 
+}
 
 .pcharname {
 
@@ -152,58 +172,72 @@ background-color: transparent;
     }
 }
 .assaClaws {
-    top: 38%;
-    left: 31%;
+    top: 39%;
+    left: 26%;
     width: 20%;
     height: 30%;
 }
 .assaCristal {
-    top: 43%;
-    left:10%;
+    top: 44.5%;
+    left:4%;
     width: 40%;
     height: 20%;
 }
 .assaAxe{
-    top: 44%;
-    left:14%;
+    top: 46%;
+    left:8%;
     width: 38%;
     height: 20%;
 }
 .assaFlail{
-    top: 43%;
-    left:11%;
+    top: 45%;
+    left:6%;
     width: 40%;
     height: 40%;
 }
 
 .assaTiara {
-    top: 7.5%;
-    left:51%;
+    top: 8%;
+    left:44.5%;
     width: 10%;
     height: 10%;
 }
 .assaBone {
-    top: 5%;
-    left:46.5%;
+    top: 6%;
+    left:40.4%;
     width: 21%;
     height: 21%;
 }
 .assaHorned {
-    top: -3%;
-    left:46.5%;
+    top: -2.5%;
+    left:40.5%;
     width: 21%;
     height: 24%;
 }
 .assaCrown {
-    top: 5.5%;
-    left:48.5%;
+    top: 6.5%;
+    left:42.5%;
     width: 15%;
     height: 15%;
 }
+
+/* @keyframes shieldAnimation {
+    0% {
+        left: 43%;
+    }
+    50% {
+        left: 42.69%;
+    
+    }
+    100% {
+        left:43%
+    }
+} */
 .shieldGlobal {
     top: 20%;
-    left:47%;
+    left:43%;
     width: 40%;
     height: 44%;
+    
 }
 

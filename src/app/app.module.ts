@@ -36,11 +36,11 @@ const appRoutes: Routes = [
   { path: 'sorceress/story', component: StoryComponent },
   { path: 'sorceress/statistics', component: StatisticsComponent },
   { path: 'sorceress/equipment', component: EquipmentComponent },
-  { path: 'amazon', component: WelcomeComponent },
-  { path: 'amazon/skills', component: SkillsComponent },
-  { path: 'amazon/story', component: StoryComponent },
-  { path: 'amazon/statistics', component: StatisticsComponent },
-  { path: 'amazon/equipment', component: EquipmentComponent }
+  { path: 'barbarian', component: WelcomeComponent },
+  { path: 'barbarian/skills', component: SkillsComponent },
+  { path: 'barbarian/story', component: StoryComponent },
+  { path: 'barbarian/statistics', component: StatisticsComponent },
+  { path: 'barbarian/equipment', component: EquipmentComponent }
 ]
 
 @NgModule({

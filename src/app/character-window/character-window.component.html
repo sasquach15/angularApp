@@ -17,56 +17,56 @@
       <img src="../assets/photos/assa.png" class="assa" loading="eager">
       <p class="pcharname">ASSASSIN</p>
     </div>
-    <div class="char" (click)="pickAma()" [ngClass]="activeClass == '4' ? 'active' : ''">
-      <img src="../assets/photos/ama.png" class="ama" loading="eager">
-      <p class="pcharname">AMAZON</p>
+    <div class="char" (click)="pickBarb()" [ngClass]="activeClass == '4' ? 'active' : ''">
+      <img src="../assets/photos/barb.png" class="barb" loading="eager">
+      <p class="pcharname">BARBARIAN</p>
 
     </div>
   </ng-template>
   <ng-container [ngSwitch]="startingValues.selectedCharacter">
     <div *ngSwitchCase="3">
-      <img src="../assets/photos/sorc/sorcNaked.png" class="sorcNaked fade">
+      <img src="../assets/photos/sorceress/sorcNaked.png" class="sorcNaked fade">
     </div>
     <div *ngSwitchCase="4">
-      <img src="../assets/photos/neccc.png" class="nec fade">
+      <img src="../assets/photos/necromancer/necroNaked.png" class="necNaked fade">
     </div>
-    <div *ngSwitchCase="5">
-      <img src="../assets/photos/assa/assaNaked.png" class="assaNaked fade">
+    <div *ngSwitchCase="5" class="divAssa">
+      <img src="../assets/photos/assassin/assaNaked.png" class="assaNaked fade">
 
     </div>
     <div *ngSwitchCase="6">
-      <img src="../assets/photos/ama.png" class="ama fade amaa">
+      <img src="../assets/photos/barbarian/barbNaked.png" class="barbNaked fade">
     </div>
   </ng-container>
   <ng-container *ngIf="startingValues.name === 'ASSASSIN'">
-    <div *ngIf="equipment.armorType === 'light'">
-      <img src="../assets/photos/assa/assaLight.png" class="assaNaked" loading="eager">
+    <div *ngIf="equipment.armorCharUrl">
+      <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
     </div>
-    <div *ngIf="equipment.armorType === 'medium'">
+    <!--  <div *ngIf="equipment.armorType === 'medium'">
       <img src="../assets/photos/assa/assaMedium.png" class="assaNaked " loading="eager">
     </div>
     <div *ngIf="equipment.armorType === 'heavy'">
       <img src="../assets/photos/assa/assaHeavy.png" class="assaNaked " loading="eager">
-    </div>
+    </div> -->
 
     <!-- assa armors -->
-    <div *ngIf="equipment.weaponPicked === 'claws'"> <img src="../assets/photos/assa/assaWeapons/assapazury.png"
+    <div *ngIf="equipment.weaponPicked === 'claws'"> <img src="../assets/photos/assassin/assaWeapons/assapazury.png"
         class="assaWeapons assaClaws"></div>
     <div *ngIf="equipment.weaponPicked === 'cristalSword'"> <img
-        src="../assets/photos/assa/assaWeapons/assakrysztalowymiecz.png" class=" assaWeapons assaCristal"></div>
-    <div *ngIf="equipment.weaponPicked === 'flail'"> <img src="../assets/photos/assa/assaWeapons/assakorbacz.png"
+        src="../assets/photos/assassin/assaWeapons/assakrysztalowymiecz.png" class=" assaWeapons assaCristal"></div>
+    <div *ngIf="equipment.weaponPicked === 'flail'"> <img src="../assets/photos/assassin/assaWeapons/assakorbacz.png"
         class="assaWeapons assaFlail"></div>
-    <div *ngIf="equipment.weaponPicked === 'axe'"> <img src="../assets/photos/assa/assaWeapons/assaaxe.png"
+    <div *ngIf="equipment.weaponPicked === 'axe'"> <img src="../assets/photos/assassin/assaWeapons/assaaxe.png"
         class="assaWeapons assaAxe"></div>
 
     <!-- assa helmets -->
-    <div *ngIf="equipment.helmPicked === 'tiara'"> <img src="../assets/photos/assa/assaHelmets/assatiara.png"
+    <div *ngIf="equipment.helmPicked === 'tiara'"> <img src="../assets/photos/assassin/assaHelmets/assatiara.png"
         class="assaHelmets assaTiara"></div>
-    <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assa/assaHelmets/assacrown.png"
+    <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assassin/assaHelmets/assacrown.png"
         class=" assaHelmets assaCrown"></div>
-    <div *ngIf="equipment.helmPicked === 'horned'"> <img src="../assets/photos/assa/assaHelmets/assarogatyelm.png"
+    <div *ngIf="equipment.helmPicked === 'horned'"> <img src="../assets/photos/assassin/assaHelmets/assarogatyelm.png"
         class="assaHelmets assaHorned"></div>
-    <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assa/assaHelmets/assabonehelm.png"
+    <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assassin/assaHelmets/assabonehelm.png"
         class="assaHelmets assaBone"></div>
   </ng-container>
 
@@ -81,14 +81,20 @@
   </div>
 
   <ng-container *ngIf="startingValues.name === 'SORCERESS'">
-    <div *ngIf="equipment.armorType === 'light'">
-      <img src="../assets/photos/sorc/sorcLight.png" class="sorcNaked sorcLight" loading="eager">
+    <div *ngIf="equipment.armorCharUrl">
+      <img src={{equipment.armorCharUrl}} class="sorcNaked" loading="eager">
     </div>
-    <div *ngIf="equipment.armorType === 'medium'">
-      <img src="../assets/photos/sorc/sorcMedium.png" class="sorcNaked " loading="eager">
+  </ng-container>
+
+  <ng-container *ngIf="startingValues.name === 'NECROMANCER'">
+    <div *ngIf="equipment.armorCharUrl">
+      <img src={{equipment.armorCharUrl}} class="necNaked" loading="eager">
     </div>
-    <div *ngIf="equipment.armorType === 'heavy'">
-      <img src="../assets/photos/sorc/sorcHeavy.png" class="sorcNaked sorcHeavy" loading="eager">
+  </ng-container>
+
+  <ng-container *ngIf="startingValues.name === 'BARBARIAN'">
+    <div *ngIf="equipment.armorCharUrl">
+      <img src={{equipment.armorCharUrl}} class="barbNaked" loading="eager">
     </div>
   </ng-container>
 

@@ -27,6 +27,7 @@ export class EquipmentComponent {
     return this.serviceService.startingValues;
   }
 
+  charName = this.serviceService.startingValues.name.toLowerCase();
 
   showHelmet() {
     this.showHelmets = !this.showHelmets;
@@ -55,18 +56,21 @@ export class EquipmentComponent {
   }
 
   pickLightArmor() {
-    this.equipmentService.equipment.armorType = 'light'
-    this.equipmentService.equipment.armorUrl = '../assets/photos/armors/light.png'
+    /* this.equipmentService.equipment.armorType = 'light' */
+    this.equipmentService.equipment.armorUrl = '../assets/photos/armors/leatherArmor.png'
+    this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/light.png`
     this.showArmors = false;
     this.serviceService.startingValues.selectedCharacter = ''
   }
   pickMediumArmor() {
-    this.equipmentService.equipment.armorType = 'medium'
+    this.equipmentService.equipment.armorUrl = '../assets/photos/armors/ringMail.png'
+    this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/medium.png`
     this.showArmors = false;
     this.serviceService.startingValues.selectedCharacter = ''
   }
   pickHeavyArmor() {
-    this.equipmentService.equipment.armorType = 'heavy'
+    this.equipmentService.equipment.armorUrl = '../assets/photos/armors/fullPlateMail.png'
+    this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/heavy.png`
     this.showArmors = false;
     this.serviceService.startingValues.selectedCharacter = ''
   }

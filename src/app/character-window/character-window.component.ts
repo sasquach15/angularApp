@@ -74,8 +74,8 @@ export class CharacterWindowComponent {
       this.serviceService.startingValues.charNumber = "1";
     }
   }
-  pickAma() {
-    this.serviceService.startingValues.name = "AMAZON"
+  pickBarb() {
+    this.serviceService.startingValues.name = "BARBARIAN"
     this.serviceService.startingValues.charNumber = "6";
     if (this.activeClass !== '4') {
       this.activeClass = '4'

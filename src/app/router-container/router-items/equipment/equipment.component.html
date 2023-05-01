@@ -4,14 +4,7 @@
 
   <div (click)="showArmor()">
     <img src="../assets/photos/armorslot.png" class="armor">
-    <div *ngIf="equipment.armorType === 'light'"><img src="../assets/photos/armors/light.png" class="arm1"
-        loading="lazy">
-    </div>
-    <div *ngIf="equipment.armorType === 'medium'"><img src="../assets/photos/armors/ringMail.png" class="arm1"
-        loading="lazy">
-    </div>
-    <div *ngIf="equipment.armorType === 'heavy'"><img src="../assets/photos/armors/fullPlateMail.png" class="arm1"
-        loading="lazy">
+    <div *ngIf="equipment.armorUrl"><img src={{equipment.armorUrl}} class="arm1" loading="lazy">
     </div>
     <div class="hideArmor">CHOOSE ARMOR</div>
   </div>
@@ -19,16 +12,16 @@
 
   <div (click)="showHelmet()">
     <img src="../assets/photos/headslot.png" class="helmet">
-    <div *ngIf="equipment.helmPicked === 'tiara'"> <img src="../assets/photos/assa/assaHelmets/assatiaraSelect.png"
+    <div *ngIf="equipment.helmPicked === 'tiara'"> <img src="../assets/photos/assassin/assaHelmets/assatiaraSelect.png"
         class="helm1">
     </div>
-    <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assa/assaHelmets/assacrownSelect.png"
+    <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assassin/assaHelmets/assacrownSelect.png"
         class="helm1 helm2">
     </div>
-    <div *ngIf="equipment.helmPicked === 'horned'"> <img src="../assets/photos/assa/assaHelmets/assarogatySelect.png"
-        class="helm1 helm2">
+    <div *ngIf="equipment.helmPicked === 'horned'"> <img
+        src="../assets/photos/assassin/assaHelmets/assarogatySelect.png" class="helm1 helm2">
     </div>
-    <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assa/assaHelmets/assaboneSelect.png"
+    <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assassin/assaHelmets/assaboneSelect.png"
         class="helm1">
     </div>
 
@@ -43,16 +36,16 @@
 
   <div (click)="showWeapon()">
     <img src="../assets/photos/weaponslot.png" class="weapon">
-    <div *ngIf="equipment.weaponPicked === 'claws'"><img src="../assets/photos/assa/assaWeapons/assapazurySelect.png"
-        class="wep1">
+    <div *ngIf="equipment.weaponPicked === 'claws'"><img
+        src="../assets/photos/assassin/assaWeapons/assapazurySelect.png" class="wep1">
     </div>
-    <div *ngIf="equipment.weaponPicked === 'axe'"><img src="../assets/photos/assa/assaWeapons/assaaxeSelect.png"
+    <div *ngIf="equipment.weaponPicked === 'axe'"><img src="../assets/photos/assassin/assaWeapons/assaaxeSelect.png"
         class="wep1">
     </div>
     <div *ngIf="equipment.weaponPicked === 'cristalSword'"><img
-        src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png" class="wep1"></div>
-    <div *ngIf="equipment.weaponPicked === 'flail'"><img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png"
-        class="wep1">
+        src="../assets/photos/assassin/assaWeapons/assakrysztalowymieczSelect.png" class="wep1"></div>
+    <div *ngIf="equipment.weaponPicked === 'flail'"><img
+        src="../assets/photos/assassin/assaWeapons/assakorbaczSelect.png" class="wep1">
     </div>
     <div class="hideWeapon">CHOOSE WEAPON</div>
 
@@ -83,37 +76,37 @@
     <div class="armorSelect">
 
 
-      <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/light.png" class="armImg"
+      <div class="armdiv" (click)="pickLightArmor()"> <img src="../assets/photos/armors/leatherArmor.png" class="armImg"
           loading="eager">
-        <p>LEATHER SKIN</p>
+        <p>LIGHT</p>
       </div>
       <div class="armdiv" (click)="pickMediumArmor()"> <img src="../assets/photos/armors/ringMail.png" class="armImg"
           loading="eager">
-        <p>RING MAIL</p>
+        <p>MEDIUM</p>
       </div>
       <div class="armdiv" (click)="pickHeavyArmor()"> <img src="../assets/photos/armors/fullPlateMail.png"
           class="armImg" loading="eager">
-        <p>FULL PLATE </p>
+        <p>HEAVY</p>
       </div>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="showWeapons">
+  <ng-container *ngIf="showWeapons && startingValues.name === 'ASSASSIN' ">
     <div class="weaponSelect">
       <div class="weapdiv" (click)="pickClaws()">
-        <img src="../assets/photos/assa/assaWeapons/assapazurySelect.png" class="weapImg">
+        <img src="../assets/photos/assassin/assaWeapons/assapazurySelect.png" class="weapImg">
         <p class="pwep">CLAWS</p>
       </div>
       <div class="weapdiv" (click)="pickAxe()">
-        <img src="../assets/photos/assa/assaWeapons/assaaxeSelect.png" class="weapImg">
+        <img src="../assets/photos/assassin/assaWeapons/assaaxeSelect.png" class="weapImg">
         <p class="pwep">AXE</p>
       </div>
       <div class="weapdiv" (click)="pickCristalSword()">
-        <img src="../assets/photos/assa/assaWeapons/assakrysztalowymieczSelect.png" class="weapImg">
+        <img src="../assets/photos/assassin/assaWeapons/assakrysztalowymieczSelect.png" class="weapImg">
         <p class="pwep">CRISTAL SWORD</p>
       </div>
       <div class="weapdiv" (click)="pickFlail()">
-        <img src="../assets/photos/assa/assaWeapons/assakorbaczSelect.png" class="weapImg">
+        <img src="../assets/photos/assassin/assaWeapons/assakorbaczSelect.png" class="weapImg">
         <p class="pwep">FLAIL</p>
       </div>
     </div>
@@ -123,19 +116,19 @@
   <ng-container *ngIf="showHelmets">
     <div class="helmetSelect">
       <div class="helmdiv" (click)="pickTiara()">
-        <img src="../assets/photos/assa/assaHelmets/assatiaraSelect.png" class="helmImg">
+        <img src="../assets/photos/assassin/assaHelmets/assatiaraSelect.png" class="helmImg">
         <p class="pwep">TIARA</p>
       </div>
       <div class="helmdiv" (click)="pickBone()">
-        <img src="../assets/photos/assa/assaHelmets/assaboneSelect.png" class="helmImg">
+        <img src="../assets/photos/assassin/assaHelmets/assaboneSelect.png" class="helmImg">
         <p class="pwep">BONE HELM</p>
       </div>
       <div class="helmdiv" (click)="pickRogaty()">
-        <img src="../assets/photos/assa/assaHelmets/assarogatySelect.png" class="helmImg">
+        <img src="../assets/photos/assassin/assaHelmets/assarogatySelect.png" class="helmImg">
         <p class="pwep">HORNED HELM</p>
       </div>
       <div class="helmdiv" (click)="pickCrown()">
-        <img src="../assets/photos/assa/assaHelmets/assacrownSelect.png" class="helmImg">
+        <img src="../assets/photos/assassin/assaHelmets/assacrownSelect.png" class="helmImg">
         <p class="pwep">CROWN</p>
       </div>
     </div>

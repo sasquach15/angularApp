@@ -8,8 +8,10 @@ export class EquipmentServiceService {
   equipment = {
 
     weaponPicked: '0',
+    weaponSelectUrl: '',
     armorType: '0',
     armorUrl: '',
+    armorCharUrl: '',
     helmPicked: '0',
     shieldPicked: '0'
 
