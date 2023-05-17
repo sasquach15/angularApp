@@ -15,6 +15,8 @@ export class ServiceService {
         navTouched: "",
         navAnimation: '0',
         name: 'null',
+        enteredName: '',
+        isNameVisible: false,
 
 
     }

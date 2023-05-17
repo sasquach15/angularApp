@@ -1,4 +1,4 @@
-<div class="alert" *ngIf="alert.isVisible">
+<div class="alert" *ngIf="alert.isAlertVisible">
   <img src="../assets/photos/alert.png" class="alertImg">
   <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.name}} ?</p>
   <div (click)="createChar(); btnReset();">

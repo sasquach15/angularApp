@@ -42,12 +42,6 @@
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
     </div>
-    <!--  <div *ngIf="equipment.armorType === 'medium'">
-      <img src="../assets/photos/assa/assaMedium.png" class="assaNaked " loading="eager">
-    </div>
-    <div *ngIf="equipment.armorType === 'heavy'">
-      <img src="../assets/photos/assa/assaHeavy.png" class="assaNaked " loading="eager">
-    </div> -->
 
     <!-- assa armors -->
     <div *ngIf="equipment.weaponPicked === 'claws'"> <img src="../assets/photos/assassin/assaWeapons/assapazury.png"
@@ -98,4 +92,6 @@
     </div>
   </ng-container>
 
+
+  <p class="characterName" *ngIf="startingValues.isNameVisible"> {{ startingValues.enteredName | uppercase }} </p>
 </div>

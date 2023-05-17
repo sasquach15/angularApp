@@ -19,9 +19,10 @@ export class RouterContainerComponent {
   }
 
   get isVisible() {
-    return this.alert.isVisible;
+    return this.alert.isAlertVisible;
   }
   showAlert() {
-    this.alert.isVisible = true;
+    this.alert.isAlertVisible = true;
   }
+
 }

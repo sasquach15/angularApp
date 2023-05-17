@@ -1,14 +1,14 @@
 <ng-template [ngIf]="startingValues.navActive">
   <div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
-    <a [routerLink]="[startingValues.name | lowercase, 'statistics']"
+    <a [routerLink]="[startingValues.name | lowercase, 'statistics']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
-    <a [routerLink]="[startingValues.name | lowercase, 'skills']"
+    <a [routerLink]="[startingValues.name | lowercase, 'skills']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
-    <a [routerLink]="[startingValues.name | lowercase, 'equipment']"
+    <a [routerLink]="[startingValues.name | lowercase, 'equipment']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
-    <a [routerLink]="[startingValues.name | lowercase, 'story']"
+    <a [routerLink]="[startingValues.name | lowercase, 'story']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
-    <a [routerLink]="[startingValues.name | lowercase, 'story']"
+    <a [routerLink]="'login'" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">LOG IN</a>
   </div>
 </ng-template>

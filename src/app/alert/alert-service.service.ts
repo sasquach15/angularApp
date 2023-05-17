@@ -7,5 +7,5 @@ export class AlertServiceService {
 
   constructor() { }
 
-  isVisible = false;
+  isAlertVisible = false;
 }

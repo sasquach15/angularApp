@@ -49,18 +49,24 @@ a {
     opacity: 0;
     transition: .1s;
     box-shadow: 3px 3px 49px -16px rgba(255,255,255,1);
+    cursor: url('src\assets\photos\misc\cursor.png'), auto;
+    
 }
 
 a:hover {
-    transform: scale(1.02);
-    color: rgb(161, 0, 75);
-}
- .active {
     opacity: 1;
+} 
+ .active {
+    opacity: .45;
     
 } 
 .navAnimation {
     animation: navAnimation 3s forwards;
+}
+
+.active-link {
+    transform: scale(1.1);
+    opacity:1;
 }
 
 

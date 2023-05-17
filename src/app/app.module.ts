@@ -11,6 +11,7 @@ import { EquipmentComponent } from './router-container/router-items/equipment/eq
 import { Routes, RouterModule } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
 import { WelcomeComponent } from './router-container/welcome/welcome.component';
+import { LogInComponent } from './router-container/router-items/log-in/log-in.component';
 
 
 
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   { path: 'barbarian/skills', component: SkillsComponent },
   { path: 'barbarian/story', component: StoryComponent },
   { path: 'barbarian/statistics', component: StatisticsComponent },
-  { path: 'barbarian/equipment', component: EquipmentComponent }
+  { path: 'barbarian/equipment', component: EquipmentComponent },
+  { path: 'login', component: LogInComponent }
 ]
 
 @NgModule({
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     EquipmentComponent,
     AlertComponent,
     WelcomeComponent,
+    LogInComponent,
   ],
   imports: [
     BrowserModule,

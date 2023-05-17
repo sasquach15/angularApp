@@ -18,13 +18,6 @@ export class CharacterWindowComponent {
   get equipment() {
     return this.equipmentService.equipment;
   }
-  /* get itemPicked() {
-    return this.equipmentService.equipment.weaponPicked;
-  }
-  get armorType() {
-    return this.equipmentService.equipment.armorType;
-  } */
-
   get startingValues() {
     return this.serviceService.startingValues;
   }

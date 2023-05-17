@@ -1,1 +1,9 @@
-<h2> BEGIN YOUR ADVENTURE WITH {{startingValues.name}}</h2>
+<h2> CHOOS A NAME OF YOUR CHARACTER: </h2>
+
+<input class="nameInput" style="text-transform: uppercase" type="text" (input)="pickName($event)">
+
+<!-- <div class="btnSubmit" (click)="showName()"> -->
+<div class="btnSubmit" (click)="showName()">
+  <img src="{{imgSrc}}">
+  <p class="pSubmit" [ngClass]="enteredName.length >= 3 ? 'active' : '' ">SUBMIT</p>
+</div>

@@ -38,6 +38,7 @@ p {
  bottom: 40%;
  left:35.5%;
  width: 14%;
+ cursor: url('src\assets\photos\misc\cursor.png'), auto;
  /* transition: .05s */
 }
 .btnNoUnfocused, .btnNoFocused {

@@ -1,8 +1,55 @@
+
 h2 {
     position: relative;
     color: rgb(211, 211, 211);
-    font-size: 6vh;
+    font-size: 4vh;
     text-align: center;
-    top:43%;
+    top:30%;
     animation: fadeIn 2.5s;
  }
+
+.nameInput {
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 4vh;
+    height: 8%;
+    width: 40%;
+    top: 45%;
+    left: 30%;
+    background-color: transparent;
+    border: .5px solid rgb(102, 95, 95);
+    box-shadow: 0px 0px 66px 15px rgba(255, 255, 255, .8);
+}
+input:focus {
+    outline: none;
+    border:1px solid rgb(102, 95, 95);
+}
+
+ .btnSubmit {
+    position: relative;
+    top: 55%;
+    width: 16%;
+    height: 6%;
+    left: 42%;
+} 
+
+ img {
+    height: 100%;
+    width: 100%;
+} 
+.pSubmit {
+    position: relative;
+    text-align: center;
+    font-size: 2.2vh;
+    color: rgb(255, 255, 255, 0.6);
+    top: -85%;
+}
+
+p {
+    color: white;
+}
+.active {
+    color: rgb(255, 255, 255, 1);
+}
+
