@@ -1,1 +1,16 @@
-<p>log-in works!</p>
+<p> TEST VALUE </p>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+  <input class="input1" type="text" id="username" ngModel name="username">
+  <br>
+  <input class="input2" type="email" id="email" ngModel name="email">
+
+  <!-- <button type="submit" (click)="storeData(f.value)"> SUBMIT </button> -->
+
+  <button type="submit" (click)="sendModel()"> SUBMIT </button>
+
+  <button class="fetchBtn" (click)="onFetchUsername()"> FETCH </button>
+
+
+</form>

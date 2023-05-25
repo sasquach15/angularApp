@@ -1,6 +1,52 @@
-<ng-container [ngSwitch]="serviceService.startingValues.name">
+<h3> CHOOSE YOUR SKILLS </h3>
 
-  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} SKILLS</h3>
+<ng-container *ngIf="name === 'ASSASSIN'">
 
+  <div class="skillContainer">
+    <div class="skillDiv skill1" (click)="selectDiv()" [ngClass]="{ 'activeSkill' : isSelected}">
+      <img class="foto " [ngClass]="{ 'activeSkill' : isSelected}"
+        src="../assets/photos/assassin/skills/chargedBoltSentry.png">
+      <h4>SHOCK SENTRY</h4>
+      <p>A TRAP THAT EMITS CHARGED BOLTS AT ENEMIES THAT PASS NEAR</p>
+
+    </div>
+    <div class="hideSkill"> <img src="../assets/photos/assassin/skills/chargedBoltGif.gif" alt="" class="skillgif">
+    </div>
+    <div class="skillDiv skill2" (click)="selectDiv()" [ngClass]="{ 'activeSkill' : isSelected}"><img class="foto"
+        [ngClass]="{ 'activeSkill' : isSelected}" src="../assets/photos/assassin/skills/lightningSentry.png">
+      <h4>LIGHTNING SENTRY</h4>
+      <p>A TRAP THAT SHOOTS LIGHTNING TO SCORCH THE ENEMIES</p>
+    </div>
+
+    <div class="skillDiv skill3"><img class="foto" src="../assets/photos/assassin/skills/wakeOfFire.png">
+      <h4>WAKE OF FIRE</h4>
+      <p>A TRAP THAT EMITS WAVES OF FIRE</p>
+    </div>
+    <div class="skillDiv skill4"><img class="foto" src="../assets/photos/assassin/skills/mindBlast.png">
+      <h4>MIND BLAST</h4>
+      <p>USING POWER OF YOUR MIND TO STUN NEARBY ENEMIES</p>
+    </div>
+    <div class="skillDiv skill5"><img class="foto" src="../assets/photos/assassin/skills/shadowMaster.png">
+      <h4>SHADOW MASTER</h4>
+      <p>SUMMONS YOUR CLONE WHICH FIGHTS BY YOUR SIDE</p>
+    </div>
+    <div class="skillDiv skill6"><img class="foto" src="../assets/photos/assassin/skills/bladeShield.png">
+      <h4>BLADE SHIELD</h4>
+      <p>SPINNING BLADES SLICE ENEMIES WHO COME TOO CLOSE</p>
+    </div>
+    <div class="skillDiv skill7"><img class="foto" src="../assets/photos/assassin/skills/dragonKick.png">
+      <h4>DRAGON KICK</h4>
+      <p>KICK YOUR ENEMIES OUT OF YOUR WAY</p>
+    </div>
+    <div class="skillDiv skill8"><img class="foto" src="../assets/photos/assassin/skills/dragonTail.png">
+      <h4>DRAGON TAIL</h4>
+      <p>KNOCK BACK ENEMIES WITH EXPLOSIVE KICK</p>
+    </div>
+    <div class="skillDiv skill9"><img class="foto" src="../assets/photos/assassin/skills/dragonFlight.png">
+      <h4>DRAGON FLIGHT</h4>
+      <p>TELEPORT TO ENEMIES AND DESTROY THEM WITH POWERFUL KICK</p>
+    </div>
+
+  </div>
 
 </ng-container>

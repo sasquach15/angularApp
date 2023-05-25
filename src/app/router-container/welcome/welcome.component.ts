@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AlertServiceService } from 'src/app/alert/alert-service.service';
 import { ServiceService } from 'src/app/service-service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-welcome',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent {
 
-  constructor(private serviceService: ServiceService, private alert: AlertServiceService, private appRoutes: Router) { }
+  constructor(private serviceService: ServiceService, private alert: AlertServiceService, private appRoutes: Router, private http: HttpClient) { }
 
   get enteredName() {
     return this.serviceService.startingValues.enteredName;
@@ -22,12 +24,11 @@ export class WelcomeComponent {
     return this.alert.isAlertVisible;
   }
 
-
   imgSrc = '../assets/photos/misc/btnEmptyDisabled.png';
 
 
   pickName(event: Event) {
-    console.log(event)
+    // console.log(event)
     this.serviceService.startingValues.enteredName = (<HTMLInputElement>event.target).value;
 
 
@@ -50,4 +51,11 @@ export class WelcomeComponent {
     }
   }
 
+  /*   storeName(nameData: string | number) {
+      console.log(nameData);
+      this.http
+        .post('https://serv-test-fb374-default-rtdb.europe-west1.firebasedatabase.app/names.json', nameData).subscribe(responseData => {
+          console.log(responseData)
+        });
+    } */
 }

@@ -12,6 +12,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
 import { WelcomeComponent } from './router-container/welcome/welcome.component';
 import { LogInComponent } from './router-container/router-items/log-in/log-in.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -61,7 +64,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
