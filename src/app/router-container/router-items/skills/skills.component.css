@@ -13,6 +13,15 @@ h3{
     text-align: center;
     top: 60%;
     width:100%;
+}
+
+h5 {
+    position: absolute;
+    text-align: center;
+    font-size: 3vh;
+    bottom: 5%;
+    color: rgb(211, 211, 211);
+    width: 100%;
 
 }
 h4 {
@@ -39,18 +48,35 @@ h4 {
    }
      .hideSkill{
     position: absolute;
-    width: 70%;
-    height: 50%;
-    left: -60%;
+    width: 50%;
+    height: 40%;
+    left: -40%;
     top: 0;
     transition: .5s;
     display: none;
-    border-radius: 9px;;
     z-index: 999;
+    /* animation: giffade 5.3s forwards; */
    }  
+
+   @keyframes giffade {
+0% {
+    opacity: 0
+}
+15% {
+    opacity: 1
+}
+85% {
+    opacity: 1
+}
+100%{ 
+    opacity: 0
+}
+   }
+   
    .skillgif {
     width:100%;
     height: 100%;
+    border-radius: 15px;;
    }
 
    .skillDiv {
@@ -77,8 +103,9 @@ h4 {
    }
 
    .activeSkill {
-    box-shadow: 0px 0px 66px 15px rgba(255, 255, 255, .8);
-    filter: brightness(120%);
+    box-shadow: 0px 0px 66px 25px rgba(255, 255, 255, .8);
+    filter: brightness(150%);
+    transform: scale(1.07);
    }
    
 
