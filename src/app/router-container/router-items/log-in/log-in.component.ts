@@ -22,12 +22,18 @@ export class LogInComponent {
     console.log(form)
   }
 
+  get skillsList() {
+    return this.serviceService.startingValues.chosenSkills;
+  }
+
 
   sendModel() {
     const char: Character = {
       name: this.serviceService.startingValues.enteredName,
       armor: this.equipmentSevice.equipment.armorType,
-      image: `../assets/photos/${this.serviceService.startingValues.name}/armors/heavy.png`
+      image: `../assets/photos/${this.serviceService.startingValues.name}/armors/heavy.png`,
+      skillsList: this.skillsList.map(skill => skill + 1)
+
 
     }
     this.http.post('https://serv-test-fb374-default-rtdb.europe-west1.firebasedatabase.app/users.json', char).subscribe(response => {

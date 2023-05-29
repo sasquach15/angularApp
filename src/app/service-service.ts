@@ -17,6 +17,7 @@ export class ServiceService {
         name: 'null',
         enteredName: '',
         isNameVisible: false,
+        chosenSkills: []
 
 
     }

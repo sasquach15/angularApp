@@ -1,219 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service-service';
+import { skillData } from './skills-database';
+
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit {
+
+  characterName: string = this.serviceService.startingValues.name
+
+  ngOnInit() {
+    // ...
+    // Pobierz wartość characterName z odpowiedniego miejsca i przypisz do zmiennej
+    this.characterName = this.serviceService.startingValues.name;
+    // ...
+  }
+
 
   constructor(public serviceService: ServiceService) { }
 
-  selectedSkill1: boolean = false;
-  selectedSkill2: boolean = false;
-  selectedSkill3: boolean = false;
-  selectedSkill4: boolean = false;
-  selectedSkill5: boolean = false;
-  selectedSkill6: boolean = false;
-  selectedSkill7: boolean = false;
-  selectedSkill8: boolean = false;
-  selectedSkill9: boolean = false;
+  selectedSkills: boolean[] = [false, false, false, false, false, false, false, false, false]
+
+  skills = skillData;
+
   skillsLeft: number = 3
+  noSkillsLeft: boolean = false;
 
-
-
-
+  chosenSkill: number[] = this.serviceService.startingValues.chosenSkills;
 
   get name() {
     return this.serviceService.startingValues.name;
   }
 
+  selectSkill(index: number) {
+    this.selectedSkills[index] = !this.selectedSkills[index];
 
-  selectSkill() {
-    this.selectedSkill1 = !this.selectedSkill1;
-
-
-    if (this.selectedSkill1 === true && this.skillsLeft === 0) {
-      console.log("No more points availabe!")
+    const skillIndex = this.chosenSkill.indexOf(index)
+    if (skillIndex !== -1) {
+      this.chosenSkill.splice(skillIndex, 1)
+    } else if (this.skillsLeft > 0) {
+      this.chosenSkill.push(index)
     }
 
+    if (this.selectedSkills[index] === true && this.skillsLeft === 0) {
+      console.log("No more points available!")
+      this.noSkillsLeft = true
+      setTimeout(() => {
+        this.noSkillsLeft = false;
+      }, 2000);
+      console.log(this.noSkillsLeft);
+    }
     if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
 
-      if (this.selectedSkill1 === false && this.skillsLeft < 3) {
+      if (this.selectedSkills[index] === false && this.skillsLeft < 3) {
         this.skillsLeft++;
+        this.noSkillsLeft = false;
       }
-      if (this.selectedSkill1 === true && this.skillsLeft > 0) {
+      if (this.selectedSkills[index] === true && this.skillsLeft > 0) {
         this.skillsLeft--;
+
       } else {
-        this.selectedSkill1 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
-
-  }
-  selectSkill2() {
-
-
-    this.selectedSkill2 = !this.selectedSkill2;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill2 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill2 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill2 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill2 = false;
-      }
-
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill3() {
-
-    this.selectedSkill3 = !this.selectedSkill3;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill3 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill3 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill3 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill3 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill4() {
-
-    this.selectedSkill4 = !this.selectedSkill4;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill4 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill4 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill4 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill4 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill5() {
-
-    this.selectedSkill5 = !this.selectedSkill5;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill5 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill5 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill5 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill5 = false;
+        this.selectedSkills[index] = false;
       }
     }
-    console.log(this.skillsLeft)
-  }
-  selectSkill6() {
-
-    this.selectedSkill6 = !this.selectedSkill6;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill6 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill6 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill6 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill6 = false;
-      }
+    console.log(this.chosenSkill)
 
 
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill7() {
-
-    this.selectedSkill7 = !this.selectedSkill7;
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill7 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill7 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill7 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill7 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill8() {
-
-    this.selectedSkill8 = !this.selectedSkill8;
-
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill8 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-      if (this.selectedSkill8 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill8 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill8 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
-  }
-  selectSkill9() {
-
-    this.selectedSkill9 = !this.selectedSkill9;
-
-    if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
-      if (this.selectedSkill9 === true && this.skillsLeft === 0) {
-        console.log("No more points availabe!")
-      }
-
-      if (this.selectedSkill9 === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
-      }
-      if (this.selectedSkill9 === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
-      } else {
-        this.selectedSkill9 = false;
-      }
-
-
-    }
-    console.log(this.skillsLeft)
   }
 
 }
