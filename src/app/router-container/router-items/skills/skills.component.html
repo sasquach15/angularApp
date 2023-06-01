@@ -1,18 +1,4 @@
 <h3> CHOOSE YOUR SKILLS </h3>
-
-
-<!--   <div class="skillContainer">
-
-
-    <div class="skillDiv skill1" (click)="selectSkill(i)" *ngFor="let skill of skills, let i = index;">
-      <img class="foto " [ngClass]="selectedSkills[i]  ? 'activeSkill' : ''" src={{skill.img}}>
-      <h4> {{skill.title}}</h4>
-      <p class="description">{{skill.description}}</p>
-
-    </div>
-
-  </div> -->
-
 <div class="skillContainer">
   <div class="skillDiv skill1" (click)="selectSkill(i)" *ngFor="let skill of skills[characterName], let i = index;">
     <img class="foto" [ngClass]="selectedSkills[i] ? 'activeSkill' : ''" [src]="skill.img">
@@ -20,11 +6,5 @@
     <p class="description">{{ skill.description }}</p>
   </div>
 </div>
-
-
-
-
 <p class="skillAlert" *ngIf="noSkillsLeft">NO MORE SKILL POINTS REMAINING !</p>
-
-
 <h5>SKILL POINTS REMAINING: {{skillsLeft}}<h5>

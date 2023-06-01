@@ -3,7 +3,7 @@ h3{
     color: rgb(211, 211, 211);
     font-size: 3vh;
     text-align: center;
-    top:10%;
+    top:3%;
     animation: fadeIn 1s;
    }
  .armor, .arm1, .gloves, .boots, .helmet, .weapon, .wep1,  .shield, .helm1, .shield1 {

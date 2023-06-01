@@ -1,6 +1,11 @@
-<ng-container [ngSwitch]="serviceService.startingValues.name">
+<h3>CHARACTER STATISTICS</h3>
 
-  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} STATISTICS</h3>
+<div class="wrapper">
+  <div class="stat-row" *ngFor="let stat of stats">
+    <div class="stat-name">{{ stat.name }}</div>
+    <div class="stat-value">{{ stat.value }}</div>
+    <div class="stat-button" (click)="increase(stat)" [ngClass]="stat.statPoints === 0 ? 'btnOff' : ''"></div>
+  </div>
+</div>
 
-
-</ng-container>
+<h3 class="pointsLeft">STAT POINTS LEFT: {{ getTotalStatPoints() }}</h3>

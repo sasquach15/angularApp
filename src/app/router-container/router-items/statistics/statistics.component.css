@@ -1,4 +1,4 @@
-h3{
+  h2{
     position: relative;
     color: rgb(211, 211, 211);
     font-size: 6vh;
@@ -6,3 +6,70 @@ h3{
     top:20%;
     animation: fadeIn 1s;
    }
+
+   h3{
+    position: relative;
+    color: rgb(211, 211, 211);
+    font-size: 3vh;
+    text-align: center;
+    top:3%;
+    animation: fadeIn 1s;
+   }
+ 
+
+
+   .wrapper {
+    margin-top: 10%;
+   }
+
+
+   .stat-row {
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    /* width: 50%;
+    height: 10%;; */
+    width: 50%; /* Zmieniono szerokość na 100% */
+    height: auto; /* Zmieniono wysokość na auto */
+    margin-top: 1%;
+  }
+  
+  .stat-name {
+    flex: 1;
+    font-size: 2.5vw;
+    /* font-weight: bold; */
+    color: rgb(211, 211, 211);
+      font-size: 3vh;
+
+
+  }
+  
+  .stat-value {
+    margin-right: 10px;
+    color: rgb(211, 211, 211);
+      font-size: 2.5vw;
+      line-height: normal;
+  }
+  
+  .stat-button {
+    display: inline;
+    background-image: url('src\assets\photos\addStatBtn.png');
+    background-size: cover;
+    width: 3.5vw;
+  height: 3.5vw;
+ 
+    margin-left: 10%;
+   
+  }
+
+  .stat-button:active {
+    background-image:  url('src\assets\photos\addStatBtnFocus.png');
+  }
+
+  .btnOff {
+    filter: grayscale(75%);
+  }
+  .pointsLeft {
+    text-align: left;
+    margin-top: 5%;
+  }

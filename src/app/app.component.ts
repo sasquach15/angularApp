@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataStorageService } from './data-storage.service';
+
 
 
 @Component({
@@ -8,10 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private appRoutes: Router) { }
+  constructor(private appRoutes: Router, private statService: DataStorageService) { }
   title = 'cvApp';
 
   ngOnInit(): void {
-    this.appRoutes.navigate([''])
+    this.appRoutes.navigate(['']);
+
   }
 }

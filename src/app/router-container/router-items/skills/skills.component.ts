@@ -13,16 +13,11 @@ export class SkillsComponent implements OnInit {
   characterName: string = this.serviceService.startingValues.name
 
   ngOnInit() {
-    // ...
-    // Pobierz wartość characterName z odpowiedniego miejsca i przypisz do zmiennej
     this.characterName = this.serviceService.startingValues.name;
-    // ...
   }
 
 
   constructor(public serviceService: ServiceService) { }
-
-  selectedSkills: boolean[] = [false, false, false, false, false, false, false, false, false]
 
   skills = skillData;
 
@@ -31,19 +26,21 @@ export class SkillsComponent implements OnInit {
 
   chosenSkill: number[] = this.serviceService.startingValues.chosenSkills;
 
-  get name() {
-    return this.serviceService.startingValues.name;
-  }
+
+  selectedSkills: boolean[] = Array(9).fill(false);
+
 
   selectSkill(index: number) {
-    this.selectedSkills[index] = !this.selectedSkills[index];
+    const isSelected = this.selectedSkills[index];
+    const skillIndex = this.chosenSkill.indexOf(index);
 
-    const skillIndex = this.chosenSkill.indexOf(index)
-    if (skillIndex !== -1) {
-      this.chosenSkill.splice(skillIndex, 1)
-    } else if (this.skillsLeft > 0) {
-      this.chosenSkill.push(index)
+    if (isSelected && skillIndex !== -1) {
+      this.chosenSkill.splice(skillIndex, 1);
+    } else if (!isSelected && this.skillsLeft > 0) {
+      this.chosenSkill.push(index);
     }
+
+    this.selectedSkills[index] = !isSelected;
 
     if (this.selectedSkills[index] === true && this.skillsLeft === 0) {
       console.log("No more points available!")
