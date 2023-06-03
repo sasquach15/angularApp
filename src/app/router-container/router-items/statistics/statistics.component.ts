@@ -24,11 +24,16 @@ export class StatisticsComponent implements OnInit {
   }
 
   increase(stat: Stat): void {
-    if (this.statPoints >= 0)
-      this.statService.increase(stat);
+    if (this.getTotalStatPoints() > 0) {
+      stat.value++;
+      stat.statPoints--;
+      this.statService.selectedStats.push(stat);
+      console.log(this.statService.selectedStats)
+    }
   }
 
   getTotalStatPoints(): number {
-    return this.stats.reduce((total, stat) => total + stat.statPoints - 15, 0);
+    return this.stats.reduce((total, stat) => total + stat.statPoints - 16, 0);
+
   }
 }

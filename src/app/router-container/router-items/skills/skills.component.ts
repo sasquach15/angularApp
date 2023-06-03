@@ -43,7 +43,6 @@ export class SkillsComponent implements OnInit {
     this.selectedSkills[index] = !isSelected;
 
     if (this.selectedSkills[index] === true && this.skillsLeft === 0) {
-      console.log("No more points available!")
       this.noSkillsLeft = true
       setTimeout(() => {
         this.noSkillsLeft = false;

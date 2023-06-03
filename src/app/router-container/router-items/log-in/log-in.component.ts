@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Character } from 'src/app/character.model';
 import { ServiceService } from 'src/app/service-service';
 import { EquipmentServiceService } from '../equipment/equipment.component';
+import { DataStorageService } from 'src/app/data-storage.service';
 
 
 
@@ -12,9 +13,13 @@ import { EquipmentServiceService } from '../equipment/equipment.component';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-export class LogInComponent {
+export class LogInComponent implements OnInit {
 
-  constructor(private http: HttpClient, private serviceService: ServiceService, private equipmentSevice: EquipmentServiceService) { }
+  ngOnInit(): void {
+    this.statService.selectedStats = this.statService.getSelectedStats();
+  }
+
+  constructor(private http: HttpClient, private serviceService: ServiceService, private equipmentSevice: EquipmentServiceService, private statService: DataStorageService) { }
 
 
 
@@ -28,13 +33,13 @@ export class LogInComponent {
 
 
   sendModel() {
+    const stats = this.statService.getStats();
     const char: Character = {
       name: this.serviceService.startingValues.enteredName,
       armor: this.equipmentSevice.equipment.armorType,
       image: `../assets/photos/${this.serviceService.startingValues.name}/armors/heavy.png`,
-      skillsList: this.skillsList.map(skill => skill + 1)
-
-
+      skillsList: this.skillsList.map(skill => skill + 1),
+      statList: stats.map(stat => stat.value),
     }
     this.http.post('https://serv-test-fb374-default-rtdb.europe-west1.firebasedatabase.app/users.json', char).subscribe(response => {
       console.log('Sukces!', response)

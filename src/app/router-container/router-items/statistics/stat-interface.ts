@@ -1,5 +1,5 @@
-interface Stat {
+type Stat = {
     name: string;
     value: number;
-    points: number;
+    statPoints: number;
 }

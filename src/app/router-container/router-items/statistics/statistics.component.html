@@ -4,8 +4,8 @@
   <div class="stat-row" *ngFor="let stat of stats">
     <div class="stat-name">{{ stat.name }}</div>
     <div class="stat-value">{{ stat.value }}</div>
-    <div class="stat-button" (click)="increase(stat)" [ngClass]="stat.statPoints === 0 ? 'btnOff' : ''"></div>
+    <div class="stat-button" (click)="increase(stat)" [ngClass]="getTotalStatPoints() === 0 ? 'btnOff' : ''"></div>
   </div>
 </div>
 
-<h3 class="pointsLeft">STAT POINTS LEFT: {{ getTotalStatPoints() }}</h3>
+<h3 class="pointsLeft">STAT POINTS LEFT: {{ getTotalStatPoints() >= 0 ? getTotalStatPoints() : 0 }}</h3>
