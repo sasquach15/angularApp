@@ -71,5 +71,47 @@
   }
   .pointsLeft {
     text-align: left;
-    margin-top: 5%;
+    margin-top: 10%;
+  }
+  .pointsContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .resetBtn {
+    display: flex;
+  align-items: center;
+    width: 5%;
+    height: 5%;
+   margin-left: 5%;
+   margin-top: 8.5%;
+  }
+  .resetBtn img {
+    
+    width:100%;
+    height: 100%;
+  }
+
+  .resetBtn:hover {
+    filter: brightness(150%);
+    transform: scale(1.05);
+  }
+
+  .resetBtn:hover::before {
+    content: "RESET STATS";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: fit-content;
+    padding: 0.1rem .5rem;
+    display: flex;
+    left: 50%;
+  transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh;
+    color: #ffffff;
+    background-color: #000000;
+    white-space: nowrap;
+    
   }

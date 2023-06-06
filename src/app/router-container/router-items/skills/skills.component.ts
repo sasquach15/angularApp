@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service-service';
 import { skillData } from './skills-database';
+import { SkillSelectionService } from './skill-selection.service';
+
 
 
 @Component({
@@ -10,6 +12,13 @@ import { skillData } from './skills-database';
 })
 export class SkillsComponent implements OnInit {
 
+  get selectedSkills() {
+    return this.activeSkillService.selectedSkills;
+  }
+  get skillsLeft() {
+    return this.activeSkillService.skillsLeft
+  }
+
   characterName: string = this.serviceService.startingValues.name
 
   ngOnInit() {
@@ -17,21 +26,21 @@ export class SkillsComponent implements OnInit {
   }
 
 
-  constructor(public serviceService: ServiceService) { }
+  constructor(public serviceService: ServiceService, private activeSkillService: SkillSelectionService) { }
 
   skills = skillData;
 
-  skillsLeft: number = 3
+
   noSkillsLeft: boolean = false;
 
   chosenSkill: number[] = this.serviceService.startingValues.chosenSkills;
 
 
-  selectedSkills: boolean[] = Array(9).fill(false);
+
 
 
   selectSkill(index: number) {
-    const isSelected = this.selectedSkills[index];
+    const isSelected = this.activeSkillService.selectedSkills[index];
     const skillIndex = this.chosenSkill.indexOf(index);
 
     if (isSelected && skillIndex !== -1) {
@@ -40,9 +49,9 @@ export class SkillsComponent implements OnInit {
       this.chosenSkill.push(index);
     }
 
-    this.selectedSkills[index] = !isSelected;
+    this.activeSkillService.selectedSkills[index] = !isSelected;
 
-    if (this.selectedSkills[index] === true && this.skillsLeft === 0) {
+    if (this.activeSkillService.selectedSkills[index] === true && this.skillsLeft === 0) {
       this.noSkillsLeft = true
       setTimeout(() => {
         this.noSkillsLeft = false;
@@ -51,15 +60,15 @@ export class SkillsComponent implements OnInit {
     }
     if (this.skillsLeft >= 0 && this.skillsLeft <= 3) {
 
-      if (this.selectedSkills[index] === false && this.skillsLeft < 3) {
-        this.skillsLeft++;
+      if (this.activeSkillService.selectedSkills[index] === false && this.skillsLeft < 3) {
+        this.activeSkillService.skillsLeft++;
         this.noSkillsLeft = false;
       }
-      if (this.selectedSkills[index] === true && this.skillsLeft > 0) {
-        this.skillsLeft--;
+      if (this.activeSkillService.selectedSkills[index] === true && this.skillsLeft > 0) {
+        this.activeSkillService.skillsLeft--;
 
       } else {
-        this.selectedSkills[index] = false;
+        this.activeSkillService.selectedSkills[index] = false;
       }
     }
     console.log(this.chosenSkill)

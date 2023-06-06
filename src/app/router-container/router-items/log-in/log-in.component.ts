@@ -13,12 +13,12 @@ import { DataStorageService } from 'src/app/data-storage.service';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-export class LogInComponent implements OnInit {
+export class LogInComponent {
 
-  ngOnInit(): void {
-    this.statService.selectedStats = this.statService.getSelectedStats();
+  /* ngOnInit(): void {
+     this.statService.selectedStats = this.statService.getSelectedStats(); 
   }
-
+ */
   constructor(private http: HttpClient, private serviceService: ServiceService, private equipmentSevice: EquipmentServiceService, private statService: DataStorageService) { }
 
 
@@ -39,7 +39,7 @@ export class LogInComponent implements OnInit {
       armor: this.equipmentSevice.equipment.armorType,
       image: `../assets/photos/${this.serviceService.startingValues.name}/armors/heavy.png`,
       skillsList: this.skillsList.map(skill => skill + 1),
-      statList: stats.map(stat => stat.value),
+      statList: this.statService.selectedStats
     }
     this.http.post('https://serv-test-fb374-default-rtdb.europe-west1.firebasedatabase.app/users.json', char).subscribe(response => {
       console.log('Sukces!', response)

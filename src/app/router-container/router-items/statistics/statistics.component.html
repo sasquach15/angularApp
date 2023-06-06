@@ -4,8 +4,14 @@
   <div class="stat-row" *ngFor="let stat of stats">
     <div class="stat-name">{{ stat.name }}</div>
     <div class="stat-value">{{ stat.value }}</div>
-    <div class="stat-button" (click)="increase(stat)" [ngClass]="getTotalStatPoints() === 0 ? 'btnOff' : ''"></div>
+    <div class="stat-button" (click)="increase(stat)" [ngClass]="initialStatPoints === 0 ? 'btnOff' : ''"></div>
   </div>
 </div>
 
-<h3 class="pointsLeft">STAT POINTS LEFT: {{ getTotalStatPoints() >= 0 ? getTotalStatPoints() : 0 }}</h3>
+
+<div class="pointsContainer">
+  <h3 class="pointsLeft">STAT POINTS LEFT: {{ initialStatPoints >= 0 ? initialStatPoints : 0 }}</h3>
+  <div class="resetBtn" (click)="resetStats()">
+    <img src="../assets/photos/btnReset.png" alt="reset button">
+  </div>
+</div>
