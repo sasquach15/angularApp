@@ -36,10 +36,10 @@
   
   .stat-name {
     flex: 1;
-    font-size: 2.5vw;
+    font-size: 1.4vw;
     /* font-weight: bold; */
     color: rgb(211, 211, 211);
-      font-size: 3vh;
+    
 
 
   }
@@ -47,7 +47,7 @@
   .stat-value {
     margin-right: 10px;
     color: rgb(211, 211, 211);
-      font-size: 2.5vw;
+      font-size: 1.8vw;
       line-height: normal;
   }
   
@@ -55,8 +55,8 @@
     display: inline;
     background-image: url('src\assets\photos\addStatBtn.png');
     background-size: cover;
-    width: 3.5vw;
-  height: 3.5vw;
+    width: 2.5vw;
+  height: 2.5vw;
  
     margin-left: 10%;
    
@@ -72,6 +72,7 @@
   .pointsLeft {
     text-align: left;
     margin-top: 10%;
+    width: 40%;
   }
   .pointsContainer {
     display: flex;
@@ -80,7 +81,7 @@
   
   .resetBtn {
     display: flex;
-  align-items: center;
+    align-items: center;
     width: 5%;
     height: 5%;
    margin-left: 5%;

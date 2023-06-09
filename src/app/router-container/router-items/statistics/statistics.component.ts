@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from 'src/app/data-storage.service';
 import { ServiceService } from 'src/app/service-service';
+import { Stat } from './stat-interface';
 
-interface Stat {
+/* interface Stat {
   name: string;
   value: number;
   statPoints: number;
-}
+} */
 
 @Component({
   selector: 'app-statistics',

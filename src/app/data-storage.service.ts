@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface Stat {
-  name: string;
-  value: number;
-  statPoints: number;
-}
+import { Stat } from './router-container/router-items/statistics/stat-interface';
 
 const DEFAULT_STAT_POINTS = 20;
 

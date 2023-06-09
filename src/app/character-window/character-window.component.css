@@ -98,6 +98,9 @@ background-color: transparent;
     width: 45%;
     height: 80%;
 }
+.assaNaked {
+    top: 8%
+}
 
 .nec {
     width: 150%;
@@ -217,7 +220,7 @@ background-color: transparent;
     height: 10%;
 }
 .assaBone {
-    top: 6%;
+    top: 5.8%;
     left:40.4%;
     width: 21%;
     height: 21%;
