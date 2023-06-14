@@ -1,6 +1,18 @@
-<ng-container [ngSwitch]="serviceService.startingValues.name">
-
-  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} STORY</h3>
+<h2>CHARACTER STORY</h2>
 
 
-</ng-container>
+
+<div>
+  <h3 class="story-intro" [ngClass]="!showOptions ? 'fadeAnimation' : ''">{{ storyIntro }}</h3>
+  <div *ngIf="showOptions">
+    <ul class="options-list">
+      <li *ngFor="let option of options; let i = index" (click)="selectOption(i)">
+        <span class="option-dot">&#8226;</span>{{ option }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="showStory">
+    <h3>{{ selectedOption }}</h3>
+    <p>{{ storyText }}</p>
+  </div>
+</div>
