@@ -2,17 +2,14 @@
 
 
 
-<div>
-  <h3 class="story-intro" [ngClass]="!showOptions ? 'fadeAnimation' : ''">{{ storyIntro }}</h3>
+<div class="storyText">
+  <p> {{currentStory }}</p>
+
   <div *ngIf="showOptions">
-    <ul class="options-list">
-      <li *ngFor="let option of options; let i = index" (click)="selectOption(i)">
-        <span class="option-dot">&#8226;</span>{{ option }}
+    <ul>
+      <li *ngFor="let option of options" (click)="selectOption(option)">
+        {{ option.text }}
       </li>
     </ul>
-  </div>
-  <div *ngIf="showStory">
-    <h3>{{ selectedOption }}</h3>
-    <p>{{ storyText }}</p>
   </div>
 </div>

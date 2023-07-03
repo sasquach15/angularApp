@@ -8,46 +8,48 @@ h2{
    }
 
 
-   h3, p , li{
+.storyText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+   p, li{
     position: relative;
     color: rgb(211, 211, 211);
-    font-size: 2.1vh;
+    font-size: 2.11vh;
     text-align: center;
-    top:3%;
+    top:8%;
     animation: fadeIn 1s;
    }
+   ul {
+    margin-top: 10%;
+   }
+   li {
+    width: 55%;
+    margin-left: 25%;
+   }
 
-h3 {
-    margin-top: 8%;
-}
-li:hover {
+  .storyText > div {
+    margin-bottom: 10%;
+  }
+  .storyText ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .storyText li::before {
+    content: "•";
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em;
+  }
+  li:hover {
     box-shadow: 0px 0px 33px 12px rgba(255, 255, 255, .8);
   transform: scale(1.05);
   border-radius: 10px;
 }
-.story-intro {
-    line-height: 1.6;
-    animation: fadeIn 1s;
-}
-
-.fadeAnimation {
-    animation: fadeIn 1s;
-}
-   .options-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20%;
-  }
-  
-  .options-list li {
-    margin-top: 1%;  
-    width: 50%;
-    text-align: center;
-  }
-  
-  .option-dot {
-    display: inline-block;
-    margin-right: 5px;
-  }
