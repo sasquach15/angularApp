@@ -9,12 +9,14 @@ export class Character {
     public image: string;
     public skillsList: number[]
     public statList: Stat[];
+    public story: string
 
-    constructor(name: string, armor: string, img: string, skills: number[], stats: Stat[]) {
+    constructor(name: string, armor: string, img: string, skills: number[], stats: Stat[], story: string) {
         this.name = name;
         this.armor = armor;
         this.image = img;
         this.skillsList = skills;
         this.statList = stats;
+        this.story = story;
     }
 }

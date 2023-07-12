@@ -9,6 +9,7 @@
     <a [routerLink]="[startingValues.name | lowercase, 'story']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
     <a [routerLink]="'login'" routerLinkActive="active-link"
-      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">LOG IN</a>
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">
+      {{ authService.isAuthenticated ? 'LOG OUT' : 'LOG IN'}}</a>
   </div>
 </ng-template>

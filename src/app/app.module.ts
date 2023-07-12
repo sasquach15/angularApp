@@ -14,6 +14,7 @@ import { WelcomeComponent } from './router-container/welcome/welcome.component';
 import { LogInComponent } from './router-container/router-items/log-in/log-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 
 
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
     AlertComponent,
     WelcomeComponent,
     LogInComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

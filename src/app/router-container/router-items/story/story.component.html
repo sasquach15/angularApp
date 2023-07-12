@@ -3,11 +3,11 @@
 
 
 <div class="storyText">
-  <p> {{currentStory }}</p>
+  <p> {{storyService.currentStory }}</p>
 
-  <div *ngIf="showOptions">
+  <div *ngIf="storyService.showOptions">
     <ul>
-      <li *ngFor="let option of options" (click)="selectOption(option)">
+      <li *ngFor="let option of storyService.options" (click)="selectOption(option)">
         {{ option.text }}
       </li>
     </ul>
