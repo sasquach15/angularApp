@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertServiceService } from '../alert/alert-service.service';
-import { ServiceService } from '../service-service';
+import { DataStorageService } from '../data-storage.service';
 
 
 
@@ -12,10 +12,10 @@ import { ServiceService } from '../service-service';
 })
 export class RouterContainerComponent {
 
-  constructor(private serviceService: ServiceService, public alert: AlertServiceService) { }
+  constructor(private dataStorageService: DataStorageService, public alert: AlertServiceService) { }
 
   get startingValues() {
-    return this.serviceService.startingValues;
+    return this.dataStorageService.startingValues;
   }
 
   get isVisible() {

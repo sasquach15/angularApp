@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ServiceService } from '../service-service';
+import { DataStorageService } from '../data-storage.service';
 import { AuthService } from '../router-container/router-items/log-in/auth.service';
 import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-navigation',
@@ -15,7 +16,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private serviceService: ServiceService, public authService: AuthService) { }
+  constructor(private dataStorageService: DataStorageService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe(user => {
@@ -26,7 +27,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
 
   get startingValues() {
-    return this.serviceService.startingValues;
+    return this.dataStorageService.startingValues;
   }
 
   ngOnDestroy(): void {

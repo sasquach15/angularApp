@@ -8,6 +8,24 @@ const DEFAULT_STAT_POINTS = 20;
 })
 export class DataStorageService {
 
+  startingValues = {
+    chooseChar: false,
+    welcomeMessage: true,
+    charNumber: "0",
+    navActive: "",
+    selectedCharacter: "0",
+    navOpacity: "0",
+    navTouched: "",
+    navAnimation: '0',
+    name: 'null',
+    enteredName: '',
+    isNameVisible: false,
+    chosenSkills: []
+  }
+
+
+
+  // STATISTICS
 
   selectedStats: Stat[] = [];
   initialStatPoints: number = DEFAULT_STAT_POINTS;
@@ -52,6 +70,7 @@ export class DataStorageService {
   restoreInitialValues(): void {
     this.selectedStats = this.initialStats.map(stat => ({ ...stat }));
   }
+
 }
 
 

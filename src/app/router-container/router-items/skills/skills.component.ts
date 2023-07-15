@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service-service';
+import { DataStorageService } from 'src/app/data-storage.service';
 import { skillData } from './skills-database';
 import { SkillSelectionService } from './skill-selection.service';
 
@@ -19,21 +19,21 @@ export class SkillsComponent implements OnInit {
     return this.activeSkillService.skillsLeft
   }
 
-  characterName: string = this.serviceService.startingValues.name
+  characterName: string = this.dataStorageService.startingValues.name
 
   ngOnInit() {
-    this.characterName = this.serviceService.startingValues.name;
+    this.characterName = this.dataStorageService.startingValues.name;
   }
 
 
-  constructor(public serviceService: ServiceService, private activeSkillService: SkillSelectionService) { }
+  constructor(public dataStorageService: DataStorageService, private activeSkillService: SkillSelectionService) { }
 
   skills = skillData;
 
 
   noSkillsLeft: boolean = false;
 
-  chosenSkill: number[] = this.serviceService.startingValues.chosenSkills;
+  chosenSkill: number[] = this.dataStorageService.startingValues.chosenSkills;
 
 
 

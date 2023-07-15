@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Character } from 'src/app/character.model';
-import { ServiceService } from 'src/app/service-service';
 import { EquipmentServiceService } from '../equipment/equipment.component';
 import { DataStorageService } from 'src/app/data-storage.service';
 import { StoryService } from '../story/story.service';
 import { AuthResponseData, AuthService } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Router } from '@angular/router';
+
 
 
 
@@ -28,7 +28,7 @@ export class LogInComponent {
     this.isLoginIn = !this.isLoginIn;
   }
 
-  constructor(private router: Router, public authService: AuthService, private storyService: StoryService, private http: HttpClient, private serviceService: ServiceService, private equipmentSevice: EquipmentServiceService, private statService: DataStorageService) { }
+  constructor(private router: Router, public authService: AuthService, private storyService: StoryService, private http: HttpClient, private equipmentSevice: EquipmentServiceService, private statService: DataStorageService) { }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -70,7 +70,7 @@ export class LogInComponent {
   }
 
   get skillsList() {
-    return this.serviceService.startingValues.chosenSkills;
+    return this.statService.startingValues.chosenSkills;
   }
 
   logOut() {
@@ -81,9 +81,9 @@ export class LogInComponent {
   sendModel() {
     const stats = this.statService.getStats();
     const char: Character = {
-      name: this.serviceService.startingValues.enteredName,
+      name: this.statService.startingValues.enteredName,
       armor: this.equipmentSevice.equipment.armorType,
-      image: `../assets/photos/${this.serviceService.startingValues.name}/armors/heavy.png`,
+      image: `../assets/photos/${this.statService.startingValues.name}/armors/heavy.png`,
       skillsList: this.skillsList.map(skill => skill + 1),
       statList: this.statService.selectedStats,
       story: this.storyService.currentStory

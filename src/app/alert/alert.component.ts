@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertServiceService } from './alert-service.service';
-import { ServiceService } from '../service-service';
+import { DataStorageService } from '../data-storage.service';
 
 @Component({
   selector: 'app-alert',
@@ -9,18 +9,16 @@ import { ServiceService } from '../service-service';
 })
 export class AlertComponent {
 
-  constructor(public serviceService: ServiceService, public alert: AlertServiceService) { }
+  constructor(public dataStorageService: DataStorageService, public alert: AlertServiceService) { }
 
   get startingValues() {
-    return this.serviceService.startingValues;
+    return this.dataStorageService.startingValues;
   }
 
   createChar() {
     this.startingValues.chooseChar = false;
     this.startingValues.selectedCharacter = this.startingValues.charNumber;
-    /* this.startingValues.navOpacity = '1';
-    this.startingValues.navAnimation = '1';
-    this.startingValues.navActive = '1'; */
+
   }
   btnReset() {
     this.startingValues.charNumber = '0';

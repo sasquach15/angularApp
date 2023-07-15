@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertServiceService } from 'src/app/alert/alert-service.service';
-import { ServiceService } from 'src/app/service-service';
+import { DataStorageService } from 'src/app/data-storage.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,13 +12,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WelcomeComponent {
 
-  constructor(private serviceService: ServiceService, private alert: AlertServiceService, private appRoutes: Router, private http: HttpClient) { }
+  constructor(private dataStorageService: DataStorageService, private alert: AlertServiceService, private appRoutes: Router, private http: HttpClient) { }
 
   get enteredName() {
-    return this.serviceService.startingValues.enteredName;
+    return this.dataStorageService.startingValues.enteredName;
   }
   get isNameVisible() {
-    return this.serviceService.startingValues.isNameVisible;
+    return this.dataStorageService.startingValues.isNameVisible;
   }
   get isAlertVisible() {
     return this.alert.isAlertVisible;
@@ -29,10 +29,10 @@ export class WelcomeComponent {
 
   pickName(event: Event) {
     // console.log(event)
-    this.serviceService.startingValues.enteredName = (<HTMLInputElement>event.target).value;
+    this.dataStorageService.startingValues.enteredName = (<HTMLInputElement>event.target).value;
 
 
-    if (this.serviceService.startingValues.enteredName.length >= 3) {
+    if (this.dataStorageService.startingValues.enteredName.length >= 3) {
       this.imgSrc = '../assets/photos/misc/btnEmptyFocus.png'
 
     } else {
@@ -42,20 +42,12 @@ export class WelcomeComponent {
   }
 
   showName() {
-    if (this.serviceService.startingValues.enteredName.length >= 3) {
-      this.serviceService.startingValues.isNameVisible = true;
-      this.appRoutes.navigate([this.serviceService.startingValues.name.toLocaleLowerCase() + '/equipment'])
-      this.serviceService.startingValues.navOpacity = '1';
-      this.serviceService.startingValues.navAnimation = '1';
-      this.serviceService.startingValues.navActive = '1';
+    if (this.dataStorageService.startingValues.enteredName.length >= 3) {
+      this.dataStorageService.startingValues.isNameVisible = true;
+      this.appRoutes.navigate([this.dataStorageService.startingValues.name.toLocaleLowerCase() + '/equipment'])
+      this.dataStorageService.startingValues.navOpacity = '1';
+      this.dataStorageService.startingValues.navAnimation = '1';
+      this.dataStorageService.startingValues.navActive = '1';
     }
   }
-
-  /*   storeName(nameData: string | number) {
-      console.log(nameData);
-      this.http
-        .post('https://serv-test-fb374-default-rtdb.europe-west1.firebasedatabase.app/names.json', nameData).subscribe(responseData => {
-          console.log(responseData)
-        });
-    } */
 }

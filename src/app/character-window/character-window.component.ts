@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { ServiceService } from '../service-service';
+import { DataStorageService } from '../data-storage.service';
 import { EquipmentComponent } from '../router-container/router-items/equipment/equipment.component';
 import { EquipmentServiceService } from '../router-container/router-items/equipment/equipment-service.service';
+
 
 
 @Component({
@@ -12,14 +13,14 @@ import { EquipmentServiceService } from '../router-container/router-items/equipm
 })
 export class CharacterWindowComponent {
 
-  constructor(private serviceService: ServiceService, private equipmentService: EquipmentServiceService) { }
+  constructor(private dataStorageService: DataStorageService, private equipmentService: EquipmentServiceService) { }
 
 
   get equipment() {
     return this.equipmentService.equipment;
   }
   get startingValues() {
-    return this.serviceService.startingValues;
+    return this.dataStorageService.startingValues;
   }
 
 
@@ -48,33 +49,33 @@ export class CharacterWindowComponent {
 
   }
   pickNec() {
-    this.serviceService.startingValues.name = "NECROMANCER"
-    this.serviceService.startingValues.charNumber = "4"
+    this.dataStorageService.startingValues.name = "NECROMANCER"
+    this.dataStorageService.startingValues.charNumber = "4"
     if (this.activeClass !== '2') {
       this.activeClass = '2'
     } else {
       this.activeClass = '';
-      this.serviceService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = "1";
     }
   }
   pickAssa() {
-    this.serviceService.startingValues.name = "ASSASSIN"
-    this.serviceService.startingValues.charNumber = "5";
+    this.dataStorageService.startingValues.name = "ASSASSIN"
+    this.dataStorageService.startingValues.charNumber = "5";
     if (this.activeClass !== '3') {
       this.activeClass = '3'
     } else {
       this.activeClass = '';
-      this.serviceService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = "1";
     }
   }
   pickBarb() {
-    this.serviceService.startingValues.name = "BARBARIAN"
-    this.serviceService.startingValues.charNumber = "6";
+    this.dataStorageService.startingValues.name = "BARBARIAN"
+    this.dataStorageService.startingValues.charNumber = "6";
     if (this.activeClass !== '4') {
       this.activeClass = '4'
     } else {
       this.activeClass = '';
-      this.serviceService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = "1";
     }
   }
 

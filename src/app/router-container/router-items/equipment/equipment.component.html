@@ -1,6 +1,6 @@
-<ng-container [ngSwitch]="serviceService.startingValues.name">
+<ng-container [ngSwitch]="dataStorageService.startingValues.name">
 
-  <h3 *ngSwitchDefault> {{serviceService.startingValues.name}} EQUIPMENT</h3>
+  <h3 *ngSwitchDefault> {{dataStorageService.startingValues.name}} EQUIPMENT</h3>
 
   <div (click)="showArmor()">
     <img src="../assets/photos/armorslot.png" class="armor">

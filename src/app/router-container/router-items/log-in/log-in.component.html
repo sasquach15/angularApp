@@ -24,10 +24,6 @@
 
     <button class="loginBtn" type="submit" [disabled]="!f.valid"> {{isLoginIn ? 'SIGN UP' : 'LOG IN'}} </button>
 
-    <button *ngIf="" type="submit" (click)="sendModel()"> SUBMIT </button>
-
-    <button *ngIf="" class="fetchBtn" (click)="onFetchUsername()"> FETCH </button>
-
     <div class="signIn">
       <p class="signInP">
         {{ isLoginIn ? 'ALREADY GOT AN ACCOUNT? PLEASE LOG IN!' : 'HERE FOR THE FIRST TIME? SIGN UP!'}}
@@ -40,3 +36,5 @@
 
 <h3 *ngIf="authService.isAuthenticated"> SUCCESFULLY LOGGED IN !</h3>
 <button class="logOutBtn" type="button" *ngIf="authService.isAuthenticated" (click)="logOut()"> LOG OUT</button>
+<button *ngIf="authService.isAuthenticated" type="submit" (click)="sendModel()"> SUBMIT </button>
+<button *ngIf="authService.isAuthenticated" class="fetchBtn" (click)="onFetchUsername()"> FETCH </button>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceService } from 'src/app/service-service';
+import { DataStorageService } from 'src/app/data-storage.service';
 import { EquipmentServiceService } from './equipment-service.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class EquipmentComponent {
 
 
 
-  constructor(public serviceService: ServiceService, private equipmentService: EquipmentServiceService) { }
+  constructor(public dataStorageService: DataStorageService, private equipmentService: EquipmentServiceService) { }
 
 
   get equipment() {
@@ -24,10 +24,10 @@ export class EquipmentComponent {
   }
 
   get startingValues() {
-    return this.serviceService.startingValues;
+    return this.dataStorageService.startingValues;
   }
 
-  charName = this.serviceService.startingValues.name.toLowerCase();
+  charName = this.dataStorageService.startingValues.name.toLowerCase();
 
   showHelmet() {
     this.showHelmets = !this.showHelmets;
@@ -61,21 +61,21 @@ export class EquipmentComponent {
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/light.png`
     this.equipmentService.equipment.armorType = 'light';
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = ''
+    this.dataStorageService.startingValues.selectedCharacter = ''
   }
   pickMediumArmor() {
     this.equipmentService.equipment.armorUrl = '../assets/photos/armors/ringMail.png'
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/medium.png`
     this.equipmentService.equipment.armorType = 'medium';
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = ''
+    this.dataStorageService.startingValues.selectedCharacter = ''
   }
   pickHeavyArmor() {
     this.equipmentService.equipment.armorUrl = '../assets/photos/armors/fullPlateMail.png'
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/heavy.png`
     this.equipmentService.equipment.armorType = 'heavy';
     this.showArmors = false;
-    this.serviceService.startingValues.selectedCharacter = ''
+    this.dataStorageService.startingValues.selectedCharacter = ''
   }
   pickClaws() {
     this.equipmentService.equipment.weaponPicked = 'claws'
