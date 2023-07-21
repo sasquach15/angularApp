@@ -56,7 +56,6 @@ export class EquipmentComponent {
   }
 
   pickLightArmor() {
-    /* this.equipmentService.equipment.armorType = 'light' */
     this.equipmentService.equipment.armorUrl = '../assets/photos/armors/leatherArmor.png'
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/light.png`
     this.equipmentService.equipment.armorType = 'light';
@@ -123,5 +122,4 @@ export class EquipmentComponent {
     this.showShields = false;
   }
 }
-export { EquipmentServiceService };
 

@@ -17,9 +17,19 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-    user = new Subject<User>();
+    user = new BehaviorSubject<User | null>(null);
     isAuthenticated = false;
-    token = null;
+    token: string = '';
+    userId: string | null = null;
+
+    setToken(token: string) {
+        this.token = token;
+    }
+
+
+    getToken() {
+        return this.token;
+    }
 
 
 
@@ -57,14 +67,12 @@ export class AuthService {
 
 
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
-        const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000)
-        const user = new User(
-            email,
-            userId,
-            token,
-            expirationDate
-        );
+        const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+        const user = new User(email, userId, token, expirationDate);
         this.user.next(user);
+        this.token = token;
+        this.isAuthenticated = true;
+        this.userId = userId;
     }
 
 
