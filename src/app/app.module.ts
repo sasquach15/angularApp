@@ -15,17 +15,14 @@ import { LogInComponent } from './router-container/router-items/log-in/log-in.co
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { LoggedInComponent } from './router-container/router-items/logged-in/logged-in.component';
 
 
 
 
 
 const appRoutes: Routes = [
-  /*  { path: '', component: RouterContainerComponent }, */
-  /*   { path: 'statistics', component: StatisticsComponent },
-    { path: 'skills', component: SkillsComponent },
-    { path: 'story', component: StoryComponent },
-    { path: 'equipment', component: EquipmentComponent }, */
+
   { path: 'necromancer', component: WelcomeComponent },
   { path: 'necromancer/skills', component: SkillsComponent },
   { path: 'necromancer/story', component: StoryComponent },
@@ -46,7 +43,9 @@ const appRoutes: Routes = [
   { path: 'barbarian/story', component: StoryComponent },
   { path: 'barbarian/statistics', component: StatisticsComponent },
   { path: 'barbarian/equipment', component: EquipmentComponent },
-  { path: 'login', component: LogInComponent }
+  { path: 'login', component: LogInComponent },
+  { path: 'loggedIn', component: LoggedInComponent }
+
 ]
 
 @NgModule({

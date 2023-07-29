@@ -119,6 +119,7 @@ export class AuthService {
     isAuthenticated = false;
     token: string = '';
     userId: string | null = null;
+    userEmail: string | null = null;
 
     constructor(private http: HttpClient) { }
 
@@ -157,6 +158,7 @@ export class AuthService {
         this.isAuthenticated = true;
         this.token = token;
         this.userId = userId;
+        this.userEmail = email;
     }
 
     private handleError(errorRes: HttpErrorResponse) {

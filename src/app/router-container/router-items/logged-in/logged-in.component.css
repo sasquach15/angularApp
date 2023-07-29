@@ -1,0 +1,8 @@
+h3{
+    position: relative;
+    color: rgb(211, 211, 211);
+    font-size: 3vh;
+    text-align: center;
+    top:3%;
+    animation: fadeIn 1s;
+   }

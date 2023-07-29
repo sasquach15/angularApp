@@ -33,8 +33,3 @@
   </form>
 
 </div>
-
-<h3 *ngIf="authService.isAuthenticated"> SUCCESFULLY LOGGED IN !</h3>
-<button class="logOutBtn" type="button" *ngIf="authService.isAuthenticated" (click)="logOut()"> LOG OUT</button>
-<button *ngIf="authService.isAuthenticated" type="submit" (click)="sendModel()"> SUBMIT </button>
-<button *ngIf="authService.isAuthenticated" class="fetchBtn" (click)="fetchCharacter()"> FETCH </button>
