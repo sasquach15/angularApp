@@ -10,7 +10,7 @@ export class Character {
     public skillsList: number[]
     public statList: Stat[];
     public story: string
-    public userId?: string | undefined
+    public userId?: string
 
     constructor(name: string, armor: string, img: string, skills: number[], stats: Stat[], story: string, userId: string) {
         this.name = name;
