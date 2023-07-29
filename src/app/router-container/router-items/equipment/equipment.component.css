@@ -151,7 +151,7 @@ h3{
       left:20%;
    }
    .weapdiv {
-      /* position: relative; */
+     
       top: 0;
       display: inline;
       flex-basis: 25%;
@@ -159,7 +159,7 @@ h3{
       height: 100%;
    }
    .helmdiv {
-      /* position: relative; */
+     
       top: 0;
       display: inline;
       flex-basis: 25%;

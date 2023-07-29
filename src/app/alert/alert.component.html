@@ -1,8 +1,8 @@
 <div class="alert" *ngIf="alert.isAlertVisible">
   <img src="../assets/photos/alert.png" class="alertImg">
-  <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.name}} ?</p>
+  <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.characterClass}} ?</p>
   <div (click)="createChar(); btnReset();">
-    <a routerLink={{startingValues.name.toLowerCase()}}>
+    <a routerLink={{startingValues.characterClass.toLowerCase()}}>
       <img src="../assets/photos/btnYesUnfocused.png" class="btnYesUnfocused">
       <img src="../assets/photos/btnYesFocused.png" class="btnYesFocused">
     </a>

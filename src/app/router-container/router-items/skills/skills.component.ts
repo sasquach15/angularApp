@@ -19,10 +19,10 @@ export class SkillsComponent implements OnInit {
     return this.activeSkillService.skillsLeft
   }
 
-  characterName: string = this.dataStorageService.startingValues.name
+  characterName: string = this.dataStorageService.startingValues.characterClass
 
   ngOnInit() {
-    this.characterName = this.dataStorageService.startingValues.name;
+    this.characterName = this.dataStorageService.startingValues.characterClass;
   }
 
 

@@ -5,6 +5,7 @@ interface Stat {
 }
 export class Character {
     public name: string;
+    public charClass: string;
     public armor: string;
     public image: string;
     public skillsList: number[]
@@ -12,8 +13,9 @@ export class Character {
     public story: string
     public userId?: string
 
-    constructor(name: string, armor: string, img: string, skills: number[], stats: Stat[], story: string, userId: string) {
+    constructor(name: string, charClass: string, armor: string, img: string, skills: number[], stats: Stat[], story: string, userId: string) {
         this.name = name;
+        this.charClass = charClass;
         this.armor = armor;
         this.image = img;
         this.skillsList = skills;

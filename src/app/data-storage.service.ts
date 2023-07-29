@@ -17,7 +17,7 @@ export class DataStorageService {
     navOpacity: "0",
     navTouched: "",
     navAnimation: '0',
-    name: 'null',
+    characterClass: 'null',
     enteredName: '',
     isNameVisible: false,
     chosenSkills: []

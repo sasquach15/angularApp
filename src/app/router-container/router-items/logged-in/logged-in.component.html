@@ -1,4 +1,10 @@
-<h3 *ngIf='1'> WELCOME {{authService.userEmail }}</h3>
+<h3 *ngIf='1'> WELCOME {{authService.userEmail | uppercase }}</h3>
 <button class="logOutBtn" type="button" (click)="logOut()"> LOG OUT</button>
 <button type="submit" (click)="sendModel()"> SAVE CHARACTER </button>
 <button class="fetchBtn" (click)="fetchCharacter()"> FETCH </button>
+
+<div class="characters-container">
+  <div *ngFor="let character of characters" class="character-row">
+    <p class="character-info">{{ character.name }} - {{ character.charClass }}</p>
+  </div>
+</div>

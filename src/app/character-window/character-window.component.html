@@ -41,7 +41,7 @@
       <img src="../assets/photos/barbarian/barbNaked.png" class="barbNaked fade">
     </div>
   </ng-container>
-  <ng-container *ngIf="startingValues.name === 'ASSASSIN'">
+  <ng-container *ngIf="startingValues.characterClass === 'ASSASSIN'">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
     </div>
@@ -77,19 +77,19 @@
       class="shieldGlobal paviseShield">
   </div>
 
-  <ng-container *ngIf="startingValues.name === 'SORCERESS'">
+  <ng-container *ngIf="startingValues.characterClass === 'SORCERESS'">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="sorcNaked" loading="eager">
     </div>
   </ng-container>
 
-  <ng-container *ngIf="startingValues.name === 'NECROMANCER'">
+  <ng-container *ngIf="startingValues.characterClass === 'NECROMANCER'">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="necNaked" loading="eager">
     </div>
   </ng-container>
 
-  <ng-container *ngIf="startingValues.name === 'BARBARIAN'">
+  <ng-container *ngIf="startingValues.characterClass === 'BARBARIAN'">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="barbNaked" loading="eager">
     </div>

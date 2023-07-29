@@ -38,7 +38,7 @@ export class CharacterWindowComponent {
   }
 
   pickSorc() {
-    this.startingValues.name = "SORCERESS"
+    this.startingValues.characterClass = "SORCERESS"
     this.startingValues.charNumber = "3";
     if (this.activeClass !== '1') {
       this.activeClass = '1'
@@ -49,7 +49,7 @@ export class CharacterWindowComponent {
 
   }
   pickNec() {
-    this.dataStorageService.startingValues.name = "NECROMANCER"
+    this.dataStorageService.startingValues.characterClass = "NECROMANCER"
     this.dataStorageService.startingValues.charNumber = "4"
     if (this.activeClass !== '2') {
       this.activeClass = '2'
@@ -59,7 +59,7 @@ export class CharacterWindowComponent {
     }
   }
   pickAssa() {
-    this.dataStorageService.startingValues.name = "ASSASSIN"
+    this.dataStorageService.startingValues.characterClass = "ASSASSIN"
     this.dataStorageService.startingValues.charNumber = "5";
     if (this.activeClass !== '3') {
       this.activeClass = '3'
@@ -69,7 +69,7 @@ export class CharacterWindowComponent {
     }
   }
   pickBarb() {
-    this.dataStorageService.startingValues.name = "BARBARIAN"
+    this.dataStorageService.startingValues.characterClass = "BARBARIAN"
     this.dataStorageService.startingValues.charNumber = "6";
     if (this.activeClass !== '4') {
       this.activeClass = '4'

@@ -27,7 +27,7 @@ export class EquipmentComponent {
     return this.dataStorageService.startingValues;
   }
 
-  charName = this.dataStorageService.startingValues.name.toLowerCase();
+  charName = this.dataStorageService.startingValues.characterClass.toLowerCase();
 
   showHelmet() {
     this.showHelmets = !this.showHelmets;

@@ -1,6 +1,6 @@
-<ng-container [ngSwitch]="dataStorageService.startingValues.name">
+<ng-container [ngSwitch]="dataStorageService.startingValues.characterClass">
 
-  <h3 *ngSwitchDefault> {{dataStorageService.startingValues.name}} EQUIPMENT</h3>
+  <h3 *ngSwitchDefault> {{dataStorageService.startingValues.characterClass}} EQUIPMENT</h3>
 
   <div (click)="showArmor()">
     <img src="../assets/photos/armorslot.png" class="armor">
@@ -53,7 +53,7 @@
   </div>
 
   <!-- ASSA -->
-  <ng-container *ngIf="showWeapons && startingValues.name === 'ASSASSIN'">
+  <ng-container *ngIf="showWeapons && startingValues.characterClass === 'ASSASSIN'">
     <div class="weaponSelect">
       <div class="weapdiv" (click)="pickClaws()">
         <img src="../assets/photos/assassin/assaWeapons/assapazurySelect.png" class="weapImg">
@@ -75,7 +75,7 @@
 
   </ng-container>
 
-  <ng-container *ngIf="showHelmets && startingValues.name === 'ASSASSIN'">
+  <ng-container *ngIf="showHelmets && startingValues.characterClass === 'ASSASSIN'">
     <div class="helmetSelect">
       <div class="helmdiv" (click)="pickTiara()">
         <img src="../assets/photos/assassin/assaHelmets/assatiaraSelect.png" class="helmImg">
@@ -111,7 +111,7 @@
     <div class="hideShield">CHOOSE SHIELD</div>
   </div>
 
-  <ng-container *ngIf="showShields && startingValues.name === 'ASSASSIN'">
+  <ng-container *ngIf="showShields && startingValues.characterClass === 'ASSASSIN'">
     <div class="shieldSelect">
       <div class="shielddiv" (click)="pickBoneShield()">
         <img src="../assets/photos/equipment/shields/boneShieldSelect.png" class="shieldImg">

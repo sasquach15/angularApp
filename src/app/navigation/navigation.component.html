@@ -1,4 +1,4 @@
-<ng-template [ngIf]="startingValues.navActive">
+<!-- <ng-template [ngIf]="startingValues.navActive">
   <div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
     <a [routerLink]="[startingValues.name | lowercase, 'statistics']" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
@@ -11,5 +11,24 @@
     <a [routerLink]="'login'" routerLinkActive="active-link"
       [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">
       {{ authService.isAuthenticated ? 'LOG OUT' : 'LOG IN'}}</a>
+  </div>
+</ng-template> -->
+
+<ng-template [ngIf]="startingValues.navActive">
+  <div class="navmenu" [ngClass]="startingValues.navAnimation === '1' ? 'navAnimation' : ''">
+    <a [routerLink]="[startingValues.characterClass | lowercase, 'statistics']" routerLinkActive="active-link"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STATISTICS</a>
+    <a [routerLink]="[startingValues.characterClass | lowercase, 'skills']" routerLinkActive="active-link"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">SKILLS</a>
+    <a [routerLink]="[startingValues.characterClass | lowercase, 'equipment']" routerLinkActive="active-link"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">EQUIPMENT</a>
+    <a [routerLink]="[startingValues.characterClass | lowercase, 'story']" routerLinkActive="active-link"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">STORY</a>
+    <a *ngIf="!authService.isAuthenticated; else loggedInLink" [routerLink]="'login'" routerLinkActive="active-link"
+      [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">LOG IN</a>
+    <ng-template #loggedInLink>
+      <a routerLinkActive="active-link" [routerLink]="'loggedIn'"
+        [ngClass]="startingValues.navOpacity === '1' ? 'active' : ''">LOG OUT</a>
+    </ng-template>
   </div>
 </ng-template>

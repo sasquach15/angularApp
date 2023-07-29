@@ -44,7 +44,7 @@ export class WelcomeComponent {
   showName() {
     if (this.dataStorageService.startingValues.enteredName.length >= 3) {
       this.dataStorageService.startingValues.isNameVisible = true;
-      this.appRoutes.navigate([this.dataStorageService.startingValues.name.toLocaleLowerCase() + '/equipment'])
+      this.appRoutes.navigate([this.dataStorageService.startingValues.characterClass.toLocaleLowerCase() + '/equipment'])
       this.dataStorageService.startingValues.navOpacity = '1';
       this.dataStorageService.startingValues.navAnimation = '1';
       this.dataStorageService.startingValues.navActive = '1';

@@ -61,7 +61,8 @@ const appRoutes: Routes = [
     AlertComponent,
     WelcomeComponent,
     LogInComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    LoggedInComponent
   ],
   imports: [
     BrowserModule,
