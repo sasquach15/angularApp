@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { skillData } from './skills-database';
 import { SkillSelectionService } from './skill-selection.service';
 

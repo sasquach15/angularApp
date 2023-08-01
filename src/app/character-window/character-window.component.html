@@ -1,26 +1,25 @@
 <div class="container">
 
   <img src="../assets/photos/win4.jpg" class="borderr">
-  <!-- <img src="../assets/photos/fire.gif" class="firegif"> -->
 
   <ng-template [ngIf]="btnActive">
     <img src="../assets/photos/btn.png" class="btnn">
     <img src="../assets/photos/btnActive.png" class="btnActive" (click)="letsStart(); changeMsg();">
   </ng-template>
   <ng-template [ngIf]="startingValues.chooseChar">
-    <div class="char" (click)="pickSorc()" [ngClass]="activeClass == '1' ? 'active' : ''">
+    <div class="char" (click)="pickSorc()" [ngClass]="startingValues.activeClass == '1' ? 'active' : ''">
       <img src="../assets/photos/sorc.png" class="sorc" loading="eager">
       <p class="pcharname">SORCERESS</p>
     </div>
-    <div class="char" (click)="pickNec()" [ngClass]="activeClass == '2' ? 'active' : ''">
+    <div class="char" (click)="pickNec()" [ngClass]="startingValues.activeClass == '2' ? 'active' : ''">
       <img src="../assets/photos/neccc.png" class="nec" loading="eager">
       <p class="pcharname">NECROMANCER</p>
     </div>
-    <div class="char" (click)="pickAssa()" [ngClass]="activeClass == '3' ? 'active' : ''">
+    <div class="char" (click)="pickAssa()" [ngClass]="startingValues.activeClass == '3' ? 'active' : ''">
       <img src="../assets/photos/assa.png" class="assa" loading="eager">
       <p class="pcharname">ASSASSIN</p>
     </div>
-    <div class="char" (click)="pickBarb()" [ngClass]="activeClass == '4' ? 'active' : ''">
+    <div class="char" (click)="pickBarb()" [ngClass]="startingValues.activeClass == '4' ? 'active' : ''">
       <img src="../assets/photos/barb.png" class="barb" loading="eager">
       <p class="pcharname">BARBARIAN</p>
 
@@ -46,35 +45,22 @@
       <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
     </div>
 
-    <!-- assa armors -->
-    <div *ngIf="equipment.weaponPicked === 'claws'"> <img src="../assets/photos/assassin/assaWeapons/assapazury.png"
-        class="assaWeapons assaClaws"></div>
-    <div *ngIf="equipment.weaponPicked === 'cristalSword'"> <img
-        src="../assets/photos/assassin/assaWeapons/assakrysztalowymiecz.png" class=" assaWeapons assaCristal"></div>
-    <div *ngIf="equipment.weaponPicked === 'flail'"> <img src="../assets/photos/assassin/assaWeapons/assakorbacz.png"
-        class="assaWeapons assaFlail"></div>
-    <div *ngIf="equipment.weaponPicked === 'axe'"> <img src="../assets/photos/assassin/assaWeapons/assaaxe.png"
-        class="assaWeapons assaAxe"></div>
+    <div *ngIf="equipment.weaponPicked">
+      <img [src]="getAssassinWeaponUrl(equipment.weaponPicked)"
+        [class]="getAssassinWeaponClass(equipment.weaponPicked)">
+    </div>
 
-    <!-- assa helmets -->
-    <div *ngIf="equipment.helmPicked === 'tiara'"> <img src="../assets/photos/assassin/assaHelmets/assatiara.png"
-        class="assaHelmets assaTiara"></div>
-    <div *ngIf="equipment.helmPicked === 'crown'"> <img src="../assets/photos/assassin/assaHelmets/assacrown.png"
-        class=" assaHelmets assaCrown"></div>
-    <div *ngIf="equipment.helmPicked === 'horned'"> <img src="../assets/photos/assassin/assaHelmets/assarogatyelm.png"
-        class="assaHelmets assaHorned"></div>
-    <div *ngIf="equipment.helmPicked === 'bone'"> <img src="../assets/photos/assassin/assaHelmets/assabonehelm.png"
-        class="assaHelmets assaBone"></div>
+    <div *ngIf="equipment.helmPicked">
+      <img [src]="getAssassinHelmUrl(equipment.helmPicked)" [class]="getAssassinHelmClass(equipment.helmPicked)">
+    </div>
   </ng-container>
 
-  <div *ngIf="equipment.shieldPicked === 'boneShield'"> <img src="../assets/photos/equipment/shields/boneshield.png"
+  <div [ngSwitch]="equipment.shieldPicked">
+    <img *ngSwitchCase="'boneShield'" src="../assets/photos/equipment/shields/boneshield.png"
       class="shieldGlobal boneShield">
-  </div>
-  <div *ngIf="equipment.shieldPicked === 'barbedShield'"> <img src="../assets/photos/equipment/shields/barbedshield.png"
+    <img *ngSwitchCase="'barbedShield'" src="../assets/photos/equipment/shields/barbedshield.png"
       class="shieldGlobal barbedShield">
-  </div>
-  <div *ngIf="equipment.shieldPicked === 'pavise'"> <img src="../assets/photos/equipment/shields/paewz.png"
-      class="shieldGlobal paviseShield">
+    <img *ngSwitchCase="'pavise'" src="../assets/photos/equipment/shields/paewz.png" class="shieldGlobal paviseShield">
   </div>
 
   <ng-container *ngIf="startingValues.characterClass === 'SORCERESS'">

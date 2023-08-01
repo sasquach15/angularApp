@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertServiceService } from './alert-service.service';
-import { DataStorageService } from '../data-storage.service';
+import { DataStorageService } from '../shared/data/data-storage.service';
 
 @Component({
   selector: 'app-alert',

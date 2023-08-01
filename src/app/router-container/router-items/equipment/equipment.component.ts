@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { EquipmentServiceService } from './equipment-service.service';
 
 @Component({
@@ -121,5 +121,6 @@ export class EquipmentComponent {
     this.equipmentService.equipment.shieldPicked = 'pavise'
     this.showShields = false;
   }
+
 }
 

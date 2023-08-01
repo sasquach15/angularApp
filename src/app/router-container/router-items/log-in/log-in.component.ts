@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { EquipmentServiceService } from '../equipment/equipment-service.service';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { StoryService } from '../story/story.service';
 import { AuthService } from './auth.service';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthResponseData } from './auth.service';
 

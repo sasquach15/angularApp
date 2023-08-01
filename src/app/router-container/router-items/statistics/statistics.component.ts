@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 
 import { Stat } from './stat-interface';
 

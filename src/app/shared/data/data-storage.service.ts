@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Stat } from './router-container/router-items/statistics/stat-interface';
+import { Stat } from 'src/app/router-container/router-items/statistics/stat-interface';
+import { Character } from './character.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const DEFAULT_STAT_POINTS = 20;
 
@@ -20,8 +23,12 @@ export class DataStorageService {
     characterClass: 'null',
     enteredName: '',
     isNameVisible: false,
-    chosenSkills: []
+    chosenSkills: [],
+    activeClass: '',
   }
+
+  private charactersUrl = 'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+  private characters: Character[] = [];
 
 
 
@@ -40,7 +47,7 @@ export class DataStorageService {
     { name: 'CHARISMA', value: 10, statPoints: DEFAULT_STAT_POINTS }
   ];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.initializeStats();
   }
 
@@ -69,6 +76,18 @@ export class DataStorageService {
 
   restoreInitialValues(): void {
     this.selectedStats = this.initialStats.map(stat => ({ ...stat }));
+  }
+  fetchCharacter(): Observable<Character[]> {
+    return this.http.get<Character[]>(this.charactersUrl);
+  }
+
+  setCharacters(characters: Character[]) {
+    this.characters = characters;
+  }
+
+  // Metoda do pobierania postaci z serwisu
+  getCharacters(): Character[] {
+    return this.characters;
   }
 
 }

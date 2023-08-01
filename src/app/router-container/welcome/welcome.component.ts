@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertServiceService } from 'src/app/alert/alert-service.service';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 

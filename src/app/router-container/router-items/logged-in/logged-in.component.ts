@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../log-in/auth.service';
-import { Character } from 'src/app/character.model';
-import { DataStorageService } from 'src/app/data-storage.service';
+import { Character } from 'src/app/shared/data/character.model';
+import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { EquipmentServiceService } from '../equipment/equipment-service.service';
 import { HttpClient } from '@angular/common/http';
 import { StoryService } from '../story/story.service';
@@ -61,29 +61,6 @@ export class LoggedInComponent implements OnInit {
 
   }
 
-  /*  fetchCharacter() {
-     const userId = this.authService.userId;
- 
-     if (!userId) {
-       console.error('Brak userId w AuthService.');
-       return;
-     }
- 
-     const queryParams = `?auth=${this.authService.token}`;
-     this.http.get<{ [key: string]: Character }>(`https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`)
-       .subscribe(characterData => {
- 
- 
-         const characters: Character[] = [];
-         for (const key in characterData) {
-           if (characterData.hasOwnProperty(key) && characterData[key].userId === userId) {
-             characters.push(characterData[key]);
-           }
-         }
- 
-         console.log('Postacie dla zalogowanego użytkownika:', characters);
-       });
-   } */
   fetchCharacter() {
     const userId = this.authService.userId;
 
@@ -101,7 +78,7 @@ export class LoggedInComponent implements OnInit {
             characters.push(characterData[key]);
           }
         }
-        this.characters = characters; // Przypisanie postaci do tablicy characters
+        this.characters = characters;
       });
   }
 
