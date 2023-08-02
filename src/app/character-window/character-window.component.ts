@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataStorageService } from '../shared/data/data-storage.service';
 import { EquipmentServiceService } from '../router-container/router-items/equipment/equipment-service.service';
+import { CharacterService } from '../shared/data/character-service.service';
 
 
 
@@ -13,7 +14,9 @@ import { EquipmentServiceService } from '../router-container/router-items/equipm
 })
 export class CharacterWindowComponent {
 
-  constructor(private dataStorageService: DataStorageService, private equipmentService: EquipmentServiceService) { }
+  constructor(private dataStorageService: DataStorageService,
+    private equipmentService: EquipmentServiceService,
+    public characterService: CharacterService) { }
 
 
   get equipment() {

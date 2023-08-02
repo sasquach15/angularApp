@@ -60,7 +60,7 @@
       class="shieldGlobal boneShield">
     <img *ngSwitchCase="'barbedShield'" src="../assets/photos/equipment/shields/barbedshield.png"
       class="shieldGlobal barbedShield">
-    <img *ngSwitchCase="'pavise'" src="../assets/photos/equipment/shields/paewz.png" class="shieldGlobal paviseShield">
+    <img *ngSwitchCase="'pavise'" src='../assets/photos/equipment/shields/paewz.png' class="shieldGlobal paviseShield">
   </div>
 
   <ng-container *ngIf="startingValues.characterClass === 'SORCERESS'">
@@ -79,6 +79,13 @@
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="barbNaked" loading="eager">
     </div>
+  </ng-container>
+
+  <ng-container>
+    <div *ngIf="startingValues.selectedCharacter === ''">
+      <img [src]="characterService.fetchedCharImg" class="barbNaked" loading="eager">
+    </div>
+
   </ng-container>
 
 

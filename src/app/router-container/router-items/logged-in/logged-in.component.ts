@@ -6,6 +6,7 @@ import { EquipmentServiceService } from '../equipment/equipment-service.service'
 import { HttpClient } from '@angular/common/http';
 import { StoryService } from '../story/story.service';
 import { Router } from '@angular/router';
+import { CharacterService } from 'src/app/shared/data/character-service.service';
 
 
 @Component({
@@ -22,7 +23,14 @@ export class LoggedInComponent implements OnInit {
 
   characters: Character[] = [];
 
-  constructor(private router: Router, public authService: AuthService, private statService: DataStorageService, private equipmentService: EquipmentServiceService, private http: HttpClient, private storyService: StoryService,) { }
+  constructor(private router: Router,
+    public authService: AuthService,
+    private statService: DataStorageService,
+    private equipmentService: EquipmentServiceService,
+    private http: HttpClient,
+    private storyService: StoryService,
+    public characterService: CharacterService
+  ) { }
 
   logOut() {
     this.authService.isAuthenticated = false;
@@ -79,7 +87,9 @@ export class LoggedInComponent implements OnInit {
           }
         }
         this.characters = characters;
+        console.log(characters)
       });
   }
+
 
 }
