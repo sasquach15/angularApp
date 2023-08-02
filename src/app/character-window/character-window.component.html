@@ -83,7 +83,7 @@
 
   <ng-container>
     <div *ngIf="startingValues.selectedCharacter === ''">
-      <img [src]="characterService.fetchedCharImg" class="barbNaked" loading="eager">
+      <img [src]="characterService.fetchedCharImg | lowercase" class="barbNaked" loading="eager">
     </div>
 
   </ng-container>
