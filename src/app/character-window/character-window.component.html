@@ -32,7 +32,7 @@
     <div *ngSwitchCase="4">
       <img src="../assets/photos/necromancer/necroNaked.png" class="necNaked fade">
     </div>
-    <div *ngSwitchCase="5" class="divAssa">
+    <div *ngSwitchCase="5">
       <img src="../assets/photos/assassin/assaNaked.png" class="assaNaked fade">
 
     </div>
@@ -83,7 +83,8 @@
 
   <ng-container>
     <div *ngIf="startingValues.selectedCharacter === ''">
-      <img [src]="characterService.fetchedCharImg | lowercase" class="barbNaked" loading="eager">
+      <img [src]="characterService.fetchedCharImg | lowercase" [ngClass]="characterService.charClassCss"
+        loading="eager">
     </div>
 
   </ng-container>
