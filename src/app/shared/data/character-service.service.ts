@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Character } from './character.model';
 import { DataStorageService } from './data-storage.service';
+import { Stat } from 'src/app/router-container/router-items/statistics/stat-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,10 @@ export class CharacterService {
 
   fetchedCharImg: string = '';
   charClass: string = '';
+  statList: Stat[] = [];
+  characterSkills: number[] = []
+  characterStory: string = ''
+
 
   selectFetchedCharacter(character: Character) {
     const selectedCharacterName = character.name;
@@ -20,6 +25,9 @@ export class CharacterService {
     this.fetchedCharImg = character.image;
     console.log(this.fetchedCharImg)
     this.charClass = character.charClass;
+    this.statList = character.statList;
+    this.characterSkills = character.skillsList;
+    this.characterStory = character.story;
   }
 
   get charClassCss(): string {

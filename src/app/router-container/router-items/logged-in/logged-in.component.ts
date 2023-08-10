@@ -50,11 +50,13 @@ export class LoggedInComponent implements OnInit {
       return;
     }
 
+    const armorType = this.equipmentService.equipment.armorType
+
     const char: Character = {
       name: this.statService.startingValues.enteredName,
       charClass: this.statService.startingValues.characterClass,
       armor: this.equipmentService.equipment.armorType,
-      image: `../assets/photos/${this.statService.startingValues.characterClass}/armors/heavy.png`,
+      image: `../assets/photos/${this.statService.startingValues.characterClass}/armors/${armorType}.png`,
       skillsList: this.skillsList.map(skill => skill + 1),
       statList: this.statService.selectedStats,
       story: this.storyService.currentStory,

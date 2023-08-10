@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data/data-storage.service';
-
 import { Stat } from './stat-interface';
+import { CharacterService } from 'src/app/shared/data/character-service.service';
 
 /* interface Stat {
   name: string;
@@ -19,14 +19,18 @@ export class StatisticsComponent implements OnInit {
 
 
 
-  constructor(public dataStorageService: DataStorageService, private statService: DataStorageService) { }
+  constructor(public dataStorageService: DataStorageService, private statService: DataStorageService, private characterService: CharacterService) { }
 
   get initialStatPoints() {
     return this.statService.initialStatPoints;
   }
 
   ngOnInit(): void {
-    this.stats = this.statService.selectedStats;
+    if (this.dataStorageService.startingValues.selectedCharacter) {
+      this.stats = this.statService.selectedStats;
+    } else {
+      this.stats = this.characterService.statList;
+    }
   }
 
   resetStats() {

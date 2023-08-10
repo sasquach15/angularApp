@@ -85,7 +85,7 @@ export class DataStorageService {
     this.characters = characters;
   }
 
-  // Metoda do pobierania postaci z serwisu
+
   getCharacters(): Character[] {
     return this.characters;
   }

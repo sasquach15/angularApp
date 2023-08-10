@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { StoryService } from "./story.service";
+import { CharacterService } from "src/app/shared/data/character-service.service";
+import { DataStorageService } from "src/app/shared/data/data-storage.service";
 
 @Component({
   selector: "app-story",
@@ -9,12 +11,22 @@ import { StoryService } from "./story.service";
 export class StoryComponent implements OnInit {
   initialStory: string = "YOU WERE BORN IN A SMALL VILLAGE NEAR MOUNTAINS CALLED WYPIZDOW. YOUR PARENTS WERE...";
 
-  constructor(public storyService: StoryService) { }
+  constructor(
+    public storyService: StoryService,
+    private characterService: CharacterService,
+    private dataStorageService: DataStorageService
+  ) { }
 
   ngOnInit() {
+    if (!this.dataStorageService.startingValues.selectedCharacter) {
+      this.storyService.currentStory = this.characterService.characterStory;
+      this.storyService.showOptions = false;
+    }
+
     if (this.storyService.currentStory.length === 0) {
       this.storyService.typeWriterEffect(this.initialStory);
     }
+
   }
 
   selectOption(option: any) {

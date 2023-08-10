@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { skillData } from './skills-database';
 import { SkillSelectionService } from './skill-selection.service';
+import { CharacterService } from 'src/app/shared/data/character-service.service';
 
 
 
@@ -23,10 +24,17 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit() {
     this.characterName = this.dataStorageService.startingValues.characterClass;
+    /* if (!this.dataStorageService.startingValues.selectedCharacter) {
+      this.chosenSkill = this.characterServicec.characterSkills
+    } */
   }
 
 
-  constructor(public dataStorageService: DataStorageService, private activeSkillService: SkillSelectionService) { }
+  constructor(
+    public dataStorageService: DataStorageService,
+    private activeSkillService: SkillSelectionService,
+    private characterServicec: CharacterService
+  ) { }
 
   skills = skillData;
 
