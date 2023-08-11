@@ -39,7 +39,7 @@ export class LoggedInComponent implements OnInit {
   }
 
   get skillsList() {
-    return this.statService.startingValues.chosenSkills;
+    return this.statService.chosenSkills;
   }
 
   sendModel() {

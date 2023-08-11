@@ -13,6 +13,13 @@ import { CharacterService } from 'src/app/shared/data/character-service.service'
 })
 export class SkillsComponent implements OnInit {
 
+  constructor(
+    public dataStorageService: DataStorageService,
+    private activeSkillService: SkillSelectionService,
+    private characterServicec: CharacterService
+  ) { }
+
+
   get selectedSkills() {
     return this.activeSkillService.selectedSkills;
   }
@@ -21,29 +28,18 @@ export class SkillsComponent implements OnInit {
   }
 
   characterName: string = this.dataStorageService.startingValues.characterClass
-
-  ngOnInit() {
-    this.characterName = this.dataStorageService.startingValues.characterClass;
-    /* if (!this.dataStorageService.startingValues.selectedCharacter) {
-      this.chosenSkill = this.characterServicec.characterSkills
-    } */
-  }
-
-
-  constructor(
-    public dataStorageService: DataStorageService,
-    private activeSkillService: SkillSelectionService,
-    private characterServicec: CharacterService
-  ) { }
-
+  chosenSkill: number[] = this.dataStorageService.chosenSkills;
   skills = skillData;
-
-
   noSkillsLeft: boolean = false;
 
-  chosenSkill: number[] = this.dataStorageService.startingValues.chosenSkills;
+  ngOnInit() {
 
-
+    if (!this.dataStorageService.startingValues.selectedCharacter) {
+      this.characterName = this.characterServicec.fetchedCharClass;
+      this.activeSkillService.selectedSkills = this.characterServicec.fetchedCharacterSkills;
+      this.activeSkillService.skillsLeft = 0;
+    }
+  }
 
 
 

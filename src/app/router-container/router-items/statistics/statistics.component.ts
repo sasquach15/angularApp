@@ -19,32 +19,33 @@ export class StatisticsComponent implements OnInit {
 
 
 
-  constructor(public dataStorageService: DataStorageService, private statService: DataStorageService, private characterService: CharacterService) { }
+  constructor(public dataStorageService: DataStorageService, private characterService: CharacterService) { }
 
   get initialStatPoints() {
-    return this.statService.initialStatPoints;
+    return this.dataStorageService.initialStatPoints;
   }
 
   ngOnInit(): void {
     if (this.dataStorageService.startingValues.selectedCharacter) {
-      this.stats = this.statService.selectedStats;
+      this.stats = this.dataStorageService.selectedStats;
     } else {
-      this.stats = this.characterService.statList;
+      this.stats = this.characterService.fetchedCharStatList;
+      this.dataStorageService.initialStatPoints = 0;
     }
   }
 
   resetStats() {
-    this.statService.initialStatPoints = 20;
-    this.stats = this.statService.initializeStats()
+    this.dataStorageService.initialStatPoints = 20;
+    this.stats = this.dataStorageService.initializeStats()
 
-    console.log(this.statService.selectedStats)
+    console.log(this.dataStorageService.selectedStats)
   }
 
   increase(stat: Stat): void {
-    if (this.statService.initialStatPoints > 0) {
+    if (this.dataStorageService.initialStatPoints > 0) {
       stat.value++;
-      this.statService.initialStatPoints--;
-      console.log(this.statService.selectedStats);
+      this.dataStorageService.initialStatPoints--;
+      console.log(this.dataStorageService.selectedStats);
     }
   }
 }

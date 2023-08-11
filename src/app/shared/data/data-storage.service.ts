@@ -11,6 +11,8 @@ const DEFAULT_STAT_POINTS = 20;
 })
 export class DataStorageService {
 
+  chosenSkills: number[] = [];
+
   startingValues = {
     chooseChar: false,
     welcomeMessage: true,
@@ -23,7 +25,6 @@ export class DataStorageService {
     characterClass: 'null',
     enteredName: '',
     isNameVisible: false,
-    chosenSkills: [],
     activeClass: '',
   }
 

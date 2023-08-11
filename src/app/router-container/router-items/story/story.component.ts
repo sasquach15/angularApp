@@ -19,7 +19,7 @@ export class StoryComponent implements OnInit {
 
   ngOnInit() {
     if (!this.dataStorageService.startingValues.selectedCharacter) {
-      this.storyService.currentStory = this.characterService.characterStory;
+      this.storyService.currentStory = this.characterService.fetchedCharacterStory;
       this.storyService.showOptions = false;
     }
 

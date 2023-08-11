@@ -11,27 +11,28 @@ export class CharacterService {
   constructor(private dataStorageService: DataStorageService) { }
 
   fetchedCharImg: string = '';
-  charClass: string = '';
-  statList: Stat[] = [];
-  characterSkills: number[] = []
-  characterStory: string = ''
+  fetchedCharClass: string = '';
+  fetchedCharStatList: Stat[] = [];
+  fetchedCharacterSkills: any = []
+  fetchedCharacterStory: string = ''
 
 
   selectFetchedCharacter(character: Character) {
     const selectedCharacterName = character.name;
-    console.log(selectedCharacterName);
+    /* console.log(selectedCharacterName); */
     this.dataStorageService.startingValues.enteredName = selectedCharacterName;
     this.dataStorageService.startingValues.selectedCharacter = '';
     this.fetchedCharImg = character.image;
-    console.log(this.fetchedCharImg)
-    this.charClass = character.charClass;
-    this.statList = character.statList;
-    this.characterSkills = character.skillsList;
-    this.characterStory = character.story;
+    /* console.log(this.fetchedCharImg) */
+    this.fetchedCharClass = character.charClass;
+    this.fetchedCharStatList = character.statList;
+    this.fetchedCharacterSkills = character.skillsList;
+    console.log(this.fetchedCharacterSkills)
+    this.fetchedCharacterStory = character.story;
   }
 
   get charClassCss(): string {
-    switch (this.charClass) {
+    switch (this.fetchedCharClass) {
       case 'SORCERESS':
         return 'sorcNaked';
       case 'NECROMANCER':
