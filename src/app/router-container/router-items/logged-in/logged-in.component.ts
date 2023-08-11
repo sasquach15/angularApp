@@ -93,5 +93,24 @@ export class LoggedInComponent implements OnInit {
       });
   }
 
+  deleteCharacter(characterId: string) {
+    const userId = this.authService.userId;
+
+    if (!userId) {
+      console.error('Brak userId w AuthService.');
+      return;
+    }
+
+    const queryParams = `?auth=${this.authService.token}`;
+    const url = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`;
+
+    this.http.delete(url).subscribe(response => {
+      console.log('Postać została usunięta.', response);
+      // Aktualizuj listę postaci po usunięciu
+      this.fetchCharacter();
+    });
+  }
+
+
 
 }
