@@ -17,18 +17,21 @@ export class CharacterService {
   fetchedCharacterStory: string = ''
 
 
+
   selectFetchedCharacter(character: Character) {
     const selectedCharacterName = character.name;
     /* console.log(selectedCharacterName); */
     this.dataStorageService.startingValues.enteredName = selectedCharacterName;
-    this.dataStorageService.startingValues.selectedCharacter = '';
+    this.dataStorageService.startingValues.selectedCharacter = '99';
     this.fetchedCharImg = character.image;
+    this.dataStorageService.currentCharacter = false;
     /* console.log(this.fetchedCharImg) */
     this.fetchedCharClass = character.charClass;
     this.fetchedCharStatList = character.statList;
     this.fetchedCharacterSkills = character.skillsList;
-    console.log(this.fetchedCharacterSkills)
+    /* console.log(this.fetchedCharacterSkills) */
     this.fetchedCharacterStory = character.story;
+
   }
 
   get charClassCss(): string {

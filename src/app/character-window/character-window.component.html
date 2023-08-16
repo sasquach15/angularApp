@@ -40,6 +40,7 @@
       <img src="../assets/photos/barbarian/barbNaked.png" class="barbNaked fade">
     </div>
   </ng-container>
+
   <ng-container *ngIf="startingValues.characterClass === 'ASSASSIN'">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
@@ -63,26 +64,26 @@
     <img *ngSwitchCase="'pavise'" src='../assets/photos/equipment/shields/paewz.png' class="shieldGlobal paviseShield">
   </div>
 
-  <ng-container *ngIf="startingValues.characterClass === 'SORCERESS'">
+  <ng-container *ngIf="startingValues.characterClass === 'SORCERESS' && dataStorageService.currentCharacter">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="sorcNaked" loading="eager">
     </div>
   </ng-container>
 
-  <ng-container *ngIf="startingValues.characterClass === 'NECROMANCER'">
+  <ng-container *ngIf="startingValues.characterClass === 'NECROMANCER' && dataStorageService.currentCharacter">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="necNaked" loading="eager">
     </div>
   </ng-container>
 
-  <ng-container *ngIf="startingValues.characterClass === 'BARBARIAN'">
+  <ng-container *ngIf="startingValues.characterClass === 'BARBARIAN' && dataStorageService.currentCharacter">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="barbNaked" loading="eager">
     </div>
   </ng-container>
 
   <ng-container>
-    <div *ngIf="startingValues.selectedCharacter === ''">
+    <div *ngIf="startingValues.selectedCharacter === '99'">
       <img [src]="characterService.fetchedCharImg | lowercase" [ngClass]="characterService.charClassCss"
         loading="eager">
     </div>

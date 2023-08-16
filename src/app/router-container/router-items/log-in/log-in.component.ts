@@ -64,10 +64,10 @@ export class LogInComponent {
 
 
 
-  storeData(postData: { username: string; email: string }) {
+  /* storeData(postData: { username: string; email: string }) {
     console.log(postData);
     this.http.post('https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json', postData).subscribe(responseData => {
       console.log(responseData);
     });
-  }
+  } */
 }

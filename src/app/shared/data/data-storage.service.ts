@@ -12,6 +12,7 @@ const DEFAULT_STAT_POINTS = 20;
 export class DataStorageService {
 
   chosenSkills: number[] = [];
+  currentCharacter: boolean = true;
 
   startingValues = {
     chooseChar: false,

@@ -14,7 +14,7 @@ import { CharacterService } from '../shared/data/character-service.service';
 })
 export class CharacterWindowComponent {
 
-  constructor(private dataStorageService: DataStorageService,
+  constructor(public dataStorageService: DataStorageService,
     private equipmentService: EquipmentServiceService,
     public characterService: CharacterService) { }
 
@@ -120,9 +120,5 @@ export class CharacterWindowComponent {
     };
     return weaponClassMap[weaponPicked] || '';
   }
-
-
-
-
 
 }

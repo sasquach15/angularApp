@@ -26,7 +26,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.dataStorageService.startingValues.selectedCharacter) {
+    if (this.dataStorageService.currentCharacter) {
       this.stats = this.dataStorageService.selectedStats;
     } else {
       this.stats = this.characterService.fetchedCharStatList;

@@ -1,15 +1,16 @@
 <h3 *ngIf='1'> WELCOME {{authService.userEmail | uppercase }}</h3>
 <button class="logOutBtn" type="button" (click)="logOut()"> LOG OUT</button>
-<button type="submit" (click)="sendModel()"> SAVE CHARACTER </button>
+<button type="submit" (click)="saveCharacter()"> SAVE CHARACTER </button>
 <button class="fetchBtn" (click)="fetchCharacter()"> FETCH </button>
 
 <div class="characters-container">
-  <div *ngFor="let character of characters" class="character-row">
+  <div *ngFor="let character of characters" class="character-row"
+    (click)="characterService.selectFetchedCharacter(character)">
     <div class="character-info-container">
       <p class="character-info">{{ character.name }} - {{ character.charClass }}</p>
     </div>
     <div class="delete-button-container">
-      <img class="deleteBtn" src="../assets/photos/delete.png" alt="">
+      <img class="deleteBtn" src="../assets/photos/delete.png" alt="" (click)="deleteCharacter(character.characterId)">
     </div>
   </div>
 </div>

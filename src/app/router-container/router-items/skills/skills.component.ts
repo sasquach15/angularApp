@@ -34,10 +34,11 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit() {
 
-    if (!this.dataStorageService.startingValues.selectedCharacter) {
+    if (!this.dataStorageService.currentCharacter) {
       this.characterName = this.characterServicec.fetchedCharClass;
       this.activeSkillService.selectedSkills = this.characterServicec.fetchedCharacterSkills;
       this.activeSkillService.skillsLeft = 0;
+      console.log(this.characterName)
     }
   }
 

@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { StoryService } from '../story/story.service';
 import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/shared/data/character-service.service';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 @Component({
@@ -42,15 +44,15 @@ export class LoggedInComponent implements OnInit {
     return this.statService.chosenSkills;
   }
 
-  sendModel() {
+  saveCharacter() {
     const userId = this.authService.userId;
 
     if (!userId) {
       console.error('Brak userId w AuthService.');
       return;
     }
-
-    const armorType = this.equipmentService.equipment.armorType
+    const armorType = this.equipmentService.equipment.armorType;
+    const characterId = uuidv4();
 
     const char: Character = {
       name: this.statService.startingValues.enteredName,
@@ -61,6 +63,7 @@ export class LoggedInComponent implements OnInit {
       statList: this.statService.selectedStats,
       story: this.storyService.currentStory,
       userId: userId,
+      characterId: characterId, // Przekaż unikalny identyfikator
     };
 
     const queryParams = `?auth=${this.authService.token}`;
@@ -68,10 +71,11 @@ export class LoggedInComponent implements OnInit {
       .subscribe(response => {
         console.log('Sukces!', response);
       });
-
   }
 
   fetchCharacter() {
+    console.log('Pobieranie postaci...');
+
     const userId = this.authService.userId;
 
     if (!userId) {
@@ -89,28 +93,32 @@ export class LoggedInComponent implements OnInit {
           }
         }
         this.characters = characters;
-        console.log(characters)
+        console.log('Pobrano postaci:', characters);
       });
   }
 
-  deleteCharacter(characterId: string) {
-    const userId = this.authService.userId;
 
-    if (!userId) {
-      console.error('Brak userId w AuthService.');
-      return;
-    }
+  deleteCharacter(characterId: string) {
+
 
     const queryParams = `?auth=${this.authService.token}`;
-    const url = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`;
 
-    this.http.delete(url).subscribe(response => {
-      console.log('Postać została usunięta.', response);
-      // Aktualizuj listę postaci po usunięciu
-      this.fetchCharacter();
-    });
+    // url działa poprawnie, characterId tez jest przekazywane dobrze.
+    const charUrl = 'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/' + characterId + '.json' + queryParams;
+
+    console.log('Char URL to delete:', charUrl);
+
+
+    this.http.delete(charUrl).subscribe(
+      response => {
+        console.log('Próba usunięcią postaci o id:', characterId)
+        console.log('Postać została usunięta.', response);
+        // Aktualizuje listę postaci po usunięciu
+        this.fetchCharacter();
+      },
+      error => {
+        console.error('Błąd podczas usuwania postaci.', error);
+      });
   }
-
-
-
 }
+
