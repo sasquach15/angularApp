@@ -103,8 +103,7 @@ export class LoggedInComponent implements OnInit {
 
     const queryParams = `?auth=${this.authService.token}`;
 
-    // url działa poprawnie, characterId tez jest przekazywane dobrze.
-    const charUrl = 'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/' + characterId + '.json' + queryParams;
+    const charUrl = 'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json' + queryParams;
 
     console.log('Char URL to delete:', charUrl);
 

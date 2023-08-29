@@ -27,9 +27,10 @@ export class CharacterService {
     this.dataStorageService.currentCharacter = false;
     /* console.log(this.fetchedCharImg) */
     this.fetchedCharClass = character.charClass;
+    console.log(this.fetchedCharClass)
     this.fetchedCharStatList = character.statList;
     this.fetchedCharacterSkills = character.skillsList;
-    /* console.log(this.fetchedCharacterSkills) */
+    console.log(character.skillsList)
     this.fetchedCharacterStory = character.story;
 
   }

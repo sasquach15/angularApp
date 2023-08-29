@@ -60,6 +60,7 @@ export class EquipmentComponent {
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/light.png`
     this.equipmentService.equipment.armorType = 'light';
     this.showArmors = false;
+    this.dataStorageService.startingValues.selectedCharacter = ''
 
   }
   pickMediumArmor() {
@@ -67,14 +68,14 @@ export class EquipmentComponent {
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/medium.png`
     this.equipmentService.equipment.armorType = 'medium';
     this.showArmors = false;
-
+    this.dataStorageService.startingValues.selectedCharacter = ''
   }
   pickHeavyArmor() {
     this.equipmentService.equipment.armorUrl = '../assets/photos/armors/fullPlateMail.png'
     this.equipmentService.equipment.armorCharUrl = `../assets/photos/${this.charName}/armors/heavy.png`
     this.equipmentService.equipment.armorType = 'heavy';
     this.showArmors = false;
-
+    this.dataStorageService.startingValues.selectedCharacter = ''
   }
   pickClaws() {
     this.equipmentService.equipment.weaponPicked = 'claws'

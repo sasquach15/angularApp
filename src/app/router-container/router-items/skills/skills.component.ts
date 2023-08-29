@@ -27,24 +27,29 @@ export class SkillsComponent implements OnInit {
     return this.activeSkillService.skillsLeft
   }
 
-  characterName: string = this.dataStorageService.startingValues.characterClass
+  characterClass: string = this.dataStorageService.startingValues.characterClass
   chosenSkill: number[] = this.dataStorageService.chosenSkills;
   skills = skillData;
   noSkillsLeft: boolean = false;
 
   ngOnInit() {
-
+    console.log(this.characterClass)
     if (!this.dataStorageService.currentCharacter) {
-      this.characterName = this.characterServicec.fetchedCharClass;
-      this.activeSkillService.selectedSkills = this.characterServicec.fetchedCharacterSkills;
+      this.characterClass = this.characterServicec.fetchedCharClass;
+      /* this.activeSkillService.selectedSkills = this.characterServicec.fetchedCharacterSkills; */
+      this.activeSkillService.selectedSkills = this.characterServicec.fetchedCharacterSkills.slice();
+
+      console.log(this.characterServicec.fetchedCharacterSkills)
       this.activeSkillService.skillsLeft = 0;
-      console.log(this.characterName)
+      console.log(this.characterClass)
     }
+
   }
 
 
 
   selectSkill(index: number) {
+
     const isSelected = this.activeSkillService.selectedSkills[index];
     const skillIndex = this.chosenSkill.indexOf(index);
 
