@@ -41,7 +41,7 @@
     </div>
   </ng-container>
 
-  <ng-container *ngIf="startingValues.characterClass === 'ASSASSIN'">
+  <ng-container *ngIf="startingValues.characterClass === 'ASSASSIN' && dataStorageService.currentCharacter">
     <div *ngIf="equipment.armorCharUrl">
       <img src={{equipment.armorCharUrl}} class="assaNaked" loading="eager">
     </div>

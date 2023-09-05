@@ -10,7 +10,9 @@
       <p class="character-info">{{ character.name }} - {{ character.charClass }}</p>
     </div>
     <div class="delete-button-container">
-      <img class="deleteBtn" src="../assets/photos/delete.png" alt="" (click)="deleteCharacter(character.characterId)">
+      <div class="deleteBtn">
+        <img src="../assets/photos/delete.png" alt="" (click)="deleteCharacter(character.characterId)">
+      </div>
     </div>
   </div>
 </div>

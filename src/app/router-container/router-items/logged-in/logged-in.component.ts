@@ -9,30 +9,27 @@ import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/shared/data/character-service.service';
 import { v4 as uuidv4 } from 'uuid';
 
-
-
 @Component({
   selector: 'app-logged-in',
   templateUrl: './logged-in.component.html',
-  styleUrls: ['./logged-in.component.css']
+  styleUrls: ['./logged-in.component.css'],
 })
 export class LoggedInComponent implements OnInit {
-
   ngOnInit() {
-
     this.authService.userEmail = this.authService.userEmail;
   }
 
   characters: Character[] = [];
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     public authService: AuthService,
     private statService: DataStorageService,
     private equipmentService: EquipmentServiceService,
     private http: HttpClient,
     private storyService: StoryService,
     public characterService: CharacterService
-  ) { }
+  ) {}
 
   logOut() {
     this.authService.isAuthenticated = false;
@@ -59,7 +56,7 @@ export class LoggedInComponent implements OnInit {
       charClass: this.statService.startingValues.characterClass,
       armor: this.equipmentService.equipment.armorType,
       image: `../assets/photos/${this.statService.startingValues.characterClass}/armors/${armorType}.png`,
-      skillsList: this.skillsList.map(skill => skill + 1),
+      skillsList: this.skillsList.map((skill) => skill + 1),
       statList: this.statService.selectedStats,
       story: this.storyService.currentStory,
       userId: userId,
@@ -67,8 +64,12 @@ export class LoggedInComponent implements OnInit {
     };
 
     const queryParams = `?auth=${this.authService.token}`;
-    this.http.post(`https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`, char)
-      .subscribe(response => {
+    this.http
+      .post(
+        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`,
+        char
+      )
+      .subscribe((response) => {
         console.log('Sukces!', response);
       });
   }
@@ -77,47 +78,46 @@ export class LoggedInComponent implements OnInit {
     console.log('Pobieranie postaci...');
 
     const userId = this.authService.userId;
-
-    if (!userId) {
-      console.error('Brak userId w AuthService.');
-      return;
-    }
-
     const queryParams = `?auth=${this.authService.token}`;
-    this.http.get<{ [key: string]: Character }>(`https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`)
-      .subscribe(characterData => {
+    this.http
+      .get<{ [key: string]: Character }>(
+        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`
+      )
+      .subscribe((characterData) => {
         const characters: Character[] = [];
         for (const key in characterData) {
-          if (characterData.hasOwnProperty(key) && characterData[key].userId === userId) {
+          if (
+            characterData.hasOwnProperty(key) &&
+            characterData[key].userId === userId
+          ) {
             characters.push(characterData[key]);
           }
         }
         this.characters = characters;
-        console.log('Pobrano postaci:', characters);
+        console.log('Fetched Character:', characters);
       });
   }
 
-
   deleteCharacter(characterId: string) {
-
-
     const queryParams = `?auth=${this.authService.token}`;
 
-    const charUrl = 'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json' + queryParams;
+    /* const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`; */
+
+    const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`;
 
     console.log('Char URL to delete:', charUrl);
 
-
     this.http.delete(charUrl).subscribe(
-      response => {
-        console.log('Próba usunięcią postaci o id:', characterId)
-        console.log('Postać została usunięta.', response);
+      (response) => {
+        console.log('Trying to delete character with id:', characterId);
+        console.log('character deleted succesfully.', response);
+
         // Aktualizuje listę postaci po usunięciu
         this.fetchCharacter();
       },
-      error => {
-        console.error('Błąd podczas usuwania postaci.', error);
-      });
+      (error) => {
+        console.error('Error while trying to delete character.', error);
+      }
+    );
   }
 }
-

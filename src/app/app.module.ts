@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { LoggedInComponent } from './router-container/router-items/logged-in/logged-in.component';
-
+import { environment } from './environment';
 
 
 
@@ -50,6 +50,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+
     AppComponent,
     CharacterWindowComponent,
     NavigationComponent,
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

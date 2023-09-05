@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
 import { EquipmentServiceService } from '../equipment/equipment-service.service';
 import { DataStorageService } from 'src/app/shared/data/data-storage.service';
 import { StoryService } from '../story/story.service';
@@ -12,10 +12,9 @@ import { AuthResponseData } from './auth.service';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css']
+  styleUrls: ['./log-in.component.css'],
 })
 export class LogInComponent {
-
   isLoginIn: boolean = false;
   isLoading: boolean = false;
   error: string = '';
@@ -24,7 +23,14 @@ export class LogInComponent {
     this.isLoginIn = !this.isLoginIn;
   }
 
-  constructor(private router: Router, public authService: AuthService, private storyService: StoryService, private http: HttpClient, private equipmentSevice: EquipmentServiceService, private statService: DataStorageService) { }
+  constructor(
+    private router: Router,
+    public authService: AuthService,
+    private storyService: StoryService,
+    private http: HttpClient,
+    private equipmentSevice: EquipmentServiceService,
+    private statService: DataStorageService
+  ) {}
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -46,13 +52,12 @@ export class LogInComponent {
     }
 
     authObservable.subscribe(
-      resData => {
+      (resData) => {
         console.log(resData);
         this.isLoading = false;
         this.router.navigate(['/loggedIn']);
-
       },
-      errorMessage => {
+      (errorMessage) => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
@@ -62,12 +67,15 @@ export class LogInComponent {
     form.reset();
   }
 
-
-
-  /* storeData(postData: { username: string; email: string }) {
+  storeData(postData: { username: string; email: string }) {
     console.log(postData);
-    this.http.post('https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json', postData).subscribe(responseData => {
-      console.log(responseData);
-    });
-  } */
+    this.http
+      .post(
+        'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json',
+        postData
+      )
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
+  }
 }
