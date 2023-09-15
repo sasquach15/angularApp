@@ -1,0 +1,20 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      "$userId": {
+        ".indexOn": ["userId"],
+        ".read": "auth.uid == $userId",
+        ".write": "auth.uid == $userId",
+        "characters": {
+          "$characterId": {
+            ".validate": "data.child('characterId').val() == $characterId",
+            ".write": "newData.child('characterId').val() == $characterId",
+            ".read": "data.child('characterId').val() == $characterId",
+          }
+        }
+      }
+    }
+  }
+}

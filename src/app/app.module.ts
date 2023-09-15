@@ -17,12 +17,24 @@ import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { LoggedInComponent } from './router-container/router-items/logged-in/logged-in.component';
 import { environment } from './environment';
+import { initializeApp } from 'firebase/app';
 
+const firebaseConfig = {
+  apiKey: 'AIzaSyA_fqisKxrD8L15-z_jhMX-1_gReIr1XEE',
+  authDomain: 'database-5c8f7.firebaseapp.com',
+  databaseURL:
+    'https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'database-5c8f7',
+  storageBucket: 'database-5c8f7.appspot.com',
+  messagingSenderId: '462867036523',
+  appId: '1:462867036523:web:dcbb0f3118e5fe2bfaf42e',
+  measurementId: 'G-NM5E887VX2',
+};
 
-
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const appRoutes: Routes = [
-
   { path: 'necromancer', component: WelcomeComponent },
   { path: 'necromancer/skills', component: SkillsComponent },
   { path: 'necromancer/story', component: StoryComponent },
@@ -44,13 +56,11 @@ const appRoutes: Routes = [
   { path: 'barbarian/statistics', component: StatisticsComponent },
   { path: 'barbarian/equipment', component: EquipmentComponent },
   { path: 'login', component: LogInComponent },
-  { path: 'loggedIn', component: LoggedInComponent }
-
-]
+  { path: 'loggedIn', component: LoggedInComponent },
+];
 
 @NgModule({
   declarations: [
-
     AppComponent,
     CharacterWindowComponent,
     NavigationComponent,
@@ -63,7 +73,7 @@ const appRoutes: Routes = [
     WelcomeComponent,
     LogInComponent,
     LoadingSpinnerComponent,
-    LoggedInComponent
+    LoggedInComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +82,6 @@ const appRoutes: Routes = [
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 import { StoryService } from '../story/story.service';
 import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/shared/data/character-service.service';
-import { v4 as uuidv4 } from 'uuid';
+
+interface ResponseType {
+  name: string;
+}
 
 @Component({
   selector: 'app-logged-in',
@@ -24,7 +27,7 @@ export class LoggedInComponent implements OnInit {
   constructor(
     private router: Router,
     public authService: AuthService,
-    private statService: DataStorageService,
+    private dataStorageService: DataStorageService,
     private equipmentService: EquipmentServiceService,
     private http: HttpClient,
     private storyService: StoryService,
@@ -38,7 +41,7 @@ export class LoggedInComponent implements OnInit {
   }
 
   get skillsList() {
-    return this.statService.chosenSkills;
+    return this.dataStorageService.chosenSkills;
   }
 
   saveCharacter() {
@@ -49,28 +52,48 @@ export class LoggedInComponent implements OnInit {
       return;
     }
     const armorType = this.equipmentService.equipment.armorType;
-    const characterId = uuidv4();
 
     const char: Character = {
-      name: this.statService.startingValues.enteredName,
-      charClass: this.statService.startingValues.characterClass,
+      name: this.dataStorageService.startingValues.enteredName,
+      charClass: this.dataStorageService.startingValues.characterClass,
       armor: this.equipmentService.equipment.armorType,
-      image: `../assets/photos/${this.statService.startingValues.characterClass}/armors/${armorType}.png`,
+      image: `../assets/photos/${this.dataStorageService.startingValues.characterClass}/armors/${armorType}.png`,
       skillsList: this.skillsList.map((skill) => skill + 1),
-      statList: this.statService.selectedStats,
+      statList: this.dataStorageService.selectedStats,
       story: this.storyService.currentStory,
       userId: userId,
-      characterId: characterId, // Przekaż unikalny identyfikator
+      firebaseCharID: this.characterService.firebaseCharID,
     };
 
     const queryParams = `?auth=${this.authService.token}`;
+
     this.http
-      .post(
-        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`,
+      .post<ResponseType>(
+        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters.json${queryParams}`,
         char
       )
       .subscribe((response) => {
-        console.log('Sukces!', response);
+        this.characterService.firebaseCharID = response.name; // Otrzymujemy identyfikator po zapisaniu obiektu.
+        char.firebaseCharID = this.characterService.firebaseCharID; // Dodaj identyfikator do obiektu char.
+
+        // Teraz możesz zaktualizować zapisany obiekt w bazie danych, aby dodać identyfikator.
+        this.http
+          .put(
+            `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters/${this.characterService.firebaseCharID}.json`,
+            char
+          )
+          .subscribe(() => {
+            console.log('Obiekt zidentyfikowany i zaktualizowany.');
+          });
+
+        console.log('Sukces!', this.characterService.firebaseCharID);
+        this.dataStorageService.firebaseCharacterIDs.push(
+          this.characterService.firebaseCharID
+        );
+        console.log(
+          'ID w tablicy to:',
+          this.dataStorageService.firebaseCharacterIDs
+        );
       });
   }
 
@@ -81,7 +104,7 @@ export class LoggedInComponent implements OnInit {
     const queryParams = `?auth=${this.authService.token}`;
     this.http
       .get<{ [key: string]: Character }>(
-        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users.json${queryParams}`
+        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters.json${queryParams}`
       )
       .subscribe((characterData) => {
         const characters: Character[] = [];
@@ -98,21 +121,17 @@ export class LoggedInComponent implements OnInit {
       });
   }
 
-  deleteCharacter(characterId: string) {
+  deleteCharacter() {
     const queryParams = `?auth=${this.authService.token}`;
 
-    /* const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`; */
-
-    const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/users/${characterId}.json${queryParams}`;
+    const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters/${this.characterService.firebaseCharID}.json${queryParams}`;
 
     console.log('Char URL to delete:', charUrl);
 
     this.http.delete(charUrl).subscribe(
       (response) => {
-        console.log('Trying to delete character with id:', characterId);
-        console.log('character deleted succesfully.', response);
+        console.log('Character deleted successfully.', response);
 
-        // Aktualizuje listę postaci po usunięciu
         this.fetchCharacter();
       },
       (error) => {
