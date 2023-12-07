@@ -1,15 +1,29 @@
 <div class="alert" *ngIf="alert.isAlertVisible">
   <img src="../assets/photos/alert.png" class="alertImg">
-  <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.characterClass}} ?</p>
-  <div (click)="createChar(); btnReset();">
-    <a routerLink={{startingValues.characterClass.toLowerCase()}}>
-      <img src="../assets/photos/btnYesUnfocused.png" class="btnYesUnfocused">
-      <img src="../assets/photos/btnYesFocused.png" class="btnYesFocused">
-    </a>
-  </div>
-  <div (click)="cancelAlert()">
-    <img src="../assets/photos/btnNoUnfocused.png" class="btnNoUnfocused">
-    <img src="../assets/photos/btnNoFocused.png" class="btnNoFocused">
-  </div>
+  <ng-container *ngIf="alert.creatingCharacterAlert">
+    <p>ARE YOU SURE YOU WANT TO PICK {{startingValues.characterClass}} ?</p>
+    <div (click)="createChar(); btnReset();">
+      <a routerLink={{startingValues.characterClass.toLowerCase()}}>
+        <img src="../assets/photos/btnYesUnfocused.png" class="btnYesUnfocused">
+        <img src="../assets/photos/btnYesFocused.png" class="btnYesFocused">
+      </a>
+    </div>
+    <div (click)="cancelAlert()">
+      <img src="../assets/photos/btnNoUnfocused.png" class="btnNoUnfocused">
+      <img src="../assets/photos/btnNoFocused.png" class="btnNoFocused">
+    </div>
+  </ng-container>
+  <ng-container *ngIf="alert.statAlert && alert.isAlertVisible">
+    <p>NOT ALL STATISTIC POINTS ARE SPENT</p>
+    <button class="alertBtnOk" (click)="cancelAlert()"> OK</button>
+  </ng-container>
+  <ng-container *ngIf="alert.skillAlert && alert.isAlertVisible">
+    <p> NOT ALL SKILLS ARE SELECTED</p>
+    <button class="alertBtnOk" (click)="cancelAlert()"> OK</button>
+  </ng-container>
+  <ng-container *ngIf="alert.storyAlert && alert.isAlertVisible">
+    <p>PLEASE COMPLETE THE STORY OF YOUR CHARACTER BEFORE SAVING</p>
+    <button class="alertBtnOk" (click)="cancelAlert()"> OK</button>
+  </ng-container>
 
 </div>

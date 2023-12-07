@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { DataStorageService } from '../shared/data/data-storage.service';
 import { EquipmentServiceService } from '../router-container/router-items/equipment/equipment-service.service';
 import { CharacterService } from '../shared/data/character-service.service';
-
-
-
+import { AlertServiceService } from '../alert/alert-service.service';
 
 @Component({
   selector: 'app-character-window',
@@ -13,11 +11,12 @@ import { CharacterService } from '../shared/data/character-service.service';
   //providers: [ServiceService]
 })
 export class CharacterWindowComponent {
-
-  constructor(public dataStorageService: DataStorageService,
+  constructor(
+    public dataStorageService: DataStorageService,
     private equipmentService: EquipmentServiceService,
-    public characterService: CharacterService) { }
-
+    public characterService: CharacterService,
+    private alert: AlertServiceService
+  ) {}
 
   get equipment() {
     return this.equipmentService.equipment;
@@ -26,59 +25,58 @@ export class CharacterWindowComponent {
     return this.dataStorageService.startingValues;
   }
 
-
   btnActive = true;
   activeClass = '';
 
   letsStart() {
     this.startingValues.chooseChar = true;
     this.btnActive = false;
+    this.alert.creatingCharacterAlert = true;
   }
 
   changeMsg() {
     this.startingValues.welcomeMessage = !this.startingValues.welcomeMessage;
-    this.startingValues.charNumber = "1"
+    this.startingValues.charNumber = '1';
   }
 
   pickSorc() {
-    this.startingValues.characterClass = "SORCERESS"
-    this.startingValues.charNumber = "3";
+    this.startingValues.characterClass = 'SORCERESS';
+    this.startingValues.charNumber = '3';
     if (this.activeClass !== '1') {
-      this.startingValues.activeClass = '1'
+      this.startingValues.activeClass = '1';
     } else {
       this.startingValues.activeClass = '';
-      this.startingValues.charNumber = "1";
+      this.startingValues.charNumber = '1';
     }
-
   }
   pickNec() {
-    this.dataStorageService.startingValues.characterClass = "NECROMANCER"
-    this.dataStorageService.startingValues.charNumber = "4"
+    this.dataStorageService.startingValues.characterClass = 'NECROMANCER';
+    this.dataStorageService.startingValues.charNumber = '4';
     if (this.activeClass !== '2') {
-      this.startingValues.activeClass = '2'
+      this.startingValues.activeClass = '2';
     } else {
       this.startingValues.activeClass = '';
-      this.dataStorageService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = '1';
     }
   }
   pickAssa() {
-    this.dataStorageService.startingValues.characterClass = "ASSASSIN"
-    this.dataStorageService.startingValues.charNumber = "5";
+    this.dataStorageService.startingValues.characterClass = 'ASSASSIN';
+    this.dataStorageService.startingValues.charNumber = '5';
     if (this.activeClass !== '3') {
-      this.startingValues.activeClass = '3'
+      this.startingValues.activeClass = '3';
     } else {
       this.startingValues.activeClass = '';
-      this.dataStorageService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = '1';
     }
   }
   pickBarb() {
-    this.dataStorageService.startingValues.characterClass = "BARBARIAN"
-    this.dataStorageService.startingValues.charNumber = "6";
+    this.dataStorageService.startingValues.characterClass = 'BARBARIAN';
+    this.dataStorageService.startingValues.charNumber = '6';
     if (this.activeClass !== '4') {
-      this.startingValues.activeClass = '4'
+      this.startingValues.activeClass = '4';
     } else {
       this.startingValues.activeClass = '';
-      this.dataStorageService.startingValues.charNumber = "1";
+      this.dataStorageService.startingValues.charNumber = '1';
     }
   }
 
@@ -104,7 +102,8 @@ export class CharacterWindowComponent {
   getAssassinWeaponUrl(weaponPicked: string) {
     const weaponUrlMap: { [key: string]: string } = {
       claws: '../assets/photos/assassin/assaWeapons/assapazury.png',
-      cristalSword: '../assets/photos/assassin/assaWeapons/assakrysztalowymiecz.png',
+      cristalSword:
+        '../assets/photos/assassin/assaWeapons/assakrysztalowymiecz.png',
       flail: '../assets/photos/assassin/assaWeapons/assakorbacz.png',
       axe: '../assets/photos/assassin/assaWeapons/assaaxe.png',
     };
@@ -120,5 +119,4 @@ export class CharacterWindowComponent {
     };
     return weaponClassMap[weaponPicked] || '';
   }
-
 }

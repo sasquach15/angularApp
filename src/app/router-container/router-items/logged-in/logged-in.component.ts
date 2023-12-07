@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { StoryService } from '../story/story.service';
 import { Router } from '@angular/router';
 import { CharacterService } from 'src/app/shared/data/character-service.service';
+import { AlertServiceService } from 'src/app/alert/alert-service.service';
+import { SkillSelectionService } from '../skills/skill-selection.service';
 
 interface ResponseType {
   name: string;
@@ -31,7 +33,9 @@ export class LoggedInComponent implements OnInit {
     private equipmentService: EquipmentServiceService,
     private http: HttpClient,
     private storyService: StoryService,
-    public characterService: CharacterService
+    public characterService: CharacterService,
+    private alert: AlertServiceService,
+    private skillService: SkillSelectionService
   ) {}
 
   logOut() {
@@ -67,34 +71,45 @@ export class LoggedInComponent implements OnInit {
 
     const queryParams = `?auth=${this.authService.token}`;
 
-    this.http
-      .post<ResponseType>(
-        `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters.json${queryParams}`,
-        char
-      )
-      .subscribe((response) => {
-        this.characterService.firebaseCharID = response.name; // Otrzymujemy identyfikator po zapisaniu obiektu.
-        char.firebaseCharID = this.characterService.firebaseCharID; // Dodaj identyfikator do obiektu char.
+    if (this.dataStorageService.initialStatPoints != 0) {
+      this.alert.statAlert = true;
+      this.alert.isAlertVisible = true;
+    } else if (this.skillService.skillsLeft != 0) {
+      this.alert.isAlertVisible = true;
+      this.alert.skillAlert = true;
+    } else if (this.storyService.currentStory.length < 120) {
+      this.alert.isAlertVisible = true;
+      this.alert.storyAlert = true;
+    } else {
+      this.http
+        .post<ResponseType>(
+          `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters.json${queryParams}`,
+          char
+        )
+        .subscribe((response) => {
+          this.characterService.firebaseCharID = response.name; // Otrzymujemy identyfikator po zapisaniu obiektu.
+          char.firebaseCharID = this.characterService.firebaseCharID; // Dodaj identyfikator do obiektu char.
 
-        // Teraz możesz zaktualizować zapisany obiekt w bazie danych, aby dodać identyfikator.
-        this.http
-          .put(
-            `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters/${this.characterService.firebaseCharID}.json`,
-            char
-          )
-          .subscribe(() => {
-            console.log('Obiekt zidentyfikowany i zaktualizowany.');
-          });
+          // aktualizacja obiektu w bazie danych o zwrócony identyfikator firebase
+          this.http
+            .put(
+              `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters/${this.characterService.firebaseCharID}.json`,
+              char
+            )
+            .subscribe(() => {
+              console.log('Obiekt zidentyfikowany i zaktualizowany.');
+            });
 
-        console.log('Sukces!', this.characterService.firebaseCharID);
-        this.dataStorageService.firebaseCharacterIDs.push(
-          this.characterService.firebaseCharID
-        );
-        console.log(
-          'ID w tablicy to:',
-          this.dataStorageService.firebaseCharacterIDs
-        );
-      });
+          console.log('Sukces!', this.characterService.firebaseCharID);
+          this.dataStorageService.firebaseCharacterIDs.push(
+            this.characterService.firebaseCharID
+          );
+          console.log(
+            'ID w tablicy to:',
+            this.dataStorageService.firebaseCharacterIDs
+          );
+        });
+    }
   }
 
   fetchCharacter() {

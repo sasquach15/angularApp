@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlertServiceService {
-
-  constructor() { }
+  constructor() {}
 
   isAlertVisible = false;
+  creatingCharacterAlert = false;
+  statAlert = false;
+  skillAlert = false;
+  storyAlert = false;
 }

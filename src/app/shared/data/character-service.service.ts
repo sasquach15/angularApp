@@ -27,36 +27,7 @@ export class CharacterService {
   fetchedCharacterSkills: any = [];
   fetchedCharacterStory: string = '';
   firebaseCharID: any = '';
-
-  /*  selectFetchedCharacter(character: Character) {
-    const queryParams = `?auth=${this.authService.token}`;
-    const charUrl = `https://database-5c8f7-default-rtdb.europe-west1.firebasedatabase.app/characters/${character.firebaseCharID}.json${queryParams}`;
-
-    // Wykonujemy żądanie GET
-    this.http.get<CharacterData>(charUrl).subscribe(
-      (data) => {
-       
-
-        this.firebaseCharID = data.firebaseCharID;
-      },
-      (error) => {
-        console.error('Error while trying to retrieve character data.', error);
-      }
-    );
-    const selectedCharacterName = character.name;
-    this.dataStorageService.startingValues.enteredName = selectedCharacterName;
-    this.dataStorageService.startingValues.selectedCharacter = '99';
-    this.fetchedCharImg = character.image;
-    this.dataStorageService.currentCharacter = false;
-    this.fetchedCharClass = character.charClass;
-    console.log(this.fetchedCharClass);
-    this.fetchedCharStatList = character.statList;
-    this.fetchedCharacterSkills = character.skillsList;
-    this.firebaseCharID;
-    console.log(this.firebaseCharID);
-
-    
-  }  */
+  isCharActive: boolean = false;
 
   selectFetchedCharacter(character: Character) {
     const queryParams = `?auth=${this.authService.token}`;
@@ -96,6 +67,7 @@ export class CharacterService {
     this.fetchedCharStatList = character.statList;
     this.fetchedCharacterSkills = character.skillsList;
     this.firebaseCharID;
+    this.isCharActive = !this.isCharActive;
     console.log(this.firebaseCharID);
 
     // Możemy użyć operatora 'of' do zwrócenia pustego Observable jako wartości zakończenia

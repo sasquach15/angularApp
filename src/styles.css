@@ -1,14 +1,14 @@
 body {
-    background-image: url(src\assets\photos\background3.jpg);
-    margin: 0;
-    padding:0;
-    font-family: Myfont;
-    overflow: hidden;
-    cursor: url('src\assets\photos\misc\cursor.png'), auto;
+  background-image: url(src\assets\photos\background3.jpg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: Myfont;
+  overflow: hidden;
+  cursor: url("src\assets\photos\misc\cursor.png"), auto;
 }
 
 @font-face {
-    font-family: 'MyFont';
-    src: url('src\assets\DiabloLight.ttf')
-  }
-
+  font-family: "MyFont";
+  src: url("src\assets\DiabloLight.ttf");
+}
